@@ -12,7 +12,7 @@ public class Game {
 
 	int currentPlayer = 0;
 	int playerAmount = 0;
-	private int passStartMoney = 4000;
+	private int passStartMoney = 200;
 
 	public static void main(String[] args) {
 		Game game = new Game();

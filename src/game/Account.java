@@ -5,7 +5,7 @@ public class Account {
 
 	// Object that stores the score of the two players
 	public Account() {
-		balance = 30000;
+		balance = 1500;
 	}
 
 	// Public get method to get the score of chosen player
