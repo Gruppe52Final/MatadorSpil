@@ -23,7 +23,7 @@ public class GameBoard {
 		field[3] = new Territory("Hvidovrevej", 60, 4);
 		field[4] = new Tax("Indkomstskat", 4000);
 		field[5] = new Fleet("Helsingør-Helsingborg", 200, 25, 50, 100, 200);
-		field[6] = new Territory("Roskildevej", 10, 6);
+		field[6] = new Territory("Roskildevej", 100, 6);
 		field[7] = new Territory("Prøv Lykken", 3000, 700);
 		field[8] = new Territory("Valby Langgade", 100, 6);
 		field[9] = new Territory("Allégade", 120, 8);
