@@ -11,9 +11,11 @@ public class Player {
 	private int position, fleets, laborCamp;
 	private boolean lost;
 	public Account account = new Account();
+	private int previousPosition;
 
 	// Object that stores the name and position of a player
 	public Player(String name) {
+		previousPosition = 0;
 		position = 0;
 		fleets = 0;
 		laborCamp = 0;
@@ -28,8 +30,9 @@ public class Player {
 
 	// Method that sets the position of the player
 	public void setPosition(int roll) {
-		if (position + roll > 21) {
-			position = position + roll - 22;
+		previousPosition = position;		
+		if (position + roll > 39) {
+			position = position + roll - 40;
 		} else {
 			position += roll;
 		}
@@ -57,6 +60,11 @@ public class Player {
 	}
 	public boolean getStatus() {
 		return lost;
+	}
+
+	public int getPreviousPosition() {
+		return previousPosition;
+		
 	}
 	
 }

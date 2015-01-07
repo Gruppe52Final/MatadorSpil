@@ -175,15 +175,14 @@ public class MatadorGUI {
 		GUI.setDice(dice1, dice2);
 	}
 	
-	public void updatePosition(Player[] player, int currentPlayer, int diceSum) {
+	public void updatePosition(Player[] player, int currentPlayer) {
 		// Remove car from old position on board
 		GUI.removeCar(player[currentPlayer].getPosition() + 1,
 				player[currentPlayer].getName());
-		player[currentPlayer].setPosition(diceSum);
+		GUI.removeAllCars(player[currentPlayer].getName());
 		// Sets car on new position on board
 		GUI.setCar(player[currentPlayer].getPosition() + 1,
 				player[currentPlayer].getName());
-
 	}
 	
 	public void removePlayer(Player[] player, int currentPlayer) {
@@ -272,5 +271,11 @@ public class MatadorGUI {
 	
 	public void taxFunds() {
 		GUI.showMessage("The tax is higher than your balance. Instead you pay the rest of you balance.");
+	}
+
+	public void passedStart(Player player, int passStartMoney) {
+		GUI.showMessage("You have have passed Start field and receive " 
+				+ passStartMoney + " points.");
+		
 	}
 }

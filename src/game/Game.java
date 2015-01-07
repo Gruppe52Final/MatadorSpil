@@ -12,6 +12,7 @@ public class Game {
 
 	int currentPlayer = 0;
 	int playerAmount = 0;
+	private int passStartMoney = 4000;
 
 	public static void main(String[] args) {
 		Game game = new Game();
@@ -28,7 +29,7 @@ public class Game {
 		MatadorGUI out = new MatadorGUI();
 		int lostCount = 0;
 
-		System.out.println(gameboard.toString());
+//		System.out.println(gameboard.toString()); //This gives nullPointerError, but why do we need it anyway ?
 		out.createField();
 		
 		// Takes a chosen number and creates that amount of players
@@ -47,8 +48,15 @@ public class Game {
 				dice.throwDice();
 				out.showDice(dice.getDice1(), dice.getDice2());
 
-				out.updatePosition(player, currentPlayer, dice.getSum());
-		
+				//Updates the position of the cars on GUI
+				out.updatePosition(player, currentPlayer);
+				
+				//Updates the position variable inside player object
+				player[currentPlayer].setPosition(dice.getSum());
+				
+				//Check if player passed start field, gives him passStartMoney in case
+				checkIfPlayerPassedStart(player[currentPlayer], dice.getSum(), out);
+				
 				// Execute landOnField for the players new position
 				gameboard.getField(player[currentPlayer].getPosition()).landOnField(player[currentPlayer]);
 				
@@ -76,6 +84,14 @@ public class Game {
 			currentPlayer = 0;
 		} else {
 			currentPlayer++;
+		}
+	}
+	private void checkIfPlayerPassedStart(Player player, int diceSum, MatadorGUI out) {
+		player.getPreviousPosition();
+		if (!(diceSum + player.getPreviousPosition() == player.getPosition())) {
+			player.account.addPoints(passStartMoney);
+			out.passedStart(player, passStartMoney);
+			out.updateBalance(player.getName(), player.account.getScore());
 		}
 	}
 }
