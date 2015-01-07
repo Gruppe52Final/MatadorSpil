@@ -47,18 +47,21 @@ public class Game {
 				out.nextPlayer(player, currentPlayer);
 				dice.throwDice();
 				out.showDice(dice.getDice1(), dice.getDice2());
-
-				//Updates the position of the cars on GUI
-				out.updatePosition(player, currentPlayer);
-				
+			
 				//Updates the position variable inside player object
 				player[currentPlayer].setPosition(dice.getSum());
+				
+				//Updates the position of the cars on GUI
+				out.updatePosition(player, currentPlayer);
 				
 				//Check if player passed start field, gives him passStartMoney in case
 				checkIfPlayerPassedStart(player[currentPlayer], dice.getSum(), out);
 				
 				// Execute landOnField for the players new position
 				gameboard.getField(player[currentPlayer].getPosition()).landOnField(player[currentPlayer]);
+				
+				//Updates the position of the cars on GUI
+				out.updatePosition(player, currentPlayer);
 				
 				// If a player has lost, adds one to lostCount and reset the players owned fields
 				if (player[currentPlayer].getStatus()) {

@@ -27,7 +27,7 @@ public class GameBoard {
 		field[7] = new Territory("Prøv Lykken", 3000, 700);
 		field[8] = new Territory("Valby Langgade", 3000, 700);
 		field[9] = new Territory("Allégade", 4000, 1000);
-		field[10] = new Refuge("Fængse", 500);
+		field[10] = new Refuge("Fængsel", 500);
 		field[11] = new Territory("Fredriksberg Allé", 4300, 1300);
 		field[12] = new LaborCamp("Tuborg", 2500, 100, dice);
 		field[13] = new Territory("Bülowsvej", 4750, 1600);
@@ -46,9 +46,10 @@ public class GameBoard {
 		field[26] = new Territory("Bredgade", 8000, 4000);
 		field[27] = new Territory("Kgs Nytorv", 8000, 4000);
 		field[28] = new LaborCamp("Coca-Cola", 2500, 100, dice);
-		field[30] = new Territory("Østergade", 8000, 4000);
-		field[31] = new Refuge("De Fængsles", 500);
-		field[32] = new Territory("Amagertorv", 8000, 4000);
+		field[29] = new Territory("Østergade", 2500, 100);
+		field[30] = new Refuge("De Fængsles", 500);
+		field[31] = new Territory("Amagertorv", 8000, 4000);
+		field[32] = new Territory("Vimmelskaftet", 8000, 4000);
 		field[33] = new Territory("Prøv Lykken", 8000, 4000);
 		field[34] = new Territory("Nygade", 8000, 4000);
 		field[35] = new Fleet("Rødby-Puttgarden",  4000, 500, 1000, 2000, 4000);
