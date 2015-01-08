@@ -9,7 +9,7 @@ package game;
 public class Player {
 	private String name;
 	private int position, fleets, laborCamp;
-	private boolean lost;
+	private boolean dead;
 	public Account account = new Account();
 	private int previousPosition;
 
@@ -19,7 +19,7 @@ public class Player {
 		position = 0;
 		fleets = 0;
 		laborCamp = 0;
-		lost = false;
+		dead = false;
 		this.name = name;
 	}
 
@@ -55,11 +55,11 @@ public class Player {
 	public int getLaborCamp(){
 		return laborCamp;
 	}
-	public void setStatus() {
-		lost = true;
+	public void setDeathStatus() {
+		dead = true;
 	}
-	public boolean getStatus() {
-		return lost;
+	public boolean getDeathStatus() {
+		return dead;
 	}
 
 	public int getPreviousPosition() {

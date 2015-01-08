@@ -192,7 +192,7 @@ public class MatadorGUI {
 	
 	public void showWin(Player[] player, int playerAmount) {
 		for (int i = 0; i < playerAmount; i++) {
-			if (!player[i].getStatus()) {
+			if (!player[i].getDeathStatus()) {
 				GUI.showMessage(player[i].getName() + " have won!");
 			}
 		}

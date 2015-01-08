@@ -42,7 +42,7 @@ public class Game {
 		
 		// The game continues as long as won equals false
 		while (!won) {
-			if (!player[currentPlayer].getStatus()) {
+			if (!player[currentPlayer].getDeathStatus()) {
 
 				out.nextPlayer(player, currentPlayer);
 				dice.throwDice();
@@ -64,7 +64,7 @@ public class Game {
 				out.updatePosition(player, currentPlayer);
 				
 				// If a player has lost, adds one to lostCount and reset the players owned fields
-				if (player[currentPlayer].getStatus()) {
+				if (player[currentPlayer].getDeathStatus()) {
 					out.removePlayer(player, currentPlayer);
 					
 					gameboard.resetOwnedFields(player[currentPlayer]);

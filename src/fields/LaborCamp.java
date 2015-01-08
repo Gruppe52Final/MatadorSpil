@@ -56,7 +56,7 @@ public class LaborCamp extends Ownable {
 				out.insufficiantFunds(name, getOwner().getName(), player.account.getScore());
 				out.updateBalance(getOwner().getName(), getOwner().account.getScore());
 				
-				player.setStatus();
+				player.setDeathStatus();
 			}
 		}
 		// Updates the GUI balance for each player

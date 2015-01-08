@@ -61,7 +61,7 @@ public class Fleet extends Ownable {
 				out.updateBalance(getOwner().getName(),
 						getOwner().account.getScore());
 
-				player.setStatus();
+				player.setDeathStatus();
 			}
 		}
 		// Updates the GUI balance for each player
