@@ -10,9 +10,10 @@ import boundary.MatadorGUI;
 
 public class Game {
 
-	int currentPlayer = 0;
-	int playerAmount = 0;
+	private int currentPlayer = 0;
+	private int playerAmount = 0;
 	private int passStartMoney = 200;
+	private MatadorGUI out = new MatadorGUI();
 
 	public static void main(String[] args) {
 		Game game = new Game();
@@ -26,7 +27,7 @@ public class Game {
 		Dice dice = new Dice();
 		GameBoard gameboard = new GameBoard(dice);
 		Player[] player;
-		MatadorGUI out = new MatadorGUI();
+		
 		int lostCount = 0;
 
 //		System.out.println(gameboard.toString()); //This gives nullPointerError, but why do we need it anyway ?
@@ -55,7 +56,7 @@ public class Game {
 				out.updatePosition(player, currentPlayer);
 				
 				//Check if player passed start field, gives him passStartMoney in case
-				checkIfPlayerPassedStart(player[currentPlayer], dice.getSum(), out);
+				checkIfPlayerPassedStart(player[currentPlayer], dice.getSum());
 				
 				// Execute landOnField for the players new position
 				gameboard.getField(player[currentPlayer].getPosition()).landOnField(player[currentPlayer]);
@@ -86,7 +87,7 @@ public class Game {
 			currentPlayer++;
 		}
 	}
-	private void checkIfPlayerPassedStart(Player player, int diceSum, MatadorGUI out) {
+	private void checkIfPlayerPassedStart(Player player, int diceSum) {
 		player.getPreviousPosition();
 		if (!(diceSum + player.getPreviousPosition() == player.getPosition())) {
 			player.account.addPoints(passStartMoney);
