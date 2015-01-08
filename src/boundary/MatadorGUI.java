@@ -283,4 +283,20 @@ public class MatadorGUI {
 		GUI.removeCar(player.getPosition() + 1, player.getName());
 		GUI.showMessage("You have gone bankrupt.");			
 	}
+
+	public void updatePosition(Player currentPlayer) {
+		// Remove car from old position on board
+		GUI.removeCar(currentPlayer.getPosition() + 1,
+				currentPlayer.getName());
+		GUI.removeAllCars(currentPlayer.getName());
+		// Sets car on new position on board
+		GUI.setCar(currentPlayer.getPosition() + 1,
+				currentPlayer.getName());		
+	}
+
+	public void nextPlayer(Player currentPlayer) {
+		GUI.showMessage(currentPlayer.getName()
+				+ "'s turn to roll the dice.");
+		
+	}
 }
