@@ -30,7 +30,7 @@ public class GameBoard {
 		field[7] = new ChanceField();
 		field[8] = new Territory("Valby Langgade", 100, 6);
 		field[9] = new Territory("Allégade", 120, 8);
-		field[10] = new VisitPrison();
+		field[10] = new VisitPrison("Prison");
 		field[11] = new Territory("Fredriksberg Allé", 140, 10);
 		field[12] = new LaborCamp("Tuborg", 150, 100, dice);
 		field[13] = new Territory("Bülowsvej", 140, 10);

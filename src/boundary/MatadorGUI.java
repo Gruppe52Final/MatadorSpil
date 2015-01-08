@@ -50,7 +50,7 @@ public class MatadorGUI {
 				.setSubText("Price: 120").setRent("Rent: 8").build();
 		field[10] = new Refuge.Builder().setTitle("Fængsel")
 				.setDescription("Fængsel").setBgColor(Color.MAGENTA)
-				.setSubText("Recieve: 500").build();
+				.setSubText("Fængsel").build();
 		field[11] = new Street.Builder().setTitle("Fredriksberg Allé")
 				.setDescription("Fredriksberg Allé").setBgColor(Color.CYAN)
 				.setSubText("Price: 140").setRent("Rent: 10").build();
@@ -298,5 +298,10 @@ public class MatadorGUI {
 		GUI.showMessage(currentPlayer.getName()
 				+ "'s turn to roll the dice.");
 		
+	}
+	
+	public void prisonMessage(String name) {
+		GUI.showMessage("You have landed on " + name
+				+ ". You're only on a visit and can leave any time.");
 	}
 }
