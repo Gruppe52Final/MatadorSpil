@@ -73,24 +73,29 @@ public class Game {
 					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
 					
 					// If a player has lost, adds one to lostCount and reset the players owned fields
-					checkIfPlayerLost(currentPlayer, player);	
+					checkIfPlayerLost(currentPlayer, player);
+					
+					//Checks if one player has won in the player array
+					checkIfPlayerWon(player);
 				}
 			}	
 		}
 	}
 	public void checkIfPlayerLost( Player currentPlayer, Player[] player) {
 		if (currentPlayer.getDeathStatus()) {
-			
+			//If the player is dead, remove them from the board and reset the fields owned
 			out.removePlayer(currentPlayer);			
 			gameboard.resetOwnedFields(currentPlayer);
 			lostCount++;
-			
-			// If only one player is left, won is set to true
-			if (lostCount == playerAmount - 1) {
-				won = true;
-				out.showWin(player, playerAmount);
-			}	
 		}		
+	}
+	
+	private void checkIfPlayerWon(Player[] player) {
+		// If only one player is left, won is set to true
+		if (lostCount == playerAmount - 1) {
+			won = true;
+			out.showWin(player, playerAmount);
+		}	
 	}
 
 	private void checkIfPlayerPassedStart(Player player, int diceSum) {
