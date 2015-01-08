@@ -60,9 +60,6 @@ public class Game {
 				// Execute landOnField for the players new position
 				gameboard.getField(player[currentPlayer].getPosition()).landOnField(player[currentPlayer]);
 				
-				//Updates the position of the cars on GUI
-				out.updatePosition(player, currentPlayer);
-				
 				// If a player has lost, adds one to lostCount and reset the players owned fields
 				if (player[currentPlayer].getDeathStatus()) {
 					out.removePlayer(player, currentPlayer);
