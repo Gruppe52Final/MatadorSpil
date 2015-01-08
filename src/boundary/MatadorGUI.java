@@ -278,4 +278,9 @@ public class MatadorGUI {
 				+ passStartMoney + " points.");
 		
 	}
+
+	public void removePlayer(Player player) {
+		GUI.removeCar(player.getPosition() + 1, player.getName());
+		GUI.showMessage("You have gone bankrupt.");			
+	}
 }

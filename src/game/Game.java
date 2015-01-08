@@ -14,7 +14,11 @@ public class Game {
 	private int playerAmount = 0;
 	private int passStartMoney = 200;
 	private MatadorGUI out = new MatadorGUI();
-
+	private int lostCount = 0;
+	private Dice dice = new Dice();
+	private GameBoard gameboard = new GameBoard(dice);
+	private boolean won = false;
+	
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.run();
@@ -22,21 +26,21 @@ public class Game {
 	}
 
 	public void run() {
+	
+		Player[] player;	
 
-		boolean won = false;
-		Dice dice = new Dice();
-		GameBoard gameboard = new GameBoard(dice);
-		Player[] player;
-		
-		int lostCount = 0;
 
 //		System.out.println(gameboard.toString()); //This gives nullPointerError, but why do we need it anyway ?
 		out.createField();
 		
 		// Takes a chosen number and creates that amount of players
+		
+		//Gets input from player actor outside system boundary
 		playerAmount = out.playerAmount();
+		
 		player = new Player[playerAmount];
-
+		
+		//GUI places player cars on board with their chosen names
 		out.createPlayers(playerAmount, player);
 		
 
@@ -44,9 +48,14 @@ public class Game {
 		// The game continues as long as won equals false
 		while (!won) {
 			if (!player[currentPlayer].getDeathStatus()) {
-
+				
+				//Shows message for what player has turn
 				out.nextPlayer(player, currentPlayer);
+				
+				//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 				dice.throwDice();
+				
+				//Shows the dice on the GUI
 				out.showDice(dice.getDice1(), dice.getDice2());
 			
 				//Updates the position variable inside player object
@@ -62,22 +71,26 @@ public class Game {
 				gameboard.getField(player[currentPlayer].getPosition()).landOnField(player[currentPlayer]);
 				
 				// If a player has lost, adds one to lostCount and reset the players owned fields
-				if (player[currentPlayer].getDeathStatus()) {
-					out.removePlayer(player, currentPlayer);
-					
-					gameboard.resetOwnedFields(player[currentPlayer]);
-					lostCount++;
-					
-					// If only one player is left, won is set to true
-					if (lostCount == playerAmount - 1) {
-						won = true;
-						out.showWin(player, playerAmount);
-					}	
-				}	
+				checkIfPlayerLost(currentPlayer, player);				
+	
 			}
 			// Changes player
 			changePlayer();
 		}
+	}
+	public void checkIfPlayerLost( int currentPlayer, Player[] player) {
+		if (player[currentPlayer].getDeathStatus()) {
+			
+			out.removePlayer(player[currentPlayer]);			
+			gameboard.resetOwnedFields(player[currentPlayer]);
+			lostCount++;
+			
+			// If only one player is left, won is set to true
+			if (lostCount == playerAmount - 1) {
+				won = true;
+				out.showWin(player, playerAmount);
+			}	
+		}		
 	}
 	// Method that changes turn
 	public void changePlayer() {
