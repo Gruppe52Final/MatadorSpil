@@ -99,7 +99,6 @@ public class Game {
 	}
 
 	private void checkIfPlayerPassedStart(Player player, int diceSum) {
-		player.getPreviousPosition();
 		if (!(diceSum + player.getPreviousPosition() == player.getPosition())) {
 			player.account.addPoints(passStartMoney);
 			out.passedStart(player, passStartMoney);

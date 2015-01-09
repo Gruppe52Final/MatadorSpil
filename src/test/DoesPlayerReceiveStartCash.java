@@ -21,8 +21,6 @@ public class DoesPlayerReceiveStartCash {
 	@Test
 	public void test() {
 		
-
-		
 		//Make sure player starts at field 0 (start), with starting cash,
 		//Make sure player hasn't received the start field pass money yet!
 		

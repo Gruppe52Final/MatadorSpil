@@ -20,6 +20,7 @@ public abstract class Ownable extends Fields {
 	public void setOwner (Player player) {
 		owner = player;
 	}
+		
 	public Player getOwner() {
 		return owner;
 	}

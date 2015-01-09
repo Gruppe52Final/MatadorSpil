@@ -31,5 +31,9 @@ private MatadorGUI out = new MatadorGUI();
 	public String toString() {
 		return "Type: Refuge --- Name: " + Parking + " --- Bonus: " + account.getScore() + "\n";
 	}
+	
+	public int getStartBonus() {
+		return startBonus;
+	}
 
 }
