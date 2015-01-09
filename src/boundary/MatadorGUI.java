@@ -10,6 +10,7 @@ import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_fields.Tax;
+import desktop_fields.Jail;
 import desktop_resources.GUI;
 import game.Player;
 
@@ -48,9 +49,8 @@ public class MatadorGUI {
 		field[9] = new Street.Builder().setTitle("Allégade")
 				.setDescription("Allégade").setBgColor(Color.CYAN)
 				.setSubText("Price: 120").setRent("Rent: 8").build();
-		field[10] = new Refuge.Builder().setTitle("Fængsel")
-				.setDescription("Fængsel").setBgColor(Color.MAGENTA)
-				.setSubText("Fængsel").build();
+		field[10] = new Jail.Builder().setDescription("Jail")
+				.setBgColor(Color.white).setSubText("Jail").build();
 		field[11] = new Street.Builder().setTitle("Fredriksberg Allé")
 				.setDescription("Fredriksberg Allé").setBgColor(Color.CYAN)
 				.setSubText("Price: 140").setRent("Rent: 10").build();
@@ -108,9 +108,8 @@ public class MatadorGUI {
 		field[29] = new Street.Builder().setTitle("Østergade")
 				.setDescription("Østergade").setBgColor(Color.CYAN)
 				.setSubText("Price: 280").setRent("Rent: 22").build();
-		field[30] = new Refuge.Builder().setTitle("De Fængsles")
-				.setDescription("De Fængsles").setBgColor(Color.MAGENTA)
-				.setSubText("Recieve: 500").build();
+		field[30] = new Jail.Builder().setDescription("Arrested")
+				.setBgColor(Color.white).setSubText("Arrested").build();
 		field[31] = new Street.Builder().setTitle("Amagertorv")
 				.setDescription("Amagertorv").setBgColor(Color.CYAN)
 				.setSubText("Price: 300").setRent("Rent: 26").build();
@@ -303,5 +302,16 @@ public class MatadorGUI {
 	public void prisonMessage(String name) {
 		GUI.showMessage("You have landed on " + name
 				+ ". You're only on a visit and can leave any time.");
+	}
+	
+	public void goToPrisonMessage(String name) {
+		GUI.showMessage("You're being taken to the jail. "
+				+ "You either have to pay yourself out "
+				+ "or be set free because of good behavior (by rolling two equal dice)");
+	}
+	public void arrestedMessage(Player currentPlayer) {
+		GUI.getUserLeftButtonPressed(currentPlayer.getName() 
+				+" is in jail. Do you want to pay 100 points to get out?", "Yes",
+				"No");
 	}
 }

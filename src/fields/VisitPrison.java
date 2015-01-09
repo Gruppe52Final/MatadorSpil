@@ -6,7 +6,6 @@ import game.Player;
 public class VisitPrison extends Fields {
 
 	private String name;
-	private int bonus;
 	private MatadorGUI out = new MatadorGUI();
 		
 		public VisitPrison(String name) {
@@ -18,6 +17,6 @@ public class VisitPrison extends Fields {
 		}
 		@Override
 		public String toString() {
-			return "Type: Refuge --- Name: " + name + " --- Bonus: " + bonus + "\n";
+			return "Type: Jail --- Name: " + name + "\n";
 		}
 	}

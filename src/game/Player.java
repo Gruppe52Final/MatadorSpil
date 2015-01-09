@@ -9,6 +9,7 @@ package game;
 public class Player {
 	private String name;
 	private int position, fleets, laborCamp;
+	public int prisonTurns;
 	private boolean dead;
 	public Account account = new Account();
 	private int previousPosition;
@@ -19,6 +20,7 @@ public class Player {
 		position = 0;
 		fleets = 0;
 		laborCamp = 0;
+		prisonTurns = 0;
 		dead = false;
 		this.name = name;
 	}
@@ -54,6 +56,12 @@ public class Player {
 	}
 	public int getLaborCamp(){
 		return laborCamp;
+	}
+	public int setPrisonTurns(){
+		return prisonTurns = 3;
+	}
+	public int getPrisonTurns(){
+		return prisonTurns;
 	}
 	public void setDeathStatus() {
 		dead = true;
