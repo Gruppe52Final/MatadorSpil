@@ -8,7 +8,8 @@ import fields.LaborCamp;
 import fields.Ownable;
 import fields.Refuge;
 import fields.Start;
-import fields.Tax;
+import fields.TaxPercent;
+import fields.TaxStatic;
 import fields.Territory;
 import fields.VisitPrison;
 
@@ -24,7 +25,7 @@ public class GameBoard {
 		field[1] = new Territory("Rødovrevej", 60, 2);
 		field[2] = new Chance();
 		field[3] = new Territory("Hvidovrevej", 60, 4);
-		field[4] = new Tax("Indkomstskat", 200);
+		field[4] = new TaxPercent("Indkomstskat", 200);
 		field[5] = new Fleet("Helsingør-Helsingborg", 200, 25, 50, 100, 200);
 		field[6] = new Territory("Roskildevej", 100, 6);
 		field[7] = new Chance();
@@ -58,7 +59,7 @@ public class GameBoard {
 		field[35] = new Fleet("Rødby-Puttgarden",  200, 25, 50, 100, 200);
 		field[36] = new Chance();
 		field[37] = new Territory("Frederiksberggade", 350, 35);
-		field[38] = new Tax("Statsskat", 100);
+		field[38] = new TaxStatic("Statsskat", 100);
 		field[39] = new Territory("Rådhuspladsen", 400, 50);
 	}
 	

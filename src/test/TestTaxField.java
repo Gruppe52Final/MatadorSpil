@@ -3,6 +3,7 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
 import game.*;
 import fields.*;
 
@@ -13,8 +14,8 @@ public class TestTaxField {
 	GameBoard gameBoard = new GameBoard(dice);
 	int taxAmount = 100;
 	int taxAmount2 = 200;
-	Tax tax = new Tax("Statsskat", taxAmount);
-	Tax taxPercentOption = new Tax("Indkomstskat", taxAmount2);
+	TaxStatic tax = new TaxStatic("Statsskat", taxAmount);
+	TaxPercent taxPercentOption = new TaxPercent("Indkomstskat", taxAmount2);
 	
 	@Test
 	public void test() {
