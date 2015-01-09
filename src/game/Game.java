@@ -104,8 +104,8 @@ public class Game {
 		}	
 	}
 
-	private void checkIfPlayerPassedStart(Player player, int diceSum) {
-		if (!(diceSum + player.getPreviousPosition() == player.getPosition())) {
+	public void checkIfPlayerPassedStart(Player player, int diceSum) {
+		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
 			player.account.addPoints(passStartMoney);
 			out.passedStart(player, passStartMoney);
 			out.updateBalance(player.getName(), player.account.getScore());

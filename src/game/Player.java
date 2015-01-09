@@ -57,8 +57,8 @@ public class Player {
 	public int getLaborCamp(){
 		return laborCamp;
 	}
-	public int setPrisonTurns(){
-		return prisonTurns = 3;
+	public void setPrisonTurns(int prisonTurns){
+		this.prisonTurns = prisonTurns;
 	}
 	public int getPrisonTurns(){
 		return prisonTurns;
