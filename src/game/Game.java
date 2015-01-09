@@ -57,41 +57,41 @@ public class Game {
 					out.nextPlayer(currentPlayer);
 					
 					if(player[i].prisonTurns > 0) {
-						out.arrestedMessage(currentPlayer);
-						player[i].setPosition(40);
-//						out.updatePosition(player[i]);
-					}
-
-					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
-					dice.throwDice();
+							out.arrestedMessage(currentPlayer);
+//							player[i].setPosition(40);
+//							out.updatePosition(player[i]);
+						}else {
+							//Throws dice in Dice class, meaning generating random numbers stored in Dice.
+							dice.throwDice();
 					
-					//Shows the dice on the GUI
-					out.showDice(dice.getDice1(), dice.getDice2());
+							//Shows the dice on the GUI
+							out.showDice(dice.getDice1(), dice.getDice2());
 				
-					//Updates the position variable inside player object
-					currentPlayer.setPosition(dice.getSum());
+							//Updates the position variable inside player object
+							currentPlayer.setPosition(dice.getSum());
 					
-					//Updates the position of the cars on GUI
-					out.updatePosition(currentPlayer);
+							//Updates the position of the cars on GUI
+							out.updatePosition(currentPlayer);
 					
-					//Check if player passed start field, gives him passStartMoney in case
-					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
+							//Check if player passed start field, gives him passStartMoney in case
+							checkIfPlayerPassedStart(currentPlayer, dice.getSum());
 					
-					// Get the current field the player lands on
-					currentField = gameboard.getField(currentPlayer.getPosition());
+							// Get the current field the player lands on
+							currentField = gameboard.getField(currentPlayer.getPosition());
 					
-					//Check if the field is a territory (NOT IMPLEMENTED BELOW)
-					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
+							//Check if the field is a territory (NOT IMPLEMENTED BELOW)
+							gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
 					
-					// If a player has lost, adds one to lostCount and reset the players owned fields
-					checkIfPlayerLost(currentPlayer, player);
+							// If a player has lost, adds one to lostCount and reset the players owned fields
+							checkIfPlayerLost(currentPlayer, player);
 					
-					//Checks if one player has won in the player array
-					checkIfPlayerWon(player);
+							//Checks if one player has won in the player array
+							checkIfPlayerWon(player);
 				}
 			}	
 		}
 	}
+}		
 	public void checkIfPlayerLost( Player currentPlayer, Player[] player) {
 		if (currentPlayer.getDeathStatus()) {
 			//If the player is dead, remove them from the board and reset the fields owned
