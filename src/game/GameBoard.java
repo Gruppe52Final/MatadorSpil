@@ -40,7 +40,7 @@ public class GameBoard {
 		field[17] = new Chance();
 		field[18] = new Territory("Hellerupvej", 180, 14);
 		field[19] = new Territory("Strandvejen", 200, 16);
-		field[20] = new Refuge("Parkering", 5000);
+		field[20] = new Refuge("Parkering");
 		field[21] = new Territory("Trianglen", 220, 18);
 		field[22] = new Chance();
 		field[23] = new Territory("Østerbrogade", 220, 18);

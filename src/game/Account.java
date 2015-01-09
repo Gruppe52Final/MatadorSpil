@@ -13,6 +13,10 @@ public class Account {
 		return balance;
 	}
 
+	// Public set Points
+	public void setPoints(int points) {
+		this.balance = points;
+	}	
 	// Public method to add points to chosen player
 	public boolean addPoints(int points) {
 
