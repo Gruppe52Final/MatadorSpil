@@ -28,8 +28,7 @@ public class TaxStatic extends Fields {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Type: TaxStatic --- Name: " + name + " --- Tax: " + pay + "\n";
 	}
 	
 }

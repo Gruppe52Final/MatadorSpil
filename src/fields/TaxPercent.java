@@ -32,8 +32,7 @@ public class TaxPercent extends Fields {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Type: TaxPercent --- Name: " + name + " --- Tax: " + pay + "\n";
 	}
 
 }
