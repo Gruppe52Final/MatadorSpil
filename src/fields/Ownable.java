@@ -24,4 +24,10 @@ public abstract class Ownable extends Fields {
 	public Player getOwner() {
 		return owner;
 	}
+
+
+	public void landOnField(Player player, Refuge refugeField) {
+		// TODO Auto-generated method stub
+		
+	}
 }

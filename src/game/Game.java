@@ -6,6 +6,7 @@
 
 package game;
 
+import fields.Fields;
 import boundary.MatadorGUI;
 
 public class Game {
@@ -18,6 +19,7 @@ public class Game {
 	private GameBoard gameboard = new GameBoard(dice);
 	private boolean won = false;
 	private Player currentPlayer;
+	private Fields currentField;
 	
 	public static void main(String[] args) {
 		Game game = new Game();
@@ -75,7 +77,10 @@ public class Game {
 					//Check if player passed start field, gives him passStartMoney in case
 					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
 					
-					// Execute landOnField for the players new position
+					// Get the current field the player lands on
+					currentField = gameboard.getField(currentPlayer.getPosition());
+					
+					//Check if the field is a territory (NOT IMPLEMENTED BELOW)
 					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
 					
 					// If a player has lost, adds one to lostCount and reset the players owned fields

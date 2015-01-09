@@ -21,24 +21,31 @@ public class ParkingTest {
 	Territory territory;
 	Refuge refuge;
 	
+
+	
 	@Test
 	public void test() {
-		
-		//Places player on board
-		gameBoard.getField(13).landOnField(player);
 		
 		//make territory object
 		territory = (Territory) gameBoard.getField(13);
 		
+		//make refuge object
+		refuge = (Refuge) gameBoard.getField(20);
+		
+		//Places player on board
+		territory.landOnField(player, refuge);
+				
 		//Make sure that player is now owner
 		assertEquals(territory.getOwner(), player);
 		
-		//Check if bonus has been raised on the Refuge field (also refered as Parking in game)
+		//Set variable for money in the beginning
 		int startBonus = refuge.getStartBonus();
 		
-		//Make sure getPoints in account in refuge is same as startBonus
-		assertEquals(refuge.getStartBonus(),refuge.account.getScore());
+		//Make sure getPoints has been raised in Refuge,
+		// because of player buying a property		
+		assertNotEquals(startBonus,refuge.account.getScore());
 		
+		System.out.println(territory.getClass());
 	}
 
 }

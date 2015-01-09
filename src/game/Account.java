@@ -18,10 +18,10 @@ public class Account {
 		this.balance = points;
 	}	
 	// Public method to add points to chosen player
-	public boolean addPoints(int points) {
+	public boolean addPoints(double d) {
 
-		if (balance + points >= 0) {
-			balance += points;
+		if (balance + d >= 0) {
+			balance += d;
 			return true;
 		} else {
 			balance = 0;
