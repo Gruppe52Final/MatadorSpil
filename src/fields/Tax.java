@@ -16,33 +16,30 @@ public class Tax extends Fields {
 
 	@Override
 	public void landOnField(Player player) {
-		// If a player lands on goldmine
-		if (name == "Goldmine") {
-			out.goldmineMessage(name);
+		if (name == "Statsskat") {
 			if (player.account.getScore() >= pay) {
 				player.account.addPoints(-pay);
 			} else {
-				out.insufficiantFundsTax();
+				out.fundsTooLowToPayTax();
+				player.account.addPoints(-player.account.getScore());
+				player.setDeathStatus();
+			} 
+		}
+		
+		if (name == "Indkomstskat") {
+			String taxPick = out.taxPick(name);
+			if (taxPick == "200") {
+				if (player.account.getScore() >= pay) {
+				player.account.addPoints(-pay);
+			} else {
+				out.fundsTooLowToPayTax();
 				player.account.addPoints(-player.account.getScore());
 				player.setDeathStatus();
 			}
+		} else {
+			player.account.addPoints((int) -player.account.getScore() / 10);
 		}
-		// If a player lands on caravan
-		else {
-			String taxPick = out.taxPick(name);
-			if (taxPick == "4000") {
-				if (player.account.getScore() >= pay) {
-					player.account.addPoints(-pay);
-				} else {
-					out.fundsTooLowToPayTax();
-					player.account.addPoints(-player.account.getScore());
-					player.setDeathStatus();
-				}
-			} else {
-				player.account.addPoints((int) -player.account.getScore() / 10);
-			}
-
-		}
+	}
 		out.updateBalance(player.getName(), player.account.getScore());
 
 	}
