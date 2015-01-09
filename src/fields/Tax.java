@@ -34,7 +34,7 @@ public class Tax extends Fields {
 				if (player.account.getScore() >= pay) {
 					player.account.addPoints(-pay);
 				} else {
-					out.taxFunds();
+					out.fundsTooLowToPayTax();
 					player.account.addPoints(-player.account.getScore());
 					player.setDeathStatus();
 				}

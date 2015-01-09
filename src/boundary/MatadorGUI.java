@@ -268,7 +268,7 @@ public class MatadorGUI {
 				"200", "10%");
 	}
 	
-	public void taxFunds() {
+	public void fundsTooLowToPayTax() {
 		GUI.showMessage("The tax is higher than your balance. Instead you pay the rest of you balance.");
 	}
 
