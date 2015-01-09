@@ -32,8 +32,8 @@ public class MatadorGUI {
 				.setDescription("Hvidovrevej").setBgColor(Color.CYAN)
 				.setSubText("Price: 60").setRent("Rent: 4").build();
 		field[4] = new Tax.Builder().setTitle("Indkomstskat")
-				.setDescription("Pay: 4000 or 10%").setBgColor(Color.ORANGE)
-				.setSubText("Pay: 4000 or 10%").build();
+				.setDescription("Pay: 200 or 10%").setBgColor(Color.ORANGE)
+				.setSubText("Pay: 200 or 10%").build();
 		field[5] = new Shipping.Builder().setTitle("Øresund A/S")
 				.setDescription("Øresund A/S").setBgColor(Color.GRAY)
 				.setSubText("Price: 200").setRent("Rent: 25").build();
@@ -132,8 +132,8 @@ public class MatadorGUI {
 				.setDescription("Frederiksberggade").setBgColor(Color.CYAN)
 				.setSubText("Price: 350").setRent("Rent: 35").build();
 		field[38] = new Tax.Builder().setTitle("Statsskat")
-				.setDescription("Pay: 2000").setBgColor(Color.ORANGE)
-				.setSubText("Pay: 2000").build();
+				.setDescription("Pay: 100").setBgColor(Color.ORANGE)
+				.setSubText("Pay: 100").build();
 		field[39] = new Street.Builder().setTitle("Rådhuspladsen")
 				.setDescription("Rådhuspladsen").setBgColor(Color.CYAN)
 				.setSubText("Price: 400").setRent("Rent: 50").build();
@@ -264,8 +264,8 @@ public class MatadorGUI {
 	public String taxPick(String name) {
 		return GUI.getUserSelection(
 				"You have landed on "+ name + " and have to pay tax. "
-						+ "Would you like to pay 4000 points or 10% of your total socre?",
-				"4000", "10%");
+						+ "Would you like to pay 200 points or 10% of your total score?",
+				"200", "10%");
 	}
 	
 	public void taxFunds() {
