@@ -52,7 +52,7 @@ public class Territory extends Ownable {
 				out.insufficiantFunds(name, getOwner().getName(), player.account.getScore());
 				out.updateBalance(getOwner().getName(), getOwner().account.getScore());
 				
-				player.setDeathStatus();
+				player.setDeathStatus(true);
 			}
 		}
 		// Updates the GUI balance for each player

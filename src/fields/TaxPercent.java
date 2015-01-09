@@ -23,7 +23,7 @@ public class TaxPercent extends Fields {
 		} else {
 			out.fundsTooLowToPayTax();
 			player.account.addPoints(-player.account.getScore());
-			player.setDeathStatus();
+			player.setDeathStatus(true);
 		}
 	} else {
 		player.account.addPoints((int) -player.account.getScore() / 10);

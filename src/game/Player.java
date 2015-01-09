@@ -63,8 +63,8 @@ public class Player {
 	public int getPrisonTurns(){
 		return prisonTurns;
 	}
-	public void setDeathStatus() {
-		dead = true;
+	public void setDeathStatus(boolean deathStatus) {
+		dead = deathStatus;
 	}
 	public boolean getDeathStatus() {
 		return dead;
