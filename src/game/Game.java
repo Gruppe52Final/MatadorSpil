@@ -60,12 +60,11 @@ public class Game {
 					prisonDialog(currentPlayer);
 					}
 					
-					//If player is just out of prison by throwing identical dice, don't throw again.
-					if (!currentPlayer.getJustOutOfPrisonByDice()) {
+					if(currentPlayer.prisonTurns == 0) {
+						
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
-					dice.throwDice();
-					}
-			
+					dice.throwDice();	
+						
 					//Shows the dice on the GUI
 					out.showDice(dice.getDice1(), dice.getDice2());
 		
@@ -93,7 +92,7 @@ public class Game {
 			}
 		}
 	}	
-	
+}	
 	public void prisonDialog(Player currentPlayer) {
 		boolean payOutOfPrison = false;
 		payOutOfPrison = out.payOutOfPrison(currentPlayer);
@@ -115,7 +114,9 @@ public class Game {
 				}
 			//If player chooses not to pay bail, or doesn't have enough money, we throw the dice.
 			} else if(!payOutOfPrison || (currentPlayer.account.getScore() < 100)) {
-//				dice.throwDice();
+				dice.throwDice();
+				//Shows the dice on the GUI
+				out.showDice(dice.getDice1(), dice.getDice2());
 				//If both dice are equal, he's out of prison
 				if (dice.getDice1() == dice.getDice2()) {
 					currentPlayer.setPrisonTurns(0);
