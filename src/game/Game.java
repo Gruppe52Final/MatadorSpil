@@ -56,11 +56,11 @@ public class Game {
 					//Shows message for what player has turn
 					out.nextPlayer(currentPlayer);
 					
-					if(player[i].prisonTurns > 0) {
+					if(currentPlayer.prisonTurns > 0) {
 							out.arrestedMessage(currentPlayer);
 //							player[i].setPosition(40);
 //							out.updatePosition(player[i]);
-						}else {
+						} else {
 							//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 							dice.throwDice();
 					
