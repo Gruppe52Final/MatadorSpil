@@ -40,12 +40,24 @@ public class ParkingTest {
 		
 		//Set variable for money in the beginning
 		int startBonus = refuge.getStartBonus();
+		int playerStartMoney = player.account.getScore();
 		
 		//Make sure getPoints has been raised in Refuge,
 		// because of player buying a property		
 		assertNotEquals(startBonus,refuge.account.getScore());
 		
-		System.out.println(territory.getClass());
+		//Let's see if player receives the bonus when he goes on refuge
+		refuge.landOnField(player);
+		
+		int bonus = refuge.account.getScore();
+		
+		//Lets make sure the bonus is not the default 50,
+		// but that something has been added from the previous buy
+		assertNotEquals(bonus,50);
+		
+		//Lets see if the player received the bonus
+		assertEquals(player.account.getScore(),bonus + playerStartMoney);
+
 	}
 
 }
