@@ -27,7 +27,7 @@ public class LaborCamp extends Ownable {
 				if (buyField) {
 					player.account.addPoints(-price);
 					setOwner(player);
-					player.setLaborCamp();
+					player.addLaborCamp();
 					out.fieldBought(name);
 				} else {
 					out.fieldRefused(name);

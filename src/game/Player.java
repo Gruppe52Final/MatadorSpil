@@ -45,14 +45,14 @@ public class Player {
 		return position;
 	}
 	// Adds a fleet to the players owned fleets
-	public void setFleets() {
+	public void addFleet() {
 		fleets++;
 	}
 	// Returns the number of the players owned fleets
 	public int getFleets() {
 		return fleets;
 	}
-	public void setLaborCamp(){
+	public void addLaborCamp(){
 		laborCamp++;
 	}
 	public int getLaborCamp(){

@@ -29,7 +29,7 @@ public class Fleet extends Ownable {
 				if (buyField) {
 					player.account.addPoints(-price);
 					setOwner(player);
-					player.setFleets();
+					player.addFleet();
 					out.fieldBought(name);
 				} else {
 					out.fieldRefused(name);
