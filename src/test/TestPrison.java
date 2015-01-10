@@ -12,8 +12,7 @@ public class TestPrison {
 	GoToPrison goToPrisonField = new GoToPrison("Jail");
 	int startingCash = player.account.getScore(); 
 	Game game = new Game();
-	Dice dice;
-	
+	Dice dice = new Dice();
 	@Test
 	public void test() {
 		//Test if player goes to field[10] after being arrested on field[30]
@@ -39,8 +38,11 @@ public class TestPrison {
 		//Is player in prison now ?
 		assertEquals(player.getPrisonTurns(),3);
 		
+		//1,2 just artificial dice numbers, not used in this test for payout
+		dice.setDice1(1);
+		dice.setDice2(2);
 		//Check YES to pay out of prison!		
-		game.prisonDialog(player);
+		game.prisonDialog(player, dice);		
 		
 		//Does the player go on as usual with dices from field 10, after paying out ?
 		
@@ -53,26 +55,72 @@ public class TestPrison {
 		//Has the player been subtracted 100 points?
 		assertEquals(player.account.getScore(), 1400);
 		
-		//Does Player also move the diceThrow after field[10], if he chooses to throwDice, instead of paying ?
+		//Is player prisonturns 0 now?
+		assertEquals(player.getPrisonTurns(),0);
 		
-//		//Move player back to prison again
-//		goToPrisonField.landOnField(player);
-//		
-//		//Choose No, to throw dice
-//		game.prisonDialog(player);
+//		Does Player also move the diceThrow after field[10],
+//		if he chooses to throwDice, instead of paying ?
 		
-		//Sets dice, need to comment out dice.Throw() in game.prisonDialog() for this to work......
-//		dice.setDice1(6);
-//		dice.setDice2(6);
+		//Move player back to prison again
+		goToPrisonField.landOnField(player);
+
+		//Is player in prison now ?
+		assertEquals(player.getPrisonTurns(),3);
 		
-		//Is player now on field[16] ?
-//		assertEquals(player.getPosition(),16);
+		//Let's test diceThrow functionality now
 		
-		//Keep trying till we have same eyes
-//		while(dice.getDice1() != dice.getDice2()) {
-//			game.prisonDialog(player);
-//		}
-//		assertEquals(player.getPosition, )
+		//Set the dice to be same eyes
+		dice.setDice1(1);
+		dice.setDice2(1);
+		
+		//Choose No, to test throwing dice
+		game.prisonDialog(player,dice);
+		
+		//Is player out of prison now ?
+		assertEquals(player.getPrisonTurns(),0);
+		
+		//Is player position on field 10 ?
+		assertEquals(player.getPosition(),10);
+		
+		//Set currentPlayer object in game
+//		game.setCurrentPlayer(player);
+				
+		//Move currentPlayer - somehow this doesn't affect the player objects position ?
+		game.movePlayer(player, dice);
+		
+		//Is diceSum 2 ?
+		assertEquals(dice.getSum(),2);
+		
+		//Get currentPlayer back from game
+//		player = game.getCurrentPlayer();
+		
+		//Has player been moved exactly two fields now ?
+		assertEquals(player.getPosition(),12);
+		
+		//Last test: Does player have three prison turns before being thrown out?
+		goToPrisonField.landOnField(player);
+		
+		//Make sure player has three prison turns
+		assertEquals(player.getPrisonTurns(),3);
+		
+		//Make dices different
+		dice.setDice1(1);
+		dice.setDice2(5);
+		
+		//Three dice throws
+		game.prisonDialog(player, dice);
+		assertEquals(player.getPrisonTurns(),2);
+		game.prisonDialog(player, dice);
+		assertEquals(player.getPrisonTurns(),1);
+		game.prisonDialog(player, dice);
+		assertEquals(player.getPrisonTurns(),0);
+		
+		//Give player a turn
+		game.movePlayer(player, dice);
+		
+		//Has player moved 6 fields, so he should be at field[16] now
+		assertEquals(player.getPosition(),16);
+
 		
 	}
 

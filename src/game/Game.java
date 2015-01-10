@@ -56,24 +56,17 @@ public class Game {
 					//Shows message for what player has turn
 					out.nextPlayer(currentPlayer);
 					
+					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
+					dice.throwDice();
+					
 					if(currentPlayer.prisonTurns > 0) {
-					prisonDialog(currentPlayer);
-					}
+					prisonDialog(currentPlayer, dice);
+					}	
 					
 					if(currentPlayer.prisonTurns == 0) {
-						
-					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
-					dice.throwDice();	
-						
-					//Shows the dice on the GUI
-					out.showDice(dice.getDice1(), dice.getDice2());
-		
-					//Updates the position variable inside player object
-					currentPlayer.addRollToPosition(dice.getSum());
-			
-					//Updates the position of the cars on GUI
-					out.updatePosition(currentPlayer);
-			
+						movePlayer(currentPlayer, dice);
+					}
+					
 					//Check if player passed start field, gives him passStartMoney in case
 					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
 			
@@ -88,12 +81,25 @@ public class Game {
 			
 					//Checks if one player has won in the player array
 					checkIfPlayerWon(player);
-				}
 			}
 		}
 	}	
 }	
-	public void prisonDialog(Player currentPlayer) {
+	public void movePlayer(Player player, Dice dice) {
+		//Shows the dice on the GUI
+		out.showDice(dice.getDice1(), dice.getDice2());
+
+		//Updates the position variable inside player object
+//		currentPlayer.addRollToPosition(dice.getSum());
+		
+		player.setPosition(player.getPosition() + dice.getSum());
+
+		//Updates the position of the cars on GUI
+		out.updatePosition(player);
+		
+	}
+
+	public void prisonDialog(Player currentPlayer, Dice dice) {
 		boolean payOutOfPrison = false;
 		payOutOfPrison = out.payOutOfPrison(currentPlayer);
 		if(payOutOfPrison) {				
@@ -114,7 +120,6 @@ public class Game {
 				}
 			//If player chooses not to pay bail, or doesn't have enough money, we throw the dice.
 			} else if(!payOutOfPrison || (currentPlayer.account.getScore() < 100)) {
-				dice.throwDice();
 				//Shows the dice on the GUI
 				out.showDice(dice.getDice1(), dice.getDice2());
 				//If both dice are equal, he's out of prison
@@ -155,7 +160,13 @@ public class Game {
 	public Dice getDice() {
 		return dice;
 	}
-//	private void inPrison(Player player, int diceSum){
-//		currentPlayer.
-//	}
+	
+	//Used for TestPrison.java purpose
+	public void setCurrentPlayer(Player player) {
+		currentPlayer = player;
+	}
+	//Also used for testing purposes
+	public Player getCurrentPlayer() {
+	return currentPlayer;
+	}
 }
