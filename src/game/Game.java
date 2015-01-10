@@ -57,41 +57,75 @@ public class Game {
 					out.nextPlayer(currentPlayer);
 					
 					if(currentPlayer.prisonTurns > 0) {
-							out.arrestedMessage(currentPlayer);
-//							player[i].setPosition(40);
-//							out.updatePosition(player[i]);
-						} else {
-							//Throws dice in Dice class, meaning generating random numbers stored in Dice.
-							dice.throwDice();
+					prisonDialog(currentPlayer);
+					}
 					
-							//Shows the dice on the GUI
-							out.showDice(dice.getDice1(), dice.getDice2());
-				
-							//Updates the position variable inside player object
-							currentPlayer.setPosition(dice.getSum());
-					
-							//Updates the position of the cars on GUI
-							out.updatePosition(currentPlayer);
-					
-							//Check if player passed start field, gives him passStartMoney in case
-							checkIfPlayerPassedStart(currentPlayer, dice.getSum());
-					
-							// Get the current field the player lands on
-							currentField = gameboard.getField(currentPlayer.getPosition());
-					
-							//Check if the field is a territory (NOT IMPLEMENTED BELOW)
-							gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
-					
-							// If a player has lost, adds one to lostCount and reset the players owned fields
-							checkIfPlayerLost(currentPlayer, player);
-					
-							//Checks if one player has won in the player array
-							checkIfPlayerWon(player);
+					//If player is just out of prison by throwing identical dice, don't throw again.
+					if (!currentPlayer.getJustOutOfPrisonByDice()) {
+					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
+					dice.throwDice();
+					}
+			
+					//Shows the dice on the GUI
+					out.showDice(dice.getDice1(), dice.getDice2());
+		
+					//Updates the position variable inside player object
+					currentPlayer.addRollToPosition(dice.getSum());
+			
+					//Updates the position of the cars on GUI
+					out.updatePosition(currentPlayer);
+			
+					//Check if player passed start field, gives him passStartMoney in case
+					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
+			
+					// Get the current field the player lands on
+					currentField = gameboard.getField(currentPlayer.getPosition());
+			
+					//Check if the field is a territory (NOT IMPLEMENTED BELOW)
+					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
+			
+					// If a player has lost, adds one to lostCount and reset the players owned fields
+					checkIfPlayerLost(currentPlayer, player);
+			
+					//Checks if one player has won in the player array
+					checkIfPlayerWon(player);
 				}
-			}	
+			}
 		}
-	}
-}		
+	}	
+	
+	public void prisonDialog(Player currentPlayer) {
+		boolean payOutOfPrison = false;
+		payOutOfPrison = out.payOutOfPrison(currentPlayer);
+		if(payOutOfPrison) {				
+			//Check if player has enough money to actually pay himself out...	
+			
+			//If he has more than 100 points, let him out and subtract the points
+			if (currentPlayer.account.getScore() >= 100) {
+				currentPlayer.setPrisonTurns(0);
+				//Subtract 100 points from players account
+				currentPlayer.account.addPoints(-100);				 
+				
+				//Update GUI
+				out.updateBalance(currentPlayer.getName(), currentPlayer.account.getScore());
+				
+				//If he doesn't have enough, tell him this in GUI.
+				} else if (currentPlayer.account.getScore() < 100) {					
+					out.cantPayOutOfPrison(currentPlayer);
+				}
+			//If player chooses not to pay bail, or doesn't have enough money, we throw the dice.
+			} else if(!payOutOfPrison || (currentPlayer.account.getScore() < 100)) {
+//				dice.throwDice();
+				//If both dice are equal, he's out of prison
+				if (dice.getDice1() == dice.getDice2()) {
+					currentPlayer.setPrisonTurns(0);
+					currentPlayer.setJustOutOfPrisonWithDice(true);
+				} else {
+					currentPlayer.setPrisonTurns(currentPlayer.getPrisonTurns() - 1);
+				}
+			}
+		}	
+	
 	public void checkIfPlayerLost( Player currentPlayer, Player[] player) {
 		if (currentPlayer.getDeathStatus()) {
 			//If the player is dead, remove them from the board and reset the fields owned
@@ -115,6 +149,10 @@ public class Game {
 			out.passedStart(player, passStartMoney);
 			out.updateBalance(player.getName(), player.account.getScore());
 		}
+	}
+	
+	public Dice getDice() {
+		return dice;
 	}
 //	private void inPrison(Player player, int diceSum){
 //		currentPlayer.

@@ -20,7 +20,7 @@ public class TestTaxField {
 	@Test
 	public void test() {
 		//Testing if player loses 100 cash by landing on tax field 38 (statsskat gives minus 100 points)
-		player.setPosition(38);		
+		player.addRollToPosition(38);		
 		assertEquals(player.getPosition(),38);		
 		assertEquals(player.account.getScore(),1500);		
 		tax.landOnField(player);

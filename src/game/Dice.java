@@ -26,8 +26,8 @@ public class Dice {
 
 	// Returns the sum of the two dice
 	public int getSum() {
-//		return dice1 + dice2;
-		return 30;
+		return dice1 + dice2;
+//		return 30; //Used for prison testing.. not the best way
 	}
 
 	// Method that returns dice1
@@ -38,5 +38,13 @@ public class Dice {
 	// Method that return dice2
 	public int getDice2() {
 		return dice2;
+	}
+	
+	public void setDice1(int dice) {
+		dice1 = dice;
+	}
+	
+	public void setDice2(int dice) {
+		dice2 = dice;
 	}
 }

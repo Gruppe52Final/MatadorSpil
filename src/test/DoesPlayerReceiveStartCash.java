@@ -24,14 +24,14 @@ public class DoesPlayerReceiveStartCash {
 		//Make sure player starts at field 0 (start), with starting cash,
 		//Make sure player hasn't received the start field pass money yet!
 		
-		player.setPosition(0);
+		player.addRollToPosition(0);
 		assertEquals(player.getPosition(),0);
 		assertEquals(player.account.getScore(), startCash);
 		
 		//Now lets make the player pass the start field
 		
 		//First we set player very close to the start field 
-		player.setPosition(38);
+		player.addRollToPosition(38);
 		
 		dice.throwDice();
 		

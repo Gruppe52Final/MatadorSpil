@@ -28,4 +28,7 @@ public class Account {
 			return false;
 		}
 	}
+	public void subtractPoints(int d) {
+		balance = balance - d;
+	}
 }

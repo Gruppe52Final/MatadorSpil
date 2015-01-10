@@ -309,9 +309,15 @@ public class MatadorGUI {
 				+ "You either have to pay yourself out "
 				+ "or be set free because of good behavior (by rolling two equal dice)");
 	}
-	public void arrestedMessage(Player currentPlayer) {
-		GUI.getUserLeftButtonPressed(currentPlayer.getName() 
+	
+	public boolean payOutOfPrison(Player currentPlayer) {
+		return GUI.getUserLeftButtonPressed(currentPlayer.getName() 
 				+" is in jail. Do you want to pay 100 points to get out?", "Yes",
 				"No");
+	}
+
+	public void cantPayOutOfPrison(Player currentPlayer) {
+		GUI.showMessage("You don't have enough points to pay bail... wait for your parole");
+		
 	}
 }

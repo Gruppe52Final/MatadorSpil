@@ -12,11 +12,11 @@ public class TestCase1 {
 		
 		//Preconditions
 		Player player = new Player("Test");
-		player.setPosition(18);
+		player.addRollToPosition(18);
 		System.out.println("player.getPosition(): " + player.getPosition());
 		
 		//Test
-		player.setPosition(10);
+		player.addRollToPosition(10);
 		
 		//Postconditions
 		if (player.getPosition() == 6)

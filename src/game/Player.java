@@ -13,6 +13,7 @@ public class Player {
 	private boolean dead;
 	public Account account = new Account();
 	private int previousPosition;
+	private boolean justOutOfPrisonWithDice;
 
 	// Object that stores the name and position of a player
 	public Player(String name) {
@@ -31,7 +32,7 @@ public class Player {
 	}
 
 	// Method that sets the position of the player
-	public void setPosition(int roll) {
+	public void addRollToPosition(int roll) {
 		previousPosition = position;		
 		if (position + roll > 39) {
 			position = position + roll - 40;
@@ -73,6 +74,19 @@ public class Player {
 	public int getPreviousPosition() {
 		return previousPosition;
 		
+	}
+
+	public void setPosition(int i) {
+		position = i;		
+	}
+
+	public void setJustOutOfPrisonWithDice(boolean b) {
+		justOutOfPrisonWithDice = b;
+		
+	}
+
+	public boolean getJustOutOfPrisonByDice() {
+		return justOutOfPrisonWithDice;
 	}
 	
 }
