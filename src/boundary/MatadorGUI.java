@@ -343,4 +343,12 @@ public class MatadorGUI {
 		return GUI.getUserSelection(
 				"Vælg sprog / Select language", "Dansk", "English");
 	}
+
+	public void createTexts(String language) {
+		if(language.equals("Dansk")) {
+			text = new Texts("Dansk");
+		} else if(language.equals("English")) {
+			text = new Texts("English");
+		}		
+	}
 }
