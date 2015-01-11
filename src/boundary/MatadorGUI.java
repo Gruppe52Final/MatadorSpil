@@ -15,6 +15,24 @@ import desktop_resources.GUI;
 import game.Player;
 
 public class MatadorGUI {
+	
+	private Texts text = new Texts();
+	
+	public MatadorGUI() {
+		
+	}
+	
+	public MatadorGUI(String language) {
+		if(language.equals("Dansk")) {
+			text = new Texts("Dansk");
+		} else if(language.equals("English")) {
+			text = new Texts("English");
+		}
+	}
+	public void getLanguage() {
+		System.out.println(Texts.text[0]);
+	}
+	
 	//Game methods
 	public void createField() {
 		// Array that holds the fields for the GUI
@@ -143,7 +161,7 @@ public class MatadorGUI {
 	
 	public int playerAmount() {
 		return Integer.parseInt(GUI.getUserSelection(
-				"Welcome, choose amount of players:", "2", "3", "4", "5", "6"));
+				Texts.text[1], "2", "3", "4", "5", "6"));
 	}
 	
 	public void createPlayers(int playerAmount, Player[] player) {
@@ -157,7 +175,7 @@ public class MatadorGUI {
 		car[5] = new Car.Builder().primaryColor(Color.black).build();
 		
 		for (int i = 0; i < playerAmount; i++) {
-			player[i] = new Player(GUI.getUserString("Enter name of player "
+			player[i] = new Player(GUI.getUserString(Texts.text[0]
 					+ (i + 1) + ":"));
 			GUI.addPlayer(player[i].getName(), player[i].account.getScore(),
 					car[i]);
@@ -167,7 +185,7 @@ public class MatadorGUI {
 	
 	public void nextPlayer(Player[] player, int currentPlayer) {
 		GUI.showMessage(player[currentPlayer].getName()
-				+ "'s turn to roll the dice.");
+				+ Texts.text[2]);
 	}
 	
 	public void showDice(int dice1, int dice2) {
@@ -186,13 +204,13 @@ public class MatadorGUI {
 	
 	public void removePlayer(Player[] player, int currentPlayer) {
 		GUI.removeCar(player[currentPlayer].getPosition() + 1, player[currentPlayer].getName());
-		GUI.showMessage("You have gone bankrupt.");		
+		GUI.showMessage(Texts.text[3]);		
 	}
 	
 	public void showWin(Player[] player, int playerAmount) {
 		for (int i = 0; i < playerAmount; i++) {
 			if (!player[i].getDeathStatus()) {
-				GUI.showMessage(player[i].getName() + " have won!");
+				GUI.showMessage(player[i].getName() + Texts.text[4]);
 			}
 		}
 	}
@@ -200,20 +218,20 @@ public class MatadorGUI {
 	//Field methods
 	public boolean buyField(String name, int price) {
 		return GUI.getUserLeftButtonPressed(name + 
-				" has no owner, would you like to buy it for " + price + "?", "Yes",
-				"No");
+				Texts.text[5] + price + "?", Texts.text[6],
+				Texts.text[7]);
 	}
 	
 	public void fieldBought(String name) {
-		GUI.showMessage("You have successfully bought " + name);
+		GUI.showMessage(Texts.text[8] + name);
 	}
 	
 	public void fieldRefused(String name) {
-		GUI.showMessage("You refused to buy " + name);
+		GUI.showMessage(Texts.text[9] + name);
 	}
 	
 	public void fieldRefusedPrice(String name) {
-		GUI.showMessage("You dont have enough points to buy " + name);
+		GUI.showMessage(Texts.text[10] + name);
 	}
 	
 	public void fieldOwnedByPlayer(String name) {
@@ -319,5 +337,10 @@ public class MatadorGUI {
 	public void cantPayOutOfPrison(Player currentPlayer) {
 		GUI.showMessage("You don't have enough points to pay bail... wait for your parole");
 		
+	}
+
+	public String selectLanguage() {
+		return GUI.getUserSelection(
+				"Vælg sprog / Select language", "Dansk", "English");
 	}
 }
