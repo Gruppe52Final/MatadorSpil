@@ -8,6 +8,8 @@ package game;
 
 import fields.Fields;
 import boundary.MatadorGUI;
+import boundary.Texts;
+
 
 public class Game {
 
@@ -20,11 +22,22 @@ public class Game {
 	private boolean won = false;
 	private Player currentPlayer;
 	private Fields currentField;
+//	private MatadorGUI out;
 	
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.run();
 	}
+	
+	public Game() {
+	String language = "English";
+//	String language = out.selectLanguage(); // Makes game crash nullPointerException
+ 	if(language.equals("Dansk")) {
+	 out = new MatadorGUI("Dansk");
+	} else if(language.equals("English")) {
+	 out = new MatadorGUI("English");
+	}
+}
 
 	public void run() {
 	
@@ -33,6 +46,8 @@ public class Game {
 //		System.out.println(gameboard.toString()); //This gives nullPointerError, but why do we need it anyway ?
 		out.createField();
 		
+//		System.out.println(Texts.text[0]);
+		out.getLanguage();
 		
 		//Gets input from player actor outside system boundary
 		playerAmount = out.playerAmount();
