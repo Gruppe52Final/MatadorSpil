@@ -21,7 +21,7 @@ public class Game {
 	private GameBoard gameboard = new GameBoard(dice);
 	private boolean won = false;
 	private Player currentPlayer;
-	private Fields currentField;
+//	private Fields currentField;
 	Player[] player;	
 //	private MatadorGUI out;
 	
@@ -31,7 +31,7 @@ public class Game {
 	}
 	
 	public Game() {
-//	String language = out.selectLanguage(); // Makes game crash nullPointerException
+//	String language = out.selectLanguage(); // Makes game crash nullPointerException Field line 118
 //	out.createTexts(language);
 	String language = "English";
  	if(language.equals("Dansk")) {
@@ -96,7 +96,7 @@ public class Game {
 					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
 			
 					// Get the current field the player lands on
-					currentField = gameboard.getField(currentPlayer.getPosition());
+//					currentField = gameboard.getField(currentPlayer.getPosition());
 			
 					//Check if the field is a territory (NOT IMPLEMENTED BELOW)
 					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
