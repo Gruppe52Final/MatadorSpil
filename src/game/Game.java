@@ -21,7 +21,7 @@ public class Game {
 	private GameBoard gameboard = new GameBoard(dice);
 	private boolean won = false;
 	private Player currentPlayer;
-	private Fields currentField;
+//	private Fields currentField;
 	Player[] player;	
 //	private MatadorGUI out;
 	
@@ -31,34 +31,18 @@ public class Game {
 	}
 	
 	public Game() {
-//	String language = out.selectLanguage(); // Makes game crash nullPointerException
+	out.createField();
+	String language = out.selectLanguage(); // Makes game crash nullPointerException Field line 118
 //	out.createTexts(language);
-	String language = "English";
+//	String language = "English";
  	if(language.equals("Dansk")) {
 	 out = new MatadorGUI("Dansk");
  		} else if(language.equals("English")) {
  			out = new MatadorGUI("English");
 		}
 	}
-	public void selectLanguage() {
-//		String language = out.selectLanguage(); // Makes game crash nullPointerException
-//		language = "English";
-//	 	if(language.equals("Dansk")) {
-//		 out = new MatadorGUI("Dansk");
-//		} else if(language.equals("English")) {
-//		 out = new MatadorGUI("English");
-//		}
-	}
-
 	public void run() {
-	
-
-//		System.out.println(gameboard.toString());  //Used for debugging purpose, I guess
-		out.createField();
-		
-//		System.out.println(Texts.text[0]);
-//		out.getLanguage();
-		
+					
 		//Gets input from player actor outside system boundary
 		playerAmount = out.playerAmount();
 		
@@ -96,7 +80,7 @@ public class Game {
 					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
 			
 					// Get the current field the player lands on
-					currentField = gameboard.getField(currentPlayer.getPosition());
+//					currentField = gameboard.getField(currentPlayer.getPosition());
 			
 					//Check if the field is a territory (NOT IMPLEMENTED BELOW)
 					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);

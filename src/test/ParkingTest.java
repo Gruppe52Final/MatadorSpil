@@ -33,7 +33,7 @@ public class ParkingTest {
 		refuge = (Refuge) gameBoard.getField(20);
 		
 		//Places player on board
-		territory.landOnField(player, refuge);
+		territory.landOnField(player);
 				
 		//Make sure that player is now owner
 		assertEquals(territory.getOwner(), player);

@@ -179,6 +179,8 @@ public class MatadorGUI {
 					+ (i + 1) + ":"));
 			GUI.addPlayer(player[i].getName(), player[i].account.getScore(),
 					car[i]);
+			System.out.println("position "+player[i].getPosition());
+			System.out.println("name "+player[i].getName());
 			GUI.setCar(player[i].getPosition() + 1, player[i].getName());
 		}
 	}
