@@ -17,18 +17,19 @@ public class TaxPercent extends Fields {
 	@Override
 	public void landOnField(Player player) {
 		String taxPick = out.taxPick(name);
-		if (taxPick == "200") {
+		if (taxPick.equals("200")) {
 			if (player.account.getScore() >= pay) {
-			player.account.addPoints(-pay);
-		} else {
-			out.fundsTooLowToPayTax();
-			player.account.addPoints(-player.account.getScore());
-			player.setDeathStatus(true);
+			player.account.subtractPoints(pay);
+			} else if (player.account.getScore() < pay) {
+				out.fundsTooLowToPayTax();
+				taxPick = "10%";
+				}			
 		}
-	} else {
-		player.account.addPoints((int) -player.account.getScore() / 10);
+		if (taxPick.equals("10%")) {
+			player.account.subtractPoints((int) (player.account.getScore() * 0.1));
 		}
 	}
+	
 
 	@Override
 	public String toString() {

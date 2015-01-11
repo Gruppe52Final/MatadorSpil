@@ -269,7 +269,7 @@ public class MatadorGUI {
 	}
 	
 	public void fundsTooLowToPayTax() {
-		GUI.showMessage("The tax is higher than your balance. Instead you pay the rest of you balance.");
+		GUI.showMessage("The tax is higher than your balance. Instead you pay 10% of your score");
 	}
 
 	public void passedStart(Player player, int passStartMoney) {
