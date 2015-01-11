@@ -118,7 +118,7 @@ public class TestPrison {
 		//Give player a turn
 		game.movePlayer(player, dice);
 		
-		//Has player moved 6 fields, so he should be at field[16] now
+		//Has player moved 6 fields? He should be at field[16] now
 		assertEquals(player.getPosition(),16);
 
 		
