@@ -41,6 +41,8 @@ public class Texts {
 			text = textDansk;
 		} else if(language.equals("English")) {
 			text = textEnglish;
+		} else {
+			text = textEnglish;
 		}
 	}
 

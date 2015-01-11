@@ -22,32 +22,42 @@ public class Game {
 	private boolean won = false;
 	private Player currentPlayer;
 	private Fields currentField;
+	Player[] player;	
 //	private MatadorGUI out;
 	
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.run();
 	}
-
+	
 	public Game() {
-	String language = "Dansk";
 //	String language = out.selectLanguage(); // Makes game crash nullPointerException
+//	out.createTexts(language);
+	String language = "English";
  	if(language.equals("Dansk")) {
 	 out = new MatadorGUI("Dansk");
-	} else if(language.equals("English")) {
-	 out = new MatadorGUI("English");
+ 		} else if(language.equals("English")) {
+ 			out = new MatadorGUI("English");
+		}
 	}
-}
+	public void selectLanguage() {
+//		String language = out.selectLanguage(); // Makes game crash nullPointerException
+//		language = "English";
+//	 	if(language.equals("Dansk")) {
+//		 out = new MatadorGUI("Dansk");
+//		} else if(language.equals("English")) {
+//		 out = new MatadorGUI("English");
+//		}
+	}
 
 	public void run() {
 	
-		Player[] player;	
 
-		System.out.println(gameboard.toString()); //This gives nullPointerError, but why do we need it anyway ?
+//		System.out.println(gameboard.toString());  //Used for debugging purpose, I guess
 		out.createField();
 		
 //		System.out.println(Texts.text[0]);
-		out.getLanguage();
+//		out.getLanguage();
 		
 		//Gets input from player actor outside system boundary
 		playerAmount = out.playerAmount();
