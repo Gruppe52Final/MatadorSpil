@@ -90,8 +90,9 @@ public class Game {
 		out.showDice(dice.getDice1(), dice.getDice2());
 
 		//Updates the position variable inside player object
-		player.setPosition(player.getPosition() + dice.getSum());
-
+//		player.setPosition(player.getPosition() + dice.getSum());
+		player.addRollToPosition(dice.getSum());
+		
 		//Updates the position of the cars on GUI
 		out.updatePosition(player);
 		
