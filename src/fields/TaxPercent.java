@@ -18,10 +18,9 @@ public class TaxPercent extends Fields {
 	public void landOnField(Player player) {
 		String taxPick = out.taxPick(name);
 		if (taxPick.equals("200")) {
-			if (player.account.getScore() >= pay) {
+			if (player.account.getScore() >= pay) {	
 			player.account.subtractPoints(pay);
-			} 
-			else if (player.account.getScore() < pay) {
+			} else if (player.account.getScore() < pay) {
 				out.fundsTooLowToPayTax();
 				taxPick = "10%";
 				}			
