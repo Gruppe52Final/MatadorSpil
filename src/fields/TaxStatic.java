@@ -23,7 +23,7 @@ public class TaxStatic extends Fields {
 			player.account.addPoints(-player.account.getScore());
 			player.setDeathStatus(true);
 		}
-		out.updateBalance(player.getName(), player.account.getScore());
+		out.updateBalance(player);
 	}
 
 	@Override

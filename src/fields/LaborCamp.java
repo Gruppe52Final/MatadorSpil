@@ -48,19 +48,19 @@ public class LaborCamp extends Ownable {
 				getOwner().account.addPoints(fullRent);
 				player.account.addPoints(-fullRent);
 
-				out.updateBalance(getOwner().getName(), getOwner().account.getScore());			// the player looses if the rent is higher than the players balance
+				out.updateBalance(player);			// the player looses if the rent is higher than the players balance
 			} else {
 				getOwner().account.addPoints(player.account.getScore());
 				player.account.addPoints(-player.account.getScore());
 				
 				out.insufficiantFunds(name, getOwner().getName(), player.account.getScore());
-				out.updateBalance(getOwner().getName(), getOwner().account.getScore());
+				out.updateBalance(player);
 				
 				player.setDeathStatus(true);
 			}
 		}
 		// Updates the GUI balance for each player
-		out.updateBalance(player.getName(), player.account.getScore());
+		out.updateBalance(player);
 	}
 
 	@Override

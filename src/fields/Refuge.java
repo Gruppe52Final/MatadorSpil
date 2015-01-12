@@ -25,7 +25,7 @@ private MatadorGUI out = new MatadorGUI();
 			//Add points to player
 			player.account.addPoints(account.getScore());
 			//updates balance of player
-			out.updateBalance(player.getName(), player.account.getScore());
+			out.updateBalance(player);
 	}
 	@Override
 	public String toString() {

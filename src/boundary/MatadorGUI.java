@@ -248,8 +248,8 @@ public class MatadorGUI {
 				+ playerName + "'s balance");
 	}
 	
-	public void updateBalance(String playerName, int amount) {
-		GUI.setBalance(playerName, amount);
+	public void updateBalance(Player player) {
+		GUI.setBalance(player.getName(), player.account.getScore());
 	}
 	
 	public void insufficiantFunds(String fieldName, String playerName, int balance) {

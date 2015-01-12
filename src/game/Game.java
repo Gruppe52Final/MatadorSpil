@@ -119,10 +119,10 @@ public class Game {
 			if (currentPlayer.account.getScore() >= 100) {
 				currentPlayer.setPrisonTurns(0);
 				//Subtract 100 points from players account
-				currentPlayer.account.addPoints(-100);				 
+				currentPlayer.account.subtractPoints(100);				 
 				
 				//Update GUI
-				out.updateBalance(currentPlayer.getName(), currentPlayer.account.getScore());
+				out.updateBalance(currentPlayer);
 				
 				//If he doesn't have enough, tell him this in GUI.
 				} else if (currentPlayer.account.getScore() < 100) {					
@@ -163,7 +163,7 @@ public class Game {
 		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
 			player.account.addPoints(passStartMoney);
 			out.passedStart(player, passStartMoney);
-			out.updateBalance(player.getName(), player.account.getScore());
+			out.updateBalance(player);
 		}
 	}
 	

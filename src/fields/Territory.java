@@ -23,7 +23,7 @@ public class Territory extends Ownable {
 				boolean buyField = out.buyField(name, price);
 				if (buyField) {
 //					refugeField.account.addPoints(price * 0.1);
-					player.account.addPoints(-price);
+					player.account.subtractPoints(price);
 					setOwner(player);
 					out.fieldBought(name);
 				} else {
@@ -41,23 +41,23 @@ public class Territory extends Ownable {
 				out.fieldTax(name, getOwner().getName(), rent);
 				
 				getOwner().account.addPoints(rent);
-				player.account.addPoints(-rent);
+				player.account.subtractPoints(rent);
 
-				out.updateBalance(getOwner().getName(), getOwner().account.getScore());			// the player looses if the rent is higher than the players balance
+				out.updateBalance(player);			// the player looses if the rent is higher than the players balance
 			}
 			// the player loses if the rent is higher than the players balance
 			else {
 				getOwner().account.addPoints(player.account.getScore());
-				player.account.addPoints(-player.account.getScore());
+				player.account.subtractPoints(player.account.getScore());
 				
 				out.insufficiantFunds(name, getOwner().getName(), player.account.getScore());
-				out.updateBalance(getOwner().getName(), getOwner().account.getScore());
+				out.updateBalance(player);
 				
 				player.setDeathStatus(true);
 			}
 		}
 		// Updates the GUI balance for each player
-		out.updateBalance(player.getName(), player.account.getScore());
+		out.updateBalance(player);
 	}
 	
 	@Override
