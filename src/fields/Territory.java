@@ -16,13 +16,15 @@ public class Territory extends Ownable {
 	}
 
 	@Override
-	public void landOnField(Player player) {
+	public void landOnField(Player player, Refuge refuge) {
 		// If the current field has no owner, the player can buy it
 		if (getOwner() == null) {
 			if (player.account.getScore() >= price) {
 				boolean buyField = out.buyField(name, price);
 				if (buyField) {
-//					refugeField.account.addPoints(price * 0.1);
+					//Add money to refuge field
+					refuge.account.addPoints(price * 0.1);
+					//Subtract money from player for buying field
 					player.account.subtractPoints(price);
 					setOwner(player);
 					out.fieldBought(name);
@@ -63,6 +65,16 @@ public class Territory extends Ownable {
 	@Override
 	public String toString() {
 		return "Type: Territory --- Name: " + name + " --- Price: " + price + " --- Rent: " + rent + "\n";
+	}
+
+	@Override
+	public void landOnField(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public int getPrice() {
+		return price;
 	}
 
 	

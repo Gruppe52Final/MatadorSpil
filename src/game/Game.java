@@ -6,9 +6,9 @@
 
 package game;
 
-import fields.Fields;
+
 import boundary.MatadorGUI;
-import boundary.Texts;
+
 
 
 public class Game {
@@ -83,9 +83,12 @@ public class Game {
 					// Get the current field the player lands on
 //					currentField = gameboard.getField(currentPlayer.getPosition());
 			
-					//Check if the field is a territory (NOT IMPLEMENTED BELOW)
+					//Check if the field is ownable (NOT IMPLEMENTED BELOW)
+					if(gameboard.fieldOwnable(currentPlayer.getPosition())) {
+						gameboard.landOnOwnable(currentPlayer);
+					} else {
 					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
-			
+					}
 					// If a player has lost, adds one to lostCount and reset the players owned fields
 					checkIfPlayerLost(currentPlayer, player);
 			
