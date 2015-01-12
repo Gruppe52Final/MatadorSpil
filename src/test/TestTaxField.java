@@ -16,6 +16,7 @@ public class TestTaxField {
 	int taxAmount2 = 200;
 	TaxStatic tax = new TaxStatic("Statsskat", taxAmount);
 	TaxPercent taxPercentOption = new TaxPercent("Indkomstskat", taxAmount2);
+	Game game = new Game();
 	
 	@Test
 	public void test() {
@@ -35,14 +36,7 @@ public class TestTaxField {
 		
 		
 		//Test if player can have option to chose percent instead, on field 
-		taxPercentOption.landOnField(player);
-		
-		
-		
-			
-	
-		
-		
+		taxPercentOption.landOnField(player);		
 	}
 
 }

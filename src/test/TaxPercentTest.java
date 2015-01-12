@@ -14,11 +14,14 @@ public class TaxPercentTest {
 	Player player = new Player("TestTaxPercent");
 	TaxPercent taxPercent = new TaxPercent("TaxPercent", pay);
 	int playerStartMoney = player.account.getScore();
-	
+	Game game = new Game();
 	
 	
 	//Test if player is deducted 200 points by taxfield
 	assertEquals(player.account.getScore(),playerStartMoney);
+
+	//Initialize GUI
+
 	
 	//Choose 200 points
 	taxPercent.landOnField(player);
