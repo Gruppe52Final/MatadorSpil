@@ -36,4 +36,5 @@ private MatadorGUI out = new MatadorGUI();
 		return startBonus;
 	}
 
+
 }

@@ -82,4 +82,21 @@ public class GameBoard {
 		}
 		return s;		
 	}
+
+	public boolean fieldOwnable(int position) {
+		boolean x = false;
+		if(field[position] instanceof Ownable) {
+			x = true;
+		}
+		return x;
+	}
+
+	public void landOnOwnable(Player player) {
+		Refuge refuge;
+		Ownable ownable;
+		ownable =(Ownable) field[player.getPosition()];
+		refuge = (Refuge) field[20];
+		ownable.landOnField(player, refuge);
+		
+	}
 }

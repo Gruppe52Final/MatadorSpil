@@ -11,8 +11,7 @@ public abstract class Ownable extends Fields {
 	}	
 	
 	
-	@Override
-	public abstract void landOnField(Player player);
+
 	
 	@Override
 	public abstract String toString();

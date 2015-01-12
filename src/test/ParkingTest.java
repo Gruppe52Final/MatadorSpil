@@ -21,7 +21,6 @@ public class ParkingTest {
 	Territory territory;
 	Refuge refuge;
 	
-
 	
 	@Test
 	public void test() {
@@ -32,8 +31,14 @@ public class ParkingTest {
 		//make refuge object
 		refuge = (Refuge) gameBoard.getField(20);
 		
+		System.out.println(player.account.getScore());
+		
 		//Places player on board
-		territory.landOnField(player);
+		territory.landOnField(player, refuge);
+		
+		System.out.println(territory.getPrice());
+		
+		assertEquals(player.account.getScore(),(1500 - territory.getPrice()));
 				
 		//Make sure that player is now owner
 		assertEquals(territory.getOwner(), player);
@@ -57,7 +62,8 @@ public class ParkingTest {
 		
 		//Lets see if the player received the bonus
 		assertEquals(player.account.getScore(),bonus + playerStartMoney);
+		assertEquals(player.account.getScore(),1424);
+		System.out.println(player.account.getScore());
 
 	}
-
 }
