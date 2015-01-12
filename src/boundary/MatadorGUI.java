@@ -319,15 +319,17 @@ public class MatadorGUI {
 		
 	}
 	
+
 	public void visitPrisonMessage() {
 		GUI.showMessage("You have landed on prison You're only on a visit and can leave any time.");
 	}
+	
 	
 	public void inPrisonMessage() {
 		GUI.showMessage("You are in prison, payout or throw equal dice to get out");
 	}
 	
-	public void goToPrisonMessage(String name) {
+	public void goToPrisonMessage() {
 		GUI.showMessage("You're being taken to the jail. "
 				+ "You either have to pay yourself out "
 				+ "or be set free because of good behavior (by rolling two equal dice)");

@@ -13,7 +13,7 @@ public class GoToPrison extends Fields {
 		}
 	@Override
 	public void landOnField(Player player) {
-		out.goToPrisonMessage(name);
+		out.goToPrisonMessage();
 		player.setPosition(10);
 		out.updatePosition(player);
 		player.setPrisonTurns(3);
