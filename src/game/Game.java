@@ -93,7 +93,9 @@ public class Game {
 					checkIfPlayerWon(player);
 					
 					//Remove justGotOutOfPrison on currentPlayer
+
 					currentPlayer.setJustOutOfPrison(false);
+
 			}
 		}
 	}	
@@ -122,9 +124,7 @@ public class Game {
 				currentPlayer.setPrisonTurns(0);
 				//Subtract 100 points from players account
 				currentPlayer.account.subtractPoints(100);	
-				
-				currentPlayer.setJustOutOfPrison(true);
-				
+				currentPlayer.setJustOutOfPrison(true);				
 				//Update GUI
 				out.updateBalance(currentPlayer);
 				
@@ -139,7 +139,9 @@ public class Game {
 				//If both dice are equal, he's out of prison
 				if (dice.getDice1() == dice.getDice2()) {
 					currentPlayer.setPrisonTurns(0);
+
 					currentPlayer.setJustOutOfPrison(true);
+
 				} else {
 					currentPlayer.setPrisonTurns(currentPlayer.getPrisonTurns() - 1);
 				}
