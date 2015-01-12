@@ -166,10 +166,13 @@ public class Game {
 	}
 
 	public void checkIfPlayerPassedStart(Player player, int diceSum) {
-		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getJustOutOfPrison())) {
-			player.account.addPoints(passStartMoney);
-			out.passedStart(player, passStartMoney);
-			out.updateBalance(player);
+		if (!(diceSum + player.getPreviousPosition() == player.getPosition())) {
+			if(player.getPosition() != 10 ) {
+				player.account.addPoints(passStartMoney);
+				out.passedStart(player, passStartMoney);
+				out.updateBalance(player);	
+			}
+			
 		}
 	}
 	
