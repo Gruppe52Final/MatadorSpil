@@ -13,7 +13,7 @@ public class Player {
 	private boolean dead;
 	public Account account = new Account();
 	private int previousPosition;
-	private boolean justOutOfPrisonWithDice;
+	private boolean justOutOfPrison;
 
 	// Object that stores the name and position of a player
 	public Player(String name) {
@@ -80,13 +80,13 @@ public class Player {
 		position = i;		
 	}
 
-	public void setJustOutOfPrisonWithDice(boolean b) {
-		justOutOfPrisonWithDice = b;
+	public void setJustOutOfPrison(boolean b) {
+		justOutOfPrison = b;
 		
 	}
 
-	public boolean getJustOutOfPrisonByDice() {
-		return justOutOfPrisonWithDice;
+	public boolean getJustOutOfPrison() {
+		return justOutOfPrison;
 	}
 	
 }
