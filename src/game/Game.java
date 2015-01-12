@@ -135,7 +135,6 @@ public class Game {
 				//If both dice are equal, he's out of prison
 				if (dice.getDice1() == dice.getDice2()) {
 					currentPlayer.setPrisonTurns(0);
-					currentPlayer.setJustOutOfPrisonWithDice(true);
 				} else {
 					currentPlayer.setPrisonTurns(currentPlayer.getPrisonTurns() - 1);
 				}

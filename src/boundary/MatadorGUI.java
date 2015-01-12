@@ -242,7 +242,7 @@ public class MatadorGUI {
 	}
 	
 	public void fieldTax(String fieldName, String playerName, int price) {
-		GUI.showMessage(fieldName + " is owned by " + playerName
+		GUI.showMessage(fieldName + text.text[12] + playerName
 				+ ", " + price
 				+ " points will be transfered to "
 				+ playerName + "'s balance");
@@ -319,9 +319,12 @@ public class MatadorGUI {
 		
 	}
 	
-	public void prisonMessage(String name) {
-		GUI.showMessage("You have landed on " + name
-				+ ". You're only on a visit and can leave any time.");
+	public void visitPrisonMessage(String name) {
+		GUI.showMessage("You have landed on prison You're only on a visit and can leave any time.");
+	}
+	
+	public void inPrisonMessage(String name) {
+		GUI.showMessage("You are in prison, payout or throw equal dice to get out");
 	}
 	
 	public void goToPrisonMessage(String name) {
