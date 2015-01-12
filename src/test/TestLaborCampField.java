@@ -13,6 +13,7 @@ public class TestLaborCampField {
 	public void test() {
 		
 		Player playerBuy = new Player("TestLaborCampPlayer");
+		Player playerLand = new Player("TestLaborCampLandingPlayer");
 		Dice dice = new Dice();
 		MatadorGUI gui = new MatadorGUI();
 		int pay = 200;
@@ -32,6 +33,14 @@ public class TestLaborCampField {
 		
 		//Subtracted price from his account ?		
 		assertEquals(playerBuy.account.getScore(), (startingCash - pay));
+		
+		//Make another player land on LaborCamp
+		laborCamp.landOnField(playerLand);
+		
+		dice.setDice1(6);
+		dice.setDice2(6);
+		
+		game.movePlayer(playerLand, dice);
 		
 //		//Test if other players will pay correct rent
 //		dice.setDice1(1);

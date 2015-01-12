@@ -79,12 +79,12 @@ public class Player {
 	public void setPosition(int i) {
 		position = i;		
 	}
-
+@Deprecated
 	public void setJustOutOfPrison(boolean b) {
 		justOutOfPrison = b;
 		
 	}
-
+@Deprecated
 	public boolean getJustOutOfPrison() {
 		return justOutOfPrison;
 	}

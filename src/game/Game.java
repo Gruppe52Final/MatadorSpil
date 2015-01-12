@@ -110,7 +110,7 @@ public class Game {
 		//Updates the position of the cars on GUI
 		out.updatePosition(player);
 		
-		currentPlayer.setJustOutOfPrison(false);
+//		currentPlayer.setJustOutOfPrison(false);
 		
 	}
 

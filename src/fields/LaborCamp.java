@@ -20,10 +20,10 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-//		checkFieldNotOwnedByAnyone(player);
-//		checkFieldOwnedByPlayerHimSelf(player);
-//		checkFieldOwnedByAnotherPlayer(player);
-//		// Updates the GUI balance for each player
+		checkFieldNotOwnedByAnyone(player);
+		checkFieldOwnedByPlayerHimSelf(player);
+		checkFieldOwnedByAnotherPlayer(player);
+		// Updates the GUI balance for each player
 		out.updateBalance(player);
 	}
 	
