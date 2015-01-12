@@ -13,7 +13,11 @@ public class VisitPrison extends Fields {
 		}
 		@Override
 		public void landOnField(Player player) {
-				out.prisonMessage(name);
+			if(player.getPrisonTurns() == 0) {
+				out.visitPrisonMessage();
+			} else if(player.getPrisonTurns() > 0) {
+				out.inPrisonMessage();
+			}
 		}
 		@Override
 		public String toString() {
