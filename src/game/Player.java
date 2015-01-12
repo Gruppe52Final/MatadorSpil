@@ -9,7 +9,7 @@ package game;
 public class Player {
 	private String name;
 	private int position, fleets, laborCamp;
-	public int prisonTurns;
+	private int prisonTurns;
 	private boolean dead;
 	public Account account = new Account();
 	private int previousPosition;

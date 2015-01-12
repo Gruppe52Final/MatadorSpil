@@ -69,13 +69,14 @@ public class Game {
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 					dice.throwDice();
 					
-					if(currentPlayer.prisonTurns > 0) {
+					if(currentPlayer.getPrisonTurns() > 0) {
 					prisonDialog(currentPlayer, dice);
 					}	
 					
-					if(currentPlayer.prisonTurns == 0) {
+					if(currentPlayer.getPrisonTurns() == 0) {
 						movePlayer(currentPlayer, dice);
 					}
+					
 					
 					//Check if player passed start field, gives him passStartMoney in case
 					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
