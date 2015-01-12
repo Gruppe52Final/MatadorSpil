@@ -20,27 +20,18 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		// If the current field has no owner, the player can buy it
-		if (getOwner() == null) {
-			if (player.account.getScore() >= price) {
-				boolean buyField = out.buyField(name, price);
-				if (buyField) {
-					player.account.addPoints(-price);
-					setOwner(player);
-					player.addLaborCamp();
-					out.fieldBought(name);
-				} else {
-					out.fieldRefused(name);
-				}
-			} else {
-				out.fieldRefusedPrice(name);
-			}
-			// if the owner is the player himself, nothing happens
-		} else if (getOwner() == player) {
-			out.fieldOwnedByPlayer(name);
-		}
+		checkFieldNotOwnedByAnyone(player);
+		checkFieldOwnedByPlayerHimSelf(player);
+		checkFieldOwnedByAnotherPlayer(player);
+		// Updates the GUI balance for each player
+		out.updateBalance(player);
+	}
+	
+	
+	
+	private void checkFieldOwnedByAnotherPlayer(Player player) {
 		// if the field is owned by another player, a rent have to be paid
-		else {
+		if (getOwner() != player || getOwner() != null) {
 			int fullRent = rent * dice.getSum() * getOwner().getLaborCamp();
 			if (player.account.getScore() >= fullRent) {
 				out.fieldTax(name, getOwner().getName(), fullRent);
@@ -59,8 +50,33 @@ public class LaborCamp extends Ownable {
 				player.setDeathStatus(true);
 			}
 		}
-		// Updates the GUI balance for each player
-		out.updateBalance(player);
+		
+	}
+
+	private void checkFieldOwnedByPlayerHimSelf(Player player) {
+	// if the owner is the player himself, nothing happens
+	if (getOwner() == player) {
+		out.fieldOwnedByPlayer(name);
+		}
+	}
+
+	private void checkFieldNotOwnedByAnyone(Player player) {
+		// If the current field has no owner, the player can buy it
+		if (getOwner() == null) {
+			if (player.account.getScore() >= price) {
+				boolean buyField = out.buyField(name, price);
+				if (buyField) {
+					player.account.subtractPoints(price);
+					setOwner(player);
+					player.addLaborCamp();
+					out.fieldBought(name);
+					} else if(!buyField) {
+						out.fieldRefused(name);
+					}
+			} else if(player.account.getScore() < price) {
+				out.fieldRefusedPrice(name);
+			}
+		}
 	}
 
 	@Override
