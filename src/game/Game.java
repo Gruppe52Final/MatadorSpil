@@ -83,7 +83,10 @@ public class Game {
 					// Get the current field the player lands on
 //					currentField = gameboard.getField(currentPlayer.getPosition());
 			
+
 					//Check if the field is ownable, used for depositing money on Refuge
+
+					//Check if the field is ownable (NOT IMPLEMENTED BELOW)
 					if(gameboard.fieldOwnable(currentPlayer.getPosition())) {
 						gameboard.landOnOwnable(currentPlayer);
 					} else {
