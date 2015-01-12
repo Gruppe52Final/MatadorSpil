@@ -326,7 +326,7 @@ public class MatadorGUI {
 	
 	
 	public void inPrisonMessage() {
-		GUI.showMessage("You are in prison, payout or throw equal dice to get out");
+		GUI.showMessage("You are in prison, throw equal dice to get out");
 	}
 	
 	public void goToPrisonMessage() {
