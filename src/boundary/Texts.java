@@ -16,10 +16,27 @@ public class Texts {
 		"Ja", //6
 		"Nej", //7
 		"Du har købt ", //8
-		"Du nægtede at købe", //9
+		"Du nægtede at købe ", //9
 		"Du har ikke nok point til at købe ", //10
 		" er ejet af dig selv, og så sker der ikke noget.", //11
-		" er ejet af dig selv", //12
+		" er ejet af", //12
+		" points vil bive overført til ", //13
+		"'s balance", //14
+		", du har ikke råd til det. dine resterende ", //15
+		"Du har landet på ", //16
+		" og modtager ", //17
+		" points.", //18
+		". Du kan slappe af her, indtil det bliver din tur igen.", //19
+		" og må betale 2000 points i skat", //20
+		"skatten er højere end din balance. ", //21
+		"Du betaler resten af dine balance i stedet.", //22
+		" og skal betale skat. ", //23
+		"Vil du betale 200 points eller 10% af dine totale point?", //24
+		"200", //25
+		"10%", //26
+		"Skatten højere end din balance. i stedet betaler du 10% dine point", //27
+		"Du har passeret start feltet og modtager ", //28
+		"DU er gået validt.", //29
 		};
 	
 	private String[] textEnglish = 
@@ -37,6 +54,23 @@ public class Texts {
 			"You dont have enough points to buy ", //10
 			" is owned by yourself and therefore nothing happens.", //11
 			" is owned by ", //12
+			" points will be transfered to ", //13
+			"'s balance", //14
+			", but the rent is higher than your balance. Your remaining ", //15
+			"You have landed on ", //16
+			" and recieve ", //17
+			" points.", //18
+			". Rest here until next turn.", //19
+			" and must pay a tax of 2000 points", //20
+			"The tax is higher than your balance. ", //21
+			"Instead you pay the rest of you balance.", //22
+			" and have to pay tax. ", //23
+			"Would you like to pay 200 points or 10% of your total score?", //24
+			"200", //25
+			"10%", //26
+			"The tax is higher than your balance. Instead you pay 10% of your score", //27
+			"You have have passed Start field and receive ", //28
+			"You have gone bankrupt.", //29
 		};
 	
 
