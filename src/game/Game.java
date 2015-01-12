@@ -94,7 +94,6 @@ public class Game {
 					
 					//Remove justGotOutOfPrison on currentPlayer
 
-					currentPlayer.setJustOutOfPrison(false);
 
 			}
 		}
@@ -110,6 +109,8 @@ public class Game {
 		
 		//Updates the position of the cars on GUI
 		out.updatePosition(player);
+		
+		currentPlayer.setJustOutOfPrison(false);
 		
 	}
 
@@ -166,15 +167,13 @@ public class Game {
 	}
 
 	public void checkIfPlayerPassedStart(Player player, int diceSum) {
-		if (!(diceSum + player.getPreviousPosition() == player.getPosition())) {
-			if(player.getPosition() != 10 ) {
+		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
 				player.account.addPoints(passStartMoney);
 				out.passedStart(player, passStartMoney);
 				out.updateBalance(player);	
 			}
 			
 		}
-	}
 	
 	public Dice getDice() {
 		return dice;

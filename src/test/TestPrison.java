@@ -29,8 +29,10 @@ public class TestPrison {
 		//Ok, so now player gets moved from field 30 to field 10
 		//But does he also NOT receive start cash?
 		
+		assertEquals(player.getPrisonTurns(),3);
+		
 		//We run the checkIfPlayerPassedStart to see if he can have start cash
-		game.checkIfPlayerPassedStart(player, 5); //5 is just a random dicethrow
+		game.checkIfPlayerPassedStart(player, 10); //5 is just a random dicethrow
 		
 		//So does it still have the same cash as when the player object was created?
 		assertEquals(player.account.getScore(), startingCash);
