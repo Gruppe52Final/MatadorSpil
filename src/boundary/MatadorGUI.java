@@ -238,7 +238,7 @@ public class MatadorGUI {
 	
 	public void fieldOwnedByPlayer(String name) {
 		GUI.showMessage(name
-				+ " is owned by yourself and therefore nothing happens.");
+				+ text.text[11]);
 	}
 	
 	public void fieldTax(String fieldName, String playerName, int price) {

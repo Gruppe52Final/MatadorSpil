@@ -18,6 +18,7 @@ public class Texts {
 		"Du har købt ", //8
 		"Du nægtede at købe", //9
 		"Du har ikke nok point til at købe ", //10
+		" er ejet af dig selv, og så sker der ikke noget.", //11
 		};
 	
 	private String[] textEnglish = 
@@ -33,6 +34,7 @@ public class Texts {
 			"You have successfully bought ", //8
 			"You refused to buy ", //9
 			"You dont have enough points to buy ", //10
+			" is owned by yourself and therefore nothing happens.", //11
 		};
 	
 
