@@ -67,19 +67,21 @@ public class Game {
 					out.nextPlayer(currentPlayer);
 					
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
-					dice.throwDice();
-					
-					if(currentPlayer.getPrisonTurns() > 0) {
-					prisonDialog(currentPlayer, dice);
-					}	
+					dice.throwDice();							
 					
 					if(currentPlayer.getPrisonTurns() == 0) {
 						movePlayer(currentPlayer, dice);
 					}
 					
-					
 					//Check if player passed start field, gives him passStartMoney in case
 					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
+					
+					if(currentPlayer.getPrisonTurns() > 0) {
+						prisonDialog(currentPlayer, dice);
+					}				
+					
+					
+
 			
 					// Get the current field the player lands on
 //					currentField = gameboard.getField(currentPlayer.getPosition());
@@ -92,6 +94,9 @@ public class Game {
 			
 					//Checks if one player has won in the player array
 					checkIfPlayerWon(player);
+					
+					//Remove justGotOutOfPrison on currentPlayer
+					currentPlayer.setJustOutOfPrisonWithDice(false);
 			}
 		}
 	}	
@@ -119,7 +124,9 @@ public class Game {
 			if (currentPlayer.account.getScore() >= 100) {
 				currentPlayer.setPrisonTurns(0);
 				//Subtract 100 points from players account
-				currentPlayer.account.subtractPoints(100);				 
+				currentPlayer.account.subtractPoints(100);	
+				
+				currentPlayer.setJustOutOfPrisonWithDice(true);
 				
 				//Update GUI
 				out.updateBalance(currentPlayer);
@@ -135,6 +142,7 @@ public class Game {
 				//If both dice are equal, he's out of prison
 				if (dice.getDice1() == dice.getDice2()) {
 					currentPlayer.setPrisonTurns(0);
+					currentPlayer.setJustOutOfPrisonWithDice(true);
 				} else {
 					currentPlayer.setPrisonTurns(currentPlayer.getPrisonTurns() - 1);
 				}
@@ -159,7 +167,7 @@ public class Game {
 	}
 
 	public void checkIfPlayerPassedStart(Player player, int diceSum) {
-		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
+		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getJustOutOfPrison())) {
 			player.account.addPoints(passStartMoney);
 			out.passedStart(player, passStartMoney);
 			out.updateBalance(player);
