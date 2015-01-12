@@ -237,14 +237,14 @@ public class MatadorGUI {
 	
 	public void fieldOwnedByPlayer(String name) {
 		GUI.showMessage(name
-				+ text.text[11]);
+				+ Texts.text[11]);
 	}
 	
 	public void fieldTax(String fieldName, String playerName, int price) {
-		GUI.showMessage(fieldName + text.text[12] + playerName
+		GUI.showMessage(fieldName + Texts.text[12] + playerName
 				+ ", " + price
-				+ " points will be transfered to "
-				+ playerName + "'s balance");
+				+ Texts.text[13]
+				+ playerName + Texts.text[14]);
 	}
 	
 	public void updateBalance(Player player) {
@@ -253,53 +253,53 @@ public class MatadorGUI {
 	
 	public void insufficiantFunds(String fieldName, String playerName, int balance) {
 		GUI.showMessage(fieldName
-				+ " is owned by "
+				+ Texts.text[12]
 				+ playerName
-				+ ", but the rent is higher than your balance. Your remaining "
+				+ Texts.text[15]
 				+ balance
-				+ "points will be transfered to "
+				+ Texts.text[13]
 				+ playerName + ".");
 	}
 	
 	public void bonusMessage(String name, int bonus) {
-		GUI.showMessage("You have landed on " + name + " and recieve " + bonus + " points.");
+		GUI.showMessage(Texts.text[16] + name + Texts.text[17] + bonus + Texts.text[18]);
 	}
 	
 	public void startMessage(String name) {
-		GUI.showMessage("You have landed on " + name
-				+ ". Rest here until next turn.");
+		GUI.showMessage(Texts.text[16] + name
+				+ Texts.text[19]);
 	}
 	
 	public void goldmineMessage(String name) {
-		GUI.showMessage("You have landed on " + name
-				+ " and must pay a tax of 2000 points");
+		GUI.showMessage(Texts.text[16] + name
+				+ Texts.text[20]);
 	}
 	
 	public void insufficiantFundsTax() {
-		GUI.showMessage("The tax is higher than your balance. "
-				+ "Instead you pay the rest of you balance.");
+		GUI.showMessage(Texts.text[21]
+				+ Texts.text[22]);
 	}
 	
 	public String taxPick(String name) {
 		return GUI.getUserSelection(
-				"You have landed on "+ name + " and have to pay tax. "
-						+ "Would you like to pay 200 points or 10% of your total score?",
-				"200", "10%");
+				Texts.text[21] + name + Texts.text[23]
+						+ Texts.text[24],
+					Texts.text[25], Texts.text[26]);
 	}
 	
 	public void fundsTooLowToPayTax() {
-		GUI.showMessage("The tax is higher than your balance. Instead you pay 10% of your score");
+		GUI.showMessage(Texts.text[27]);
 	}
 
 	public void passedStart(Player player, int passStartMoney) {
-		GUI.showMessage("You have have passed Start field and receive " 
-				+ passStartMoney + " points.");
+		GUI.showMessage(Texts.text[28] 
+				+ passStartMoney + Texts.text[18]);
 		
 	}
 
 	public void removePlayer(Player player) {
 		GUI.removeCar(player.getPosition() + 1, player.getName());
-		GUI.showMessage("You have gone bankrupt.");			
+		GUI.showMessage(Texts.text[29]);			
 	}
 
 	public void updatePosition(Player currentPlayer) {
