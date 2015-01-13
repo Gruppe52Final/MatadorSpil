@@ -89,6 +89,10 @@ public class Territory extends Ownable {
 		
 	}
 	
+	public int getRent() {
+		return rent;
+	}
+	
 
 
 	

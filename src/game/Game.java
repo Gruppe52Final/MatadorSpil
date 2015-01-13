@@ -80,18 +80,11 @@ public class Game {
 						prisonDialog(currentPlayer, dice);
 					}				
 			
-					// Get the current field the player lands on
-//					currentField = gameboard.getField(currentPlayer.getPosition());
-			
-
 					//Check if the field is ownable, used for depositing money on Refuge
 
 					//Check if the field is ownable (NOT IMPLEMENTED BELOW)
-					if(gameboard.fieldOwnable(currentPlayer.getPosition())) {
-						gameboard.landOnOwnable(currentPlayer);
-					} else {
-					gameboard.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
-					}
+					gameboard.landOnField(currentPlayer);
+
 					// If a player has lost, adds one to lostCount and reset the players owned fields
 					checkIfPlayerLost(currentPlayer, player);
 			
