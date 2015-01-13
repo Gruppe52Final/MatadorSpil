@@ -39,10 +39,10 @@ public class Texts {
 		"DU er gået falit.", //29
 		" på fængsel du er kun på besøg og kan forlade når som helst", //30
 		"du er i fængsel kast lige tergninger for at komme ud", //31
-		"du er blevet fængslet", //32
-		" du kan endten betal dig ud", //33
+		"Du er blevet fængslet.", //32
+		" du kan endten betale dig ud", //33
 		" eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger)", //34
-		"er i fængsel. Vil du betale 100 point for at komme ud?", //35
+		" er i fængsel. Vil du betale 100 point for at komme ud?", //35
 		"Du har ikke nok point til at betale kaution ... vent på din løsladelse", //36
 		" . Du har nu ", //37
 		" fængsels tur tilbage",//38
