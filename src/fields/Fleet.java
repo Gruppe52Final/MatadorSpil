@@ -18,7 +18,7 @@ public class Fleet extends Ownable {
 		rent[3] = 200;
 	}
 	
-	@Override
+
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		if (getOwner() != player && getOwner() != null) {
 			if (player.account.getScore() >= rent[getOwner().getFleets() - 1]) {
@@ -57,7 +57,7 @@ public class Fleet extends Ownable {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 	public int[] getRent() {
 		return rent;
 	}

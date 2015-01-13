@@ -8,7 +8,6 @@ public abstract class Ownable extends Fields {
 	private Player owner;
 	private int price;
 	private String name;
-	private int rent;
 	private MatadorGUI gui = new MatadorGUI();
 
 	public Ownable(int price, String name) {
@@ -48,7 +47,6 @@ public abstract class Ownable extends Fields {
 	public Player getOwner() {
 		return owner;
 	}
-	
 	
 	public void checkFieldOwnedByPlayerHimSelf(Player player) {
 		// if the owner is the player himself, nothing happens
