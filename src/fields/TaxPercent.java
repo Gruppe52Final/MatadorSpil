@@ -27,6 +27,7 @@ public class TaxPercent extends Fields {
 		}
 		if (taxPick.equals("10%")) {
 			player.account.subtractPoints((int) (player.account.getScore() * 0.1));
+			out.updateBalance(player);
 		}
 	}
 	

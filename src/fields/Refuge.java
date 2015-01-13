@@ -26,6 +26,8 @@ private MatadorGUI out = new MatadorGUI();
 			player.account.addPoints(account.getScore());
 			//updates balance of player
 			out.updateBalance(player);
+			//Resets parking accont
+			account.setPoints(startBonus);
 	}
 	@Override
 	public String toString() {

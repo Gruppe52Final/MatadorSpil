@@ -24,9 +24,9 @@ public class Fleet extends Ownable {
 	@Override
 	public void landOnField(Player player, Refuge refuge) {
 		// If the current field has no owner, the player can buy it
-		checkFieldNotOwnedByAnyone(player, refuge);
 		
 		checkFieldOwnedByPlayerHimSelf(player);
+		checkFieldNotOwnedByAnyone(player, refuge);		
 		
 		checkFieldOwnedByAnotherPlayer(player);
 		
@@ -43,7 +43,7 @@ public class Fleet extends Ownable {
 	}
 
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
-		if (getOwner() != player || getOwner() != null) {
+		if (getOwner() != player && getOwner() != null) {
 			if (player.account.getScore() >= rent[getOwner().getFleets() - 1]) {
 				out.fieldTax(super.getName(), getOwner().getName(), rent[getOwner().getFleets()  - 1]);
 				player.account.subtractPoints(rent[getOwner().getFleets() - 1]);
@@ -58,6 +58,7 @@ public class Fleet extends Ownable {
 				out.insufficiantFunds(super.getName(), getOwner().getName(),
 						player.account.getScore());
 				out.updateBalance(player);
+				out.updateBalance(getOwner());
 
 				player.setDeathStatus(true);
 			}

@@ -57,6 +57,8 @@ public class TestFleet {
 		//Reset owners money
 		player.account.setPoints(startingCash);
 		
+
+		
 		
 		/**
 		 * Test if owning two fleets increases the rent

@@ -44,6 +44,7 @@ public class Territory extends Ownable {
 				player.account.subtractPoints(rent);
 
 				out.updateBalance(player);			// the player looses if the rent is higher than the players balance
+				out.updateBalance(getOwner());
 			}
 			// the player loses if the rent is higher than the players balance
 			else {
