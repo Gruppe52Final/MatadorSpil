@@ -47,4 +47,6 @@ public abstract class Ownable extends Fields {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 }
