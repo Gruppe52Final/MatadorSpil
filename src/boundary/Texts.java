@@ -27,10 +27,10 @@ public class Texts {
 		" og modtager ", //17
 		" points.", //18
 		". Du kan slappe af her, indtil det bliver din tur igen.", //19
-		" og må betale 2000 points i skat", //20
+		" og må betale 200 points i skat", //20
 		"skatten er højere end din balance. ", //21
 		"Du betaler resten af dine balance i stedet.", //22
-		" og skal betale skat. ", //23
+		" skal betales. ", //23
 		"Vil du betale 200 points eller 10% af dine totale point?", //24
 		"200", //25
 		"10%", //26
@@ -40,10 +40,12 @@ public class Texts {
 		" på fængsel du er kun på besøg og kan forlade når som helst", //30
 		"du er i fængsel kast lige tergninger for at komme ud", //31
 		"du er blevet fængslet", //32
-		"du kan endten betal dig ud", //33
-		"eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger)", //34
-		"er i fængsel. Vil du betale 100 point for at komme ud", //35
-		"Du har ikke nok point til at betale kaution ... vente på din løsladelse", //36
+		" du kan endten betal dig ud", //33
+		" eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger)", //34
+		"er i fængsel. Vil du betale 100 point for at komme ud?", //35
+		"Du har ikke nok point til at betale kaution ... vent på din løsladelse", //36
+		" . Du har nu ", //37
+		" fængsels tur tilbage",//38
 		
 		};
 	
@@ -69,10 +71,10 @@ public class Texts {
 			" and recieve ", //17
 			" points.", //18
 			". Rest here until next turn.", //19
-			" and must pay a tax of 2000 points", //20
+			" and must pay a tax of 200 points", //20
 			"The tax is higher than your balance. ", //21
 			"Instead you pay the rest of you balance.", //22
-			" and have to pay tax. ", //23
+			" have to be paid. ", //23
 			"Would you like to pay 200 points or 10% of your total score?", //24
 			"200", //25
 			"10%", //26
@@ -86,6 +88,8 @@ public class Texts {
 			"or be set free because of good behavior (by rolling two equal dice)", //34
 			" is in jail. Do you want to pay 100 points to get out?", //35
 			"You don't have enough points to pay bail... wait for your parole", //36
+			" .You now have ", //37
+			" prison turn left ", //38
 		};
 	
 

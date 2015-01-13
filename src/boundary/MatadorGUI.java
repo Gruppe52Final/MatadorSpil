@@ -334,12 +334,15 @@ public class MatadorGUI {
 	
 	public boolean payOutOfPrison(Player currentPlayer) {
 		return GUI.getUserLeftButtonPressed(currentPlayer.getName() 
-				+ text.text[35], text.text[6],
+				+ text.text[35] + text.text[37] + currentPlayer.getPrisonTurns() + text.text[38], text.text[6],
 				text.text[7]);
+		
 	}
+	
 
 	public void cantPayOutOfPrison(Player currentPlayer) {
 		GUI.showMessage(text.text[36]);
+	
 		
 	}
 
