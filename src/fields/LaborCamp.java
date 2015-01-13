@@ -16,7 +16,7 @@ public class LaborCamp extends Ownable {
 		this.dice = dice;
 	}
 
-	
+	@Override
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		// if the field is owned by another player, a rent have to be paid
 		if (getOwner() != player && getOwner() != null) {

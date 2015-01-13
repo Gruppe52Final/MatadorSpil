@@ -36,7 +36,15 @@ public class Texts {
 		"10%", //26
 		"Skatten højere end din balance. i stedet betaler du 10% dine point", //27
 		"Du har passeret start feltet og modtager ", //28
-		"DU er gået fallit.", //29
+		"DU er gået falit.", //29
+		" på fængsel du er kun på besøg og kan forlade når som helst", //30
+		"du er i fængsel kast lige tergninger for at komme ud", //31
+		"du er blevet fængslet", //32
+		"du kan endten betal dig ud", //33
+		"eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger)", //34
+		"er i fængsel. Vil du betale 100 point for at komme ud", //35
+		"Du har ikke nok point til at betale kaution ... vente på din løsladelse", //36
+		
 		};
 	
 	private String[] textEnglish = 
@@ -71,6 +79,13 @@ public class Texts {
 			"The tax is higher than your balance. Instead you pay 10% of your score", //27
 			"You have have passed Start field and receive ", //28
 			"You have gone bankrupt.", //29
+			"prison You're only on a visit and can leave any time.", // 30
+			"You are in prison, throw equal dice to get out", // 31
+			"You're being taken to the jail. ", //32
+			"You either have to pay yourself out ", //33
+			"or be set free because of good behavior (by rolling two equal dice)", //34
+			" is in jail. Do you want to pay 100 points to get out?", //35
+			"You don't have enough points to pay bail... wait for your parole", //36
 		};
 	
 
