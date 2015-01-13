@@ -17,6 +17,12 @@ public abstract class Ownable extends Fields {
 	@Override
 	public abstract String toString();
 	
+	public abstract void checkFieldOwnedByAnotherPlayer(Player player);
+	
+	public abstract void checkFieldOwnedByPlayerHimSelf(Player player);
+	
+	public abstract void checkFieldNotOwnedByAnyone(Player player, Refuge refuge);
+	
 	public void setOwner (Player player) {
 		owner = player;
 	}

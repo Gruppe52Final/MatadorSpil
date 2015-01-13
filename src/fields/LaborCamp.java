@@ -27,7 +27,7 @@ public class LaborCamp extends Ownable {
 	
 	
 	
-	private void checkFieldOwnedByAnotherPlayer(Player player) {
+	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		// if the field is owned by another player, a rent have to be paid
 		if (getOwner() != player || getOwner() != null) {
 			int fullRent = rent * dice.getSum() * getOwner().getLaborCamp();
@@ -51,14 +51,14 @@ public class LaborCamp extends Ownable {
 		
 	}
 
-	private void checkFieldOwnedByPlayerHimSelf(Player player) {
+	public void checkFieldOwnedByPlayerHimSelf(Player player) {
 	// if the owner is the player himself, nothing happens
 	if (getOwner() == player) {
 		out.fieldOwnedByPlayer(super.getName());
 		}
 	}
 
-	private void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
+	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
 		// If the current field has no owner, the player can buy it
 		if (getOwner() == null) {
 			if (player.account.getScore() >= super.getPrice()) {

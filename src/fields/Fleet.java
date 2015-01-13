@@ -35,14 +35,14 @@ public class Fleet extends Ownable {
 		
 	}	
 	
-	private void checkFieldOwnedByPlayerHimSelf(Player player) {
+	public void checkFieldOwnedByPlayerHimSelf(Player player) {
 		// if the owner is the player himself, nothing happens
 		if (getOwner() == player) {
 			out.fieldOwnedByPlayer(super.getName());
 		}
 	}
 
-	private void checkFieldOwnedByAnotherPlayer(Player player) {
+	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		if (getOwner() != player || getOwner() != null) {
 			if (player.account.getScore() >= rent[getOwner().getFleets() - 1]) {
 				out.fieldTax(super.getName(), getOwner().getName(), rent[getOwner().getFleets()  - 1]);
@@ -66,7 +66,7 @@ public class Fleet extends Ownable {
 	}
 
 
-	private void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
+	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
 		if (getOwner() == null) {
 			if (player.account.getScore() >= price) {
 				boolean buyField = out.buyField(super.getName(), price);

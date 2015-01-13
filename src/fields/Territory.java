@@ -70,6 +70,24 @@ public class Territory extends Ownable {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void checkFieldOwnedByAnotherPlayer(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkFieldOwnedByPlayerHimSelf(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 
