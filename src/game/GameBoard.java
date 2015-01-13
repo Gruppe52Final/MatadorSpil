@@ -98,10 +98,8 @@ public class GameBoard {
 			ownable =(Ownable) field[player.getPosition()];
 			refuge = (Refuge) field[20];
 			ownable.landOnField(player, refuge);
-			System.out.println("Er ownable");
 		} else {
 			field[player.getPosition()].landOnField(player);
-			System.out.println("Er ikke ownable");
 		}
 		
 		

@@ -46,6 +46,8 @@ public class Texts {
 		"Du har ikke nok point til at betale kaution ... vent på din løsladelse", //36
 		" . Du har nu ", //37
 		" fængsels tur tilbage",//38
+		"Betal for vognvask og smøring kr. 15,00.", //39
+		"De har kørt frem for \"Fuld stop\". Betal 150 point.", //40
 		
 		};
 	
@@ -90,6 +92,7 @@ public class Texts {
 			"You don't have enough points to pay bail... wait for your parole", //36
 			" .You now have ", //37
 			" prison turn left ", //38
+			"Pay for carwash and lubrication 15 points", //39
 		};
 	
 

@@ -24,24 +24,25 @@ public class Territory extends Ownable {
 
 	@Override
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
-		if (player.account.getScore() >= rent) {
-			gui.fieldTax(super.getName(), getOwner().getName(), rent);			
-			getOwner().account.addPoints(rent);
-			player.account.subtractPoints(rent);
-			gui.updateBalance(player);			// the player looses if the rent is higher than the players balance
-			gui.updateBalance(getOwner());
-		}
-		// the player loses if the rent is higher than the players balance
-		else {
-			getOwner().account.addPoints(player.account.getScore());
-			player.account.subtractPoints(player.account.getScore());
-			
-			gui.insufficiantFunds(super.getName(), getOwner().getName(), player.account.getScore());
-			gui.updateBalance(player);
-			
-			player.setDeathStatus(true);
-		}
-		
+		if (getOwner() != player && getOwner() != null) {
+			if (player.account.getScore() >= rent) {
+				gui.fieldTax(super.getName(), getOwner().getName(), rent);		//Har givet nullPointerError	
+				getOwner().account.addPoints(rent);
+				player.account.subtractPoints(rent);
+				gui.updateBalance(player);			// the player looses if the rent is higher than the players balance
+				gui.updateBalance(getOwner());
+			}
+			// the player loses if the rent is higher than the players balance
+			else {
+				getOwner().account.addPoints(player.account.getScore());
+				player.account.subtractPoints(player.account.getScore());
+				
+				gui.insufficiantFunds(super.getName(), getOwner().getName(), player.account.getScore());
+				gui.updateBalance(player);
+				
+				player.setDeathStatus(true);
+			}		
+		}		
 	}
 	
 	public int getRent() {

@@ -58,8 +58,8 @@ public abstract class Ownable extends Fields {
 
 
 	public void landOnField(Player player, Refuge refuge) {
-		checkFieldNotOwnedByAnyone(player, refuge);	
 		checkFieldOwnedByPlayerHimSelf(player);
+		checkFieldNotOwnedByAnyone(player, refuge);			
 		checkFieldOwnedByAnotherPlayer(player);				
 		// Updates the GUI balance for each player
 		gui.updateBalance(player);

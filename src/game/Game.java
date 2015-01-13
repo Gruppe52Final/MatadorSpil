@@ -21,9 +21,8 @@ public class Game {
 	private GameBoard gameboard = new GameBoard(dice);
 	private boolean won = false;
 	private Player currentPlayer;
-//	private Fields currentField;
 	Player[] player;	
-//	private MatadorGUI out;
+
 	
 	public static void main(String[] args) {
 		Game game = new Game();

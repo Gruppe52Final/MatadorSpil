@@ -358,4 +358,13 @@ public class MatadorGUI {
 			text = new Texts("English");
 		}		
 	}
+
+	public void chanceCard(String chanceCardText) {
+		GUI.showMessage(chanceCardText);
+		GUI.displayChanceCard(chanceCardText);
+	}
+	
+	public void debugStopGUIForChanceCard() {
+		GUI.getUserSelection("Debugging purpose only", "Yes");
+	}
 }
