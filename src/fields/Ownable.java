@@ -21,24 +21,7 @@ public abstract class Ownable extends Fields {
 	
 	public abstract void checkFieldOwnedByAnotherPlayer(Player player);
 		
-	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
-		if (getOwner() == null) {
-			if (player.account.getScore() >= price) {
-				boolean buyField = gui.buyField(name, price);
-				if (buyField) {
-					player.account.subtractPoints(price);
-					setOwner(player);
-					player.addFleet();
-					refuge.account.addPoints(0.1 * price);
-					gui.fieldBought(name);
-				} else {
-					gui.fieldRefused(name);
-				}
-			} else {
-				gui.fieldRefusedPrice(name);
-			}	
-		}
-	}
+	public abstract void checkFieldNotOwnedByAnyone(Player player, Refuge refuge);
 	
 	public void setOwner (Player player) {
 		owner = player;

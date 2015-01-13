@@ -19,6 +19,25 @@ public class Territory extends Ownable {
 		return "Type: Territory --- Name: " + super.getName() + " --- Price: " + super.getPrice() + " --- Rent: " + rent + "\n";
 	}
 
+	
+	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
+		if (getOwner() == null) {
+			if (player.account.getScore() >= super.getPrice()) {
+				boolean buyField = gui.buyField(super.getName(), super.getPrice());
+				if (buyField) {
+					player.account.subtractPoints(super.getPrice());
+					setOwner(player);
+					refuge.account.addPoints(0.1 * super.getPrice());
+					gui.fieldBought(super.getName());
+				} else {
+					gui.fieldRefused(super.getName());
+				}
+			} else {
+				gui.fieldRefusedPrice(super.getName());
+			}	
+		}
+	}
+
 
 	@Override
 	public void checkFieldOwnedByAnotherPlayer(Player player) {

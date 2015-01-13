@@ -35,6 +35,8 @@ public class TestLaborCamp {
 		laborCamp1.landOnField(player1,refuge);
 		int fullRent1 = laborCamp1.getRent()  * dice.getSum() * player1.getLaborCamp();
 		
+		assertNotEquals(fullRent1,0);
+		
 		//Check player has been deducted laborCamp cost
 		assertEquals(player1.account.getScore(), startingCash - laborCamp1.getPrice());
 		

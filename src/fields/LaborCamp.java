@@ -15,6 +15,25 @@ public class LaborCamp extends Ownable {
 		this.rent = rent;
 		this.dice = dice;
 	}
+	
+	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
+		if (getOwner() == null) {
+			if (player.account.getScore() >= super.getPrice()) {
+				boolean buyField = gui.buyField(super.getName(), super.getPrice());
+				if (buyField) {
+					player.account.subtractPoints(super.getPrice());
+					setOwner(player);
+					player.addLaborCamp();
+					refuge.account.addPoints(0.1 * super.getPrice());
+					gui.fieldBought(super.getName());
+				} else {
+					gui.fieldRefused(super.getName());
+				}
+			} else {
+				gui.fieldRefusedPrice(super.getName());
+			}	
+		}
+	}
 
 	
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
@@ -22,6 +41,10 @@ public class LaborCamp extends Ownable {
 		if (getOwner() != player && getOwner() != null) {
 			int fullRent = rent * dice.getSum() * getOwner().getLaborCamp();
 			if (player.account.getScore() >= fullRent) {
+				System.out.println(super.getName() + getOwner().getName() + fullRent);
+				System.out.println(dice.getSum());
+				System.out.println(rent + " rent");
+				System.out.println(getOwner().getLaborCamp() + "laborcamps owned");
 				gui.fieldTax(super.getName(), getOwner().getName(), fullRent);
 				
 				getOwner().account.addPoints(fullRent);
