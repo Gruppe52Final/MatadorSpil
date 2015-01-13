@@ -7,25 +7,72 @@ public class Fleet extends Ownable {
 	private int price;
 	private int[] rent = new int[4];
 	private MatadorGUI out = new MatadorGUI();
-	private int rent_1 = 25;
-	private int rent_2 = 50;
-	private int rent_3 = 100;
-	private int rent_4 = 200;
 	
 
 	public Fleet(String name, int price) {
 		super(price, name);
 		this.price = price;
+		rent[0] = 25;
+		rent[1] = 50;
+		rent[2] = 100;
+		rent[3] = 200;
 	}
+	
+	
+
 
 	@Override
 	public void landOnField(Player player, Refuge refuge) {
 		// If the current field has no owner, the player can buy it
+		checkFieldNotOwnedByAnyone(player, refuge);
+		
+		checkFieldOwnedByPlayerHimSelf(player);
+		
+		checkFieldOwnedByAnotherPlayer(player);
+		
+		// Updates the GUI balance for each player
+		out.updateBalance(player);
+		
+	}	
+	
+	private void checkFieldOwnedByPlayerHimSelf(Player player) {
+		// if the owner is the player himself, nothing happens
+		if (getOwner() == player) {
+			out.fieldOwnedByPlayer(super.getName());
+		}
+	}
+
+	private void checkFieldOwnedByAnotherPlayer(Player player) {
+		if (getOwner() != player || getOwner() != null) {
+			if (player.account.getScore() >= rent[getOwner().getFleets() - 1]) {
+				out.fieldTax(super.getName(), getOwner().getName(), rent[getOwner().getFleets()  - 1]);
+				System.out.println(rent[getOwner().getFleets() - 1] + " rent[getOwner().getFleets()]");
+				player.account.subtractPoints(rent[getOwner().getFleets() - 1]);
+				getOwner().account.addPoints(rent[getOwner().getFleets() - 1]);
+				out.updateBalance(player);
+				// the player loses if the rent is higher than the players
+				// balance
+			} else {
+				getOwner().account.addPoints(player.account.getScore());
+				player.account.subtractPoints(player.account.getScore());
+
+				out.insufficiantFunds(super.getName(), getOwner().getName(),
+						player.account.getScore());
+				out.updateBalance(player);
+
+				player.setDeathStatus(true);
+			}
+		}
+		
+	}
+
+
+	private void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
 		if (getOwner() == null) {
 			if (player.account.getScore() >= price) {
 				boolean buyField = out.buyField(super.getName(), price);
 				if (buyField) {
-					player.account.addPoints(-price);
+					player.account.subtractPoints(price);
 					setOwner(player);
 					player.addFleet();
 					refuge.account.addPoints(0.1 * super.getPrice());
@@ -35,34 +82,9 @@ public class Fleet extends Ownable {
 				}
 			} else {
 				out.fieldRefusedPrice(super.getName());
-			}
-			// if the owner is the player himself, nothing happens
-		} else if (getOwner() == player) {
-			out.fieldOwnedByPlayer(super.getName());
-		}
-		// if the field is owned by another player, a rent have to be paid
-		else {
-			if (player.account.getScore() >= rent[getOwner().getFleets() - 1]) {
-				out.fieldTax(super.getName(), getOwner().getName(), rent[getOwner()
-						.getFleets() - 1]);
-				player.account.addPoints(-rent[getOwner().getFleets() - 1]);
-				getOwner().account.addPoints(rent[getOwner().getFleets() - 1]);
-				out.updateBalance(player);
-				// the player loses if the rent is higher than the players
-				// balance
-			} else {
-				getOwner().account.addPoints(player.account.getScore());
-				player.account.addPoints(-player.account.getScore());
-
-				out.insufficiantFunds(super.getName(), getOwner().getName(),
-						player.account.getScore());
-				out.updateBalance(player);
-
-				player.setDeathStatus(true);
-			}
-		}
-		// Updates the GUI balance for each player
-		out.updateBalance(player);
+			}		
+	}
+		
 	}
 
 	@Override
@@ -76,5 +98,13 @@ public class Fleet extends Ownable {
 	public void landOnField(Player player) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public int[] getRent() {
+		return rent;
+	}
+
+	public void setRent(int[] rent) {
+		this.rent = rent;
 	}
 }
