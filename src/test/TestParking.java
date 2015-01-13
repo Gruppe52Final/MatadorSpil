@@ -77,6 +77,7 @@ public class TestParking {
 		//Make player land on laborCamp, buy it
 		laborCamp.landOnField(player, refuge);
 
+		System.out.println(laborCamp.getOwner());
 		//Test if player is now owner of laborcamp
 		assertEquals(laborCamp.getOwner(),player);
 		

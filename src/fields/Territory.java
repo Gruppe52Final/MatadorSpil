@@ -20,36 +20,14 @@ public class Territory extends Ownable {
 	}
 
 	
-	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
-		if (getOwner() == null) {
-			if (player.account.getScore() >= super.getPrice()) {
-				boolean buyField = gui.buyField(super.getName(), super.getPrice());
-				if (buyField) {
-					player.account.subtractPoints(super.getPrice());
-					setOwner(player);
-					refuge.account.addPoints(0.1 * super.getPrice());
-					gui.fieldBought(super.getName());
-				} else {
-					gui.fieldRefused(super.getName());
-				}
-			} else {
-				gui.fieldRefusedPrice(super.getName());
-			}	
-		}
-	}
 
 
 	@Override
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		if (player.account.getScore() >= rent) {
-			System.out.println(super.getName());
-			System.out.println(getOwner().getName());
-			System.out.println(rent);
-			gui.fieldTax(super.getName(), getOwner().getName(), rent);
-			
+			gui.fieldTax(super.getName(), getOwner().getName(), rent);			
 			getOwner().account.addPoints(rent);
 			player.account.subtractPoints(rent);
-
 			gui.updateBalance(player);			// the player looses if the rent is higher than the players balance
 			gui.updateBalance(getOwner());
 		}
@@ -75,6 +53,12 @@ public class Territory extends Ownable {
 	public void landOnField(Player player) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public void addProperty(Player player) {
+		setOwner(player);		
 	}
 	
 

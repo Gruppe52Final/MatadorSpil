@@ -20,8 +20,8 @@ public abstract class Ownable extends Fields {
 	public abstract String toString();
 	
 	public abstract void checkFieldOwnedByAnotherPlayer(Player player);
-		
-	public abstract void checkFieldNotOwnedByAnyone(Player player, Refuge refuge);
+	
+	public abstract void addProperty(Player player);
 	
 	public void setOwner (Player player) {
 		owner = player;
@@ -29,6 +29,24 @@ public abstract class Ownable extends Fields {
 		
 	public Player getOwner() {
 		return owner;
+	}
+	
+	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
+		if (getOwner() == null) {
+			if (player.account.getScore() >= price) {
+				boolean buyField = gui.buyField(name, price);
+				if (buyField) {
+					player.account.subtractPoints(price);
+					addProperty(player);
+					refuge.account.addPoints(0.1 * price);
+					gui.fieldBought(name);
+				} else {
+					gui.fieldRefused(name);
+				}
+			} else {
+				gui.fieldRefusedPrice(name);
+			}	
+		}
 	}
 	
 	public void checkFieldOwnedByPlayerHimSelf(Player player) {

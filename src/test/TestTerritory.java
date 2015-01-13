@@ -50,9 +50,7 @@ public class TestTerritory {
 		
 		//Make sure player has no fleet or laborcamps when just buying territory
 		assertEquals(player.getLaborCamp(),0);
-		assertEquals(player.getFleets(),0);
-		
-		
+		assertEquals(player.getFleets(),0);		
 		
 	}
 
