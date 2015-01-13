@@ -1,5 +1,6 @@
 package fields;
 
+import boundary.MatadorGUI;
 import game.Player;
 
 public abstract class Ownable extends Fields {
@@ -7,6 +8,7 @@ public abstract class Ownable extends Fields {
 	private Player owner;
 	private int price;
 	private String name;
+	private MatadorGUI gui = new MatadorGUI();
 
 	public Ownable(int price, String name) {
 		owner = null;
@@ -18,10 +20,25 @@ public abstract class Ownable extends Fields {
 	public abstract String toString();
 	
 	public abstract void checkFieldOwnedByAnotherPlayer(Player player);
-	
-	public abstract void checkFieldOwnedByPlayerHimSelf(Player player);
-	
-	public abstract void checkFieldNotOwnedByAnyone(Player player, Refuge refuge);
+		
+	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
+		if (getOwner() == null) {
+			if (player.account.getScore() >= price) {
+				boolean buyField = gui.buyField(name, price);
+				if (buyField) {
+					player.account.subtractPoints(price);
+					setOwner(player);
+					player.addFleet();
+					refuge.account.addPoints(0.1 * price);
+					gui.fieldBought(name);
+				} else {
+					gui.fieldRefused(name);
+				}
+			} else {
+				gui.fieldRefusedPrice(name);
+			}	
+		}
+	}
 	
 	public void setOwner (Player player) {
 		owner = player;
@@ -30,10 +47,21 @@ public abstract class Ownable extends Fields {
 	public Player getOwner() {
 		return owner;
 	}
+	
+	public void checkFieldOwnedByPlayerHimSelf(Player player) {
+		// if the owner is the player himself, nothing happens
+		if (getOwner() == player) {
+			gui.fieldOwnedByPlayer(name);
+		}
+	}
 
 
-	public void landOnField(Player player, Refuge refugeField) {
-		// TODO Auto-generated method stub
+	public void landOnField(Player player, Refuge refuge) {
+		checkFieldNotOwnedByAnyone(player, refuge);	
+		checkFieldOwnedByPlayerHimSelf(player);
+		checkFieldOwnedByAnotherPlayer(player);				
+		// Updates the GUI balance for each player
+		gui.updateBalance(player);
 		
 	}
 

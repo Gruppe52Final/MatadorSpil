@@ -40,7 +40,6 @@ public class TestFleet2 {
 		fleet.setOwner(player);
 		player.addFleet();
 		
-
 		
 		//Make sure player has one fleet
 		assertEquals(player.getFleets(),1);
