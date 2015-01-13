@@ -48,6 +48,11 @@ public class TestTerritory {
 		//Is the rent transfered to the other player?
 		assertEquals(player.account.getScore(),(startingCash + territory.getRent()));
 		
+		//Make sure player has no fleet or laborcamps when just buying territory
+		assertEquals(player.getLaborCamp(),0);
+		assertEquals(player.getFleets(),0);
+		
+		
 		
 	}
 
