@@ -312,34 +312,34 @@ public class MatadorGUI {
 
 	public void nextPlayer(Player currentPlayer) {
 		GUI.showMessage(currentPlayer.getName()
-				+ "'s turn to roll the dice.");
+				+ text.text[2]);
 		
 	}
 	
 
 	public void visitPrisonMessage() {
-		GUI.showMessage("You have landed on prison You're only on a visit and can leave any time.");
+		GUI.showMessage(text.text[16] + text.text[30]);
 	}
 	
 	
 	public void inPrisonMessage() {
-		GUI.showMessage("You are in prison, throw equal dice to get out");
+		GUI.showMessage(text.text[31]);
 	}
 	
 	public void goToPrisonMessage() {
-		GUI.showMessage("You're being taken to the jail. "
-				+ "You either have to pay yourself out "
-				+ "or be set free because of good behavior (by rolling two equal dice)");
+		GUI.showMessage(text.text[32]
+				+ text.text[33]
+				+ text.text[34]);
 	}
 	
 	public boolean payOutOfPrison(Player currentPlayer) {
 		return GUI.getUserLeftButtonPressed(currentPlayer.getName() 
-				+" is in jail. Do you want to pay 100 points to get out?", "Yes",
-				"No");
+				+ text.text[35], text.text[6],
+				text.text[7]);
 	}
 
 	public void cantPayOutOfPrison(Player currentPlayer) {
-		GUI.showMessage("You don't have enough points to pay bail... wait for your parole");
+		GUI.showMessage(text.text[36]);
 		
 	}
 
