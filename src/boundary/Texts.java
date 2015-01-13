@@ -8,9 +8,9 @@ public class Texts {
 	private String[] textDansk =
 		{
 		"Skriv navn på spiller ", //0
-		"Velkommen, skriv antal spillere:", //1
-		"'s tur til at kaste terninger", //2
-		"Du er gået fallit", //3
+		"Velkommen, vælg antal spillere:", //1
+		"'s tur til at kaste terningerne.", //2
+		"Du er gået fallit.", //3
 		" har vundet!", //4
 		" har ingen ejer, vil du gerne købe det for ", //5
 		"Ja", //6
@@ -19,10 +19,10 @@ public class Texts {
 		"Du nægtede at købe ", //9
 		"Du har ikke nok point til at købe ", //10
 		" er ejet af dig selv, og så sker der ikke noget.", //11
-		" er ejet af", //12
+		" er ejet af ", //12
 		" points vil bive overført til ", //13
 		"'s balance", //14
-		", du har ikke råd til det. dine resterende ", //15
+		", du har ikke råd til det. Dine resterende ", //15
 		"Du har landet på ", //16
 		" og modtager ", //17
 		" points.", //18
@@ -36,7 +36,7 @@ public class Texts {
 		"10%", //26
 		"Skatten højere end din balance. i stedet betaler du 10% dine point", //27
 		"Du har passeret start feltet og modtager ", //28
-		"DU er gået validt.", //29
+		"DU er gået fallit.", //29
 		};
 	
 	private String[] textEnglish = 
