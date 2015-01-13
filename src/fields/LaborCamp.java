@@ -39,8 +39,10 @@ public class LaborCamp extends Ownable {
 				getOwner().account.addPoints(fullRent);
 				player.account.addPoints(-fullRent);
 
-				out.updateBalance(player);			// the player looses if the rent is higher than the players balance
-			} else {
+				out.updateBalance(player);			
+			}	
+			// the player looses if the rent is higher than the players balance
+			 else {
 				getOwner().account.addPoints(player.account.getScore());
 				player.account.addPoints(-player.account.getScore());
 				
@@ -90,6 +92,9 @@ public class LaborCamp extends Ownable {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	public int getRent() {
+		return rent;
+	}
 
 }

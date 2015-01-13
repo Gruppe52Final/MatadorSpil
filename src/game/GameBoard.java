@@ -49,7 +49,7 @@ public class GameBoard {
 		field[25] = new Fleet("Gedser-Rostock",  200);
 		field[26] = new Territory("Bredgade", 260, 22);
 		field[27] = new Territory("Kgs Nytorv", 260, 22);
-		field[28] = new LaborCamp("Coca-Cola", 150, 100, dice);
+		field[28] = new LaborCamp("Carlsberg", 150, 100, dice);
 		field[29] = new Territory("Østergade", 280, 22);
 		field[30] = new GoToPrison("Arrested");
 		field[31] = new Territory("Amagertorv", 300, 26);
