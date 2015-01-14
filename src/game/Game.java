@@ -31,10 +31,9 @@ public class Game {
 	
 	public Game() {
 	out.createField();
-	String language = out.selectLanguage(); // Makes game crash nullPointerException Field line 118
+	String language = out.selectLanguage();
 
-//	out.createTexts(language);
-//	String language = "English";
+
  	if(language.equals("Dansk")) {
 	 out = new MatadorGUI("Dansk");
  		} else if(language.equals("English")) {

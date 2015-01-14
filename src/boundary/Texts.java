@@ -2,6 +2,7 @@ package boundary;
 
 public class Texts {
 	
+	
 
 	public static String[] text;
 	
@@ -48,6 +49,10 @@ public class Texts {
 		" fængsels tur tilbage",//38
 		"Betal for vognvask og smøring kr. 15,00.", //39
 		"De har kørt frem for \"Fuld stop\". Betal 150 point.", //40
+		"Betal 125 point for 2 kasser øl", //41
+		"Du har købt et nyt dæk til din bil. Betal 120 point.", //42
+		"De har måtte vedtage en parkeringsbøde. Betal 60 point til banken.", //43
+		"De har været en tur i udlandet og haft for mange cigaretter med hjem. Betal told 50 point", //44
 		
 		};
 	
@@ -93,10 +98,25 @@ public class Texts {
 			" .You now have ", //37
 			" prison turn left ", //38
 			"Pay for carwash and lubrication 15 points", //39
+			"You have driven through a \"full stop\". Pay 150 points .", //40
+			"Pay 125 points for receiving two boxes of beer", //41
+			"You have purchased a new tire for your vehicle. Pay 120 points.", //42
+			"You have to pay a parking ticket. Pay 60 points to the bank.", //43
+			"You have been a trip abroad and purchased too many cigarettes. Pay customs 50 points.", //44
 		};
 	
 
 	public Texts(String language) {
+		if(language.equals("Dansk")) {
+			text = textDansk;
+		} else if(language.equals("English")) {
+			text = textEnglish;
+		} else {
+			text = textEnglish;
+		}
+	}
+	
+	public void setLanguage(String language) {
 		if(language.equals("Dansk")) {
 			text = textDansk;
 		} else if(language.equals("English")) {

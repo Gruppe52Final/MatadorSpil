@@ -2,11 +2,11 @@ package fields;
 
 import game.Player;
 
-public class ChanceTransferPoints extends ChanceCards {
+public class ChanceSubtractPoints extends ChanceCards {
 	int amount;
 	String text;
 	
-	public ChanceTransferPoints(String text, int amount) {
+	public ChanceSubtractPoints(String text, int amount) {
 		super(text);
 		this.amount = amount;
 	}
@@ -17,9 +17,6 @@ public class ChanceTransferPoints extends ChanceCards {
 
 	@Override
 	public void activate(Player player) {
-		player.account.subtractPoints(amount);
-		
-		
-	}
-	
+		player.account.subtractPoints(amount);		
+	}	
 }

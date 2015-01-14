@@ -13,12 +13,11 @@ import boundary.MatadorGUI;
 public class TestRandomChanceCardDisplay {
 	
 	private Dice dice = new Dice();
-	private GameBoard gameBoard = new GameBoard(dice);
-	private Game game = new Game();
 	private Player player1 = new Player("TestChanceCardPlayer");
 	private MatadorGUI gui = new MatadorGUI();
 	int startingCash = player1.account.getScore();
-	private Chance chanceCards = new Chance();
+	private Chance chanceCards = new Chance("Dansk");
+	private GameBoard gameBoard = new GameBoard(dice);
 
 	@Test
 	public void test() {
