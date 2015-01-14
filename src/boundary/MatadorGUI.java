@@ -1,18 +1,21 @@
 package boundary;
 
+import fields.Territory;
+import game.GameBoard;
+import game.Player;
+
 import java.awt.Color;
 
 import desktop_codebehind.Car;
 import desktop_fields.Brewery;
 import desktop_fields.Field;
+import desktop_fields.Jail;
 import desktop_fields.Refuge;
 import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_fields.Tax;
-import desktop_fields.Jail;
 import desktop_resources.GUI;
-import game.Player;
 
 public class MatadorGUI {
 	
@@ -182,9 +185,29 @@ public class MatadorGUI {
 		}
 	}
 	
+	//This method is used for houses testing purposes
+	public void setCars(Player[] player) {
+		// Array that holds the cars for the GUI
+		Car[] car = new Car[6];
+		car[0] = new Car.Builder().primaryColor(Color.blue).build();
+		car[1] = new Car.Builder().primaryColor(Color.red).build();
+		car[2] = new Car.Builder().primaryColor(Color.yellow).build();
+		car[3] = new Car.Builder().primaryColor(Color.green).build();
+		car[4] = new Car.Builder().primaryColor(Color.white).build();
+		car[5] = new Car.Builder().primaryColor(Color.black).build();
+		
+		for (int i = 0; i < player.length; i++) {
+			GUI.addPlayer(player[i].getName(), player[i].account.getScore(),
+					car[i]);
+			GUI.setCar(player[i].getPosition() + 1, player[i].getName());
+		}
+	}
+	
+	@Deprecated
 	public void nextPlayer(Player[] player, int currentPlayer) {
 		GUI.showMessage(player[currentPlayer].getName()
 				+ Texts.text[2]);
+		
 	}
 	
 	public void showDice(int dice1, int dice2) {
@@ -367,4 +390,32 @@ public class MatadorGUI {
 	public void debugStopGUIForChanceCard() {
 		GUI.getUserSelection("Debugging purpose only", "Yes");
 	}
+
+	public String optionToBuyHouse() {
+		return GUI.getUserButtonPressed("Vælg", "Kast", "Køb hus");
+		
+	}
+
+	public String choosePropertyToHouse(Player currentPlayer) {		
+		return GUI.getUserSelection("Which property do you want a house on?", currentPlayer.getPropertiesOwned());
+	}
+	
+	public String chooseNumberOfHousesToBuy() {
+		return GUI.getUserSelection("How many houses do you want to buy?", "1","2","3","4");
+	}
+
+	public void setHouse(String choosePropertyToHouse, String numberOfHouses, GameBoard gameBoard) {
+		int fieldNumber = 0;
+		int houseCount = Integer.parseInt(numberOfHouses);
+		if(choosePropertyToHouse.equals("Rødovrevej")) {
+			fieldNumber = 2;
+		} else if (choosePropertyToHouse.equals("Hvidovrevej")) {
+			fieldNumber = 4;
+		}
+		Territory territory = (Territory) gameBoard.getField(fieldNumber - 1);
+		int currentHouses = territory.getHouses();
+		GUI.setHouses(fieldNumber, (houseCount + currentHouses));
+		territory.setHouses(houseCount + currentHouses);
+	}
+
 }

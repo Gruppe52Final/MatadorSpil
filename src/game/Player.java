@@ -14,6 +14,7 @@ public class Player {
 	public Account account = new Account();
 	private int previousPosition;
 	private boolean justOutOfPrison;
+	private String[] propertiesOwned;
 
 	// Object that stores the name and position of a player
 	public Player(String name) {
@@ -24,6 +25,9 @@ public class Player {
 		prisonTurns = 0;
 		dead = false;
 		this.name = name;
+		propertiesOwned = new String[2];
+		propertiesOwned[0] = "";
+		propertiesOwned[1] = "";
 	}
 
 	// Method that returns the name of the player
@@ -52,6 +56,11 @@ public class Player {
 	public int getFleets() {
 		return fleets;
 	}
+	
+	public String[] getPropertiesOwned() {
+		return propertiesOwned;
+	}
+	
 	public void addLaborCamp(){
 		laborCamp++;
 	}
@@ -87,6 +96,32 @@ public class Player {
 @Deprecated
 	public boolean getJustOutOfPrison() {
 		return justOutOfPrison;
+	}
+
+	public boolean canBuyHouses() {
+		boolean x = false;
+		int group = 0;
+	for (int i = 0; i < propertiesOwned.length; i++) {
+		if(propertiesOwned[0].equals("Rødovrevej")) {
+			group++;
+		} 
+			else if(propertiesOwned[1].equals("Hvidovrevej")){
+				group++;
+			}
+		}
+	if(group ==2) {
+		x =true;
+	}
+	return x;
+	}
+
+	public void addProperty(String nameOfProperty) {		
+		for (int i = 0; i < propertiesOwned.length; i++) {
+			if(propertiesOwned[i].equals("")) {
+				propertiesOwned[i] = nameOfProperty;
+				break;
+			}
+		}
 	}
 	
 }

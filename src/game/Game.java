@@ -26,6 +26,7 @@ public class Game {
 	
 	public static void main(String[] args) {
 		Game game = new Game();
+		game.init();
 		game.run();
 	}
 	
@@ -40,15 +41,36 @@ public class Game {
  	gameboard = new GameBoard(dice); //If this is set earlier in class, Chance() will invoke an nullpointerError
  	
 	}
-	public void run() {
-					
-		//Gets input from player actor outside system boundary
-		playerAmount = gui.playerAmount();
-		
-		player = new Player[playerAmount];
-		
+	public void setPlayers(Player[] player) {
+		this.player = player;
+	}
+	
+	public void setPlayerAmount(int playerAmount) {
+		this.playerAmount = playerAmount;
+	}
+	
+	public void createPlayers() {
 		//GUI places player cars on board with their chosen names
 		gui.createPlayers(playerAmount, player);
+			
+	}
+	
+	public void setCars() {
+		gui.setCars(player);
+	}
+	
+	public void init() {
+		
+	//Gets input from player actor outside system boundary
+	playerAmount = gui.playerAmount();
+	
+	player = new Player[playerAmount];
+
+	}
+	
+	public void run() {
+		
+		createPlayers();
 		
 		// The game continues as long as won equals false
 		while (!won) {
@@ -62,7 +84,7 @@ public class Game {
 					currentPlayer = player[i];
 					
 					//Shows message for what player has turn
-					gui.nextPlayer(currentPlayer);
+					nextPlayer(currentPlayer);
 					
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 					dice.throwDice();							
@@ -79,8 +101,7 @@ public class Game {
 					}				
 			
 					//Check if the field is ownable, used for depositing money on Refuge
-
-					//Check if the field is ownable (NOT IMPLEMENTED BELOW)
+					//Check if the field is ownable 
 					gameboard.landOnField(currentPlayer);
 
 					// If a player has lost, adds one to lostCount and reset the players owned fields
@@ -89,13 +110,23 @@ public class Game {
 					//Checks if one player has won in the player array
 					checkIfPlayerWon(player);
 					
-					//Remove justGotOutOfPrison on currentPlayer
-
 
 			}
 		}
 	}	
 }	
+	public void nextPlayer(Player currentPlayer) {		
+			//currentPlayer.OwnsTerritoryGroup
+			if(currentPlayer.canBuyHouses()) {
+				if(gui.optionToBuyHouse().equals("Køb hus")) {
+					gui.setHouse(gui.choosePropertyToHouse(currentPlayer),gui.chooseNumberOfHousesToBuy(), gameboard);
+				}
+			} else {
+				//Shows message for what player has turn
+				gui.nextPlayer(currentPlayer);
+			}
+	}
+	
 	public void movePlayer(Player player, Dice dice) {
 		//Shows the dice on the GUI
 		gui.showDice(dice.getDice1(), dice.getDice2());
@@ -108,6 +139,8 @@ public class Game {
 		gui.updatePosition(player);
 		
 //		currentPlayer.setJustOutOfPrison(false);
+		
+		
 		
 	}
 

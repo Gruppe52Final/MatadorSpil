@@ -6,6 +6,7 @@ import game.Player;
 public class Territory extends Ownable {
 
 	private int rent;
+	private int houses;
 	private MatadorGUI gui = new MatadorGUI();
 
 	public Territory(String name, int price, int rent) {
@@ -53,7 +54,17 @@ public class Territory extends Ownable {
 
 	@Override
 	public void addProperty(Player player) {
-		setOwner(player);		
+		setOwner(player);
+		player.addProperty(super.getName());
+	}
+	
+	public void setHouses(int houses) {
+		this.houses = houses;
+	}
+
+
+	public int getHouses() {
+		return houses;
 	}
 	
 
