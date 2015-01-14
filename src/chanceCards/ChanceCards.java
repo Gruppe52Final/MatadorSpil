@@ -1,4 +1,4 @@
-package fields;
+package chanceCards;
 
 import game.Player;
 

@@ -1,5 +1,7 @@
 package fields;
 
+import chanceCards.ChanceCards;
+import chanceCards.ChanceSubtractPoints;
 import game.Player;
 import boundary.MatadorGUI;
 import boundary.Texts;

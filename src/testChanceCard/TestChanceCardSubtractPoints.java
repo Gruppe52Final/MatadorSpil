@@ -2,8 +2,6 @@ package testChanceCard;
 
 import static org.junit.Assert.assertEquals;
 import fields.Chance;
-import fields.ChanceCards;
-import fields.ChanceSubtractPoints;
 import game.Dice;
 import game.Game;
 import game.GameBoard;
@@ -11,6 +9,8 @@ import game.Player;
 
 import org.junit.Test;
 
+import chanceCards.ChanceCards;
+import chanceCards.ChanceSubtractPoints;
 import boundary.MatadorGUI;
 import boundary.Texts;
 
