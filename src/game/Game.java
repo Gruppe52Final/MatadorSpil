@@ -15,10 +15,10 @@ public class Game {
 
 	private int playerAmount = 0;
 	private int passStartMoney = 200;
-	private MatadorGUI out = new MatadorGUI();
+	private MatadorGUI gui = new MatadorGUI(); //This is set now so ChanceCard is not giving nullpoint error
 	private int lostCount = 0;
 	private Dice dice = new Dice();
-	private GameBoard gameboard = new GameBoard(dice);
+	private GameBoard gameboard;
 	private boolean won = false;
 	private Player currentPlayer;
 	Player[] player;	
@@ -30,25 +30,25 @@ public class Game {
 	}
 	
 	public Game() {
-	out.createField();
-	String language = out.selectLanguage();
-
-
+		gui.createField();
+	String language = gui.selectLanguage();
  	if(language.equals("Dansk")) {
-	 out = new MatadorGUI("Dansk");
+ 		gui = new MatadorGUI("Dansk");
  		} else if(language.equals("English")) {
- 			out = new MatadorGUI("English");
+ 			gui = new MatadorGUI("English");
 		}
+ 	gameboard = new GameBoard(dice); //If this is set earlier in class, Chance() will invoke an nullpointerError
+ 	
 	}
 	public void run() {
 					
 		//Gets input from player actor outside system boundary
-		playerAmount = out.playerAmount();
+		playerAmount = gui.playerAmount();
 		
 		player = new Player[playerAmount];
 		
 		//GUI places player cars on board with their chosen names
-		out.createPlayers(playerAmount, player);
+		gui.createPlayers(playerAmount, player);
 		
 		// The game continues as long as won equals false
 		while (!won) {
@@ -62,7 +62,7 @@ public class Game {
 					currentPlayer = player[i];
 					
 					//Shows message for what player has turn
-					out.nextPlayer(currentPlayer);
+					gui.nextPlayer(currentPlayer);
 					
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 					dice.throwDice();							
@@ -98,14 +98,14 @@ public class Game {
 }	
 	public void movePlayer(Player player, Dice dice) {
 		//Shows the dice on the GUI
-		out.showDice(dice.getDice1(), dice.getDice2());
+		gui.showDice(dice.getDice1(), dice.getDice2());
 
 		//Updates the position variable inside player object
 //		player.setPosition(player.getPosition() + dice.getSum());
 		player.addRollToPosition(dice.getSum());
 		
 		//Updates the position of the cars on GUI
-		out.updatePosition(player);
+		gui.updatePosition(player);
 		
 //		currentPlayer.setJustOutOfPrison(false);
 		
@@ -113,7 +113,7 @@ public class Game {
 
 	public void prisonDialog(Player currentPlayer, Dice dice) {
 		boolean payOutOfPrison = false;
-		payOutOfPrison = out.payOutOfPrison(currentPlayer);
+		payOutOfPrison = gui.payOutOfPrison(currentPlayer);
 		if(payOutOfPrison) {				
 			//Check if player has enough money to actually pay himself out...	
 			
@@ -124,16 +124,16 @@ public class Game {
 				currentPlayer.account.subtractPoints(100);	
 				currentPlayer.setJustOutOfPrison(true);				
 				//Update GUI
-				out.updateBalance(currentPlayer);
+				gui.updateBalance(currentPlayer);
 				
 				//If he doesn't have enough, tell him this in GUI.
 				} else if (currentPlayer.account.getScore() < 100) {					
-					out.cantPayOutOfPrison(currentPlayer);
+					gui.cantPayOutOfPrison(currentPlayer);
 				}
 			//If player chooses not to pay bail, or doesn't have enough money, we throw the dice.
 			} else if(!payOutOfPrison || (currentPlayer.account.getScore() < 100)) {
 				//Shows the dice on the GUI
-				out.showDice(dice.getDice1(), dice.getDice2());
+				gui.showDice(dice.getDice1(), dice.getDice2());
 				//If both dice are equal, he's out of prison
 				if (dice.getDice1() == dice.getDice2()) {
 					currentPlayer.setPrisonTurns(0);
@@ -149,7 +149,7 @@ public class Game {
 	public void checkIfPlayerLost( Player currentPlayer, Player[] player) {
 		if (currentPlayer.getDeathStatus()) {
 			//If the player is dead, remove them from the board and reset the fields owned
-			out.removePlayer(currentPlayer);			
+			gui.removePlayer(currentPlayer);			
 			gameboard.resetOwnedFields(currentPlayer);
 			lostCount++;
 		}		
@@ -159,15 +159,15 @@ public class Game {
 		// If only one player is left, won is set to true
 		if (lostCount == playerAmount - 1) {
 			won = true;
-			out.showWin(player, playerAmount);
+			gui.showWin(player, playerAmount);
 		}	
 	}
 
 	public void checkIfPlayerPassedStart(Player player, int diceSum) {
 		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
 				player.account.addPoints(passStartMoney);
-				out.passedStart(player, passStartMoney);
-				out.updateBalance(player);	
+				gui.passedStart(player, passStartMoney);
+				gui.updateBalance(player);	
 			}
 			
 		}

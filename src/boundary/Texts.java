@@ -1,8 +1,6 @@
 package boundary;
 
-public class Texts {
-	
-	
+public class Texts {	
 
 	public static String[] text;
 	
