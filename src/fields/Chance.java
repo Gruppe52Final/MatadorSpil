@@ -10,7 +10,7 @@ public class Chance extends Fields {
 
 	private ChanceCards[] chanceCards;
 	private MatadorGUI gui;
-	ChanceCards pickedChanceCard;
+	private ChanceCards pickedChanceCard;
 	
 	/**
 	 * Used for testing in JUnit testing, must set a language, or you will get a nullPointer error

@@ -55,6 +55,15 @@ public abstract class Ownable extends Fields {
 			gui.fieldOwnedByPlayer(name);
 		}
 	}
+	
+	public void insufficientFunds(Player player) {
+		getOwner().account.addPoints(player.account.getScore());
+		player.account.subtractPoints(player.account.getScore());				
+		gui.insufficiantFunds(getName(), owner.getName(), player.account.getScore());
+		gui.updateBalance(player);
+		gui.updateBalance(getOwner());				
+		player.setDeathStatus(true);
+	}
 
 
 	public void landOnField(Player player, Refuge refuge) {

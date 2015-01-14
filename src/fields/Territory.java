@@ -34,13 +34,7 @@ public class Territory extends Ownable {
 			}
 			// the player loses if the rent is higher than the players balance
 			else {
-				getOwner().account.addPoints(player.account.getScore());
-				player.account.subtractPoints(player.account.getScore());
-				
-				gui.insufficiantFunds(super.getName(), getOwner().getName(), player.account.getScore());
-				gui.updateBalance(player);
-				
-				player.setDeathStatus(true);
+				insufficientFunds(player);
 			}		
 		}		
 	}

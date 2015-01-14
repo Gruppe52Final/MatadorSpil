@@ -13,13 +13,14 @@ public class TestCase1 {
 		//Preconditions
 		Player player = new Player("Test");
 		player.addRollToPosition(18);
-		System.out.println("player.getPosition(): " + player.getPosition());
+		
 		
 		//Test
 		player.addRollToPosition(10);
 		
 		//Postconditions
-		if (player.getPosition() == 6)
+		System.out.println("player.getPosition(): " + player.getPosition());
+		if (player.getPosition() == 28)
 			System.out.println("Postcondition 1: OK");
 		else
 			System.out.println("Postcondition 1: Fejl");

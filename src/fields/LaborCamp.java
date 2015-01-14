@@ -22,32 +22,17 @@ public class LaborCamp extends Ownable {
 		if (getOwner() != player && getOwner() != null) {
 			int fullRent = rent * dice.getSum() * getOwner().getLaborCamp();
 			if (player.account.getScore() >= fullRent) {
-				System.out.println(super.getName() + getOwner().getName() + fullRent);
-				System.out.println(dice.getSum());
-				System.out.println(rent + " rent");
-				System.out.println(getOwner().getLaborCamp() + "laborcamps owned");
-				gui.fieldTax(super.getName(), getOwner().getName(), fullRent);
-				
+				gui.fieldTax(super.getName(), getOwner().getName(), fullRent);				
 				getOwner().account.addPoints(fullRent);
 				player.account.subtractPoints(fullRent);
-
 				gui.updateBalance(player);
 			}
 			// the player looses if the rent is higher than the players balance
 			 else {
-
-				getOwner().account.addPoints(player.account.getScore());
-				player.account.subtractPoints(player.account.getScore());
-				
-				gui.insufficiantFunds(super.getName(), getOwner().getName(), player.account.getScore());
-				gui.updateBalance(player);
-				
-				player.setDeathStatus(true);
+				 insufficientFunds(player);
 			}
-		}
-		
+		}		
 	}
-
 
 	@Override
 	public String toString() {

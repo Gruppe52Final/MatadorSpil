@@ -26,18 +26,11 @@ public class Fleet extends Ownable {
 				player.account.subtractPoints(rent[getOwner().getFleets() - 1]);
 				getOwner().account.addPoints(rent[getOwner().getFleets() - 1]);
 				gui.updateBalance(player);
+				gui.updateBalance(getOwner());
 				// the player loses if the rent is higher than the players
 				// balance
 			} else {
-				getOwner().account.addPoints(player.account.getScore());
-				player.account.subtractPoints(player.account.getScore());
-
-				gui.insufficiantFunds(super.getName(), getOwner().getName(),
-						player.account.getScore());
-				gui.updateBalance(player);
-				gui.updateBalance(getOwner());
-
-				player.setDeathStatus(true);
+				insufficientFunds(player);
 			}
 		}
 		
