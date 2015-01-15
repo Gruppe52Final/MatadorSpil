@@ -33,7 +33,7 @@ public class GameBoard {
 		field[9] = new Territory("Allégade", 120, 8, 40, 100, 300, 450, 600);
 		field[10] = new VisitPrison("Jail");
 		field[11] = new Territory("Fredriksberg Allé", 140, 10, 50, 150, 450, 625, 750);
-		field[12] = new LaborCamp("Tuborg", 150, 100, dice);
+		field[12] = new LaborCamp("Tuborg", 150, 10, dice);
 		field[13] = new Territory("Bülowsvej", 140, 10, 50, 150, 450, 625, 750);
 		field[14] = new Territory("Gl Kongevej", 160, 12, 60, 180, 500, 700, 900);
 		field[15] = new Fleet("Mols-Linien",  200);
@@ -49,7 +49,7 @@ public class GameBoard {
 		field[25] = new Fleet("Gedser-Rostock",  200);
 		field[26] = new Territory("Bredgade", 260, 22, 110, 330, 800, 975, 1150);
 		field[27] = new Territory("Kgs Nytorv", 260, 22, 110, 330, 800, 975, 1150);
-		field[28] = new LaborCamp("Carlsberg", 150, 100, dice);
+		field[28] = new LaborCamp("Carlsberg", 150, 10, dice);
 		field[29] = new Territory("Østergade", 280, 22, 90, 250, 700, 875, 1050);
 		field[30] = new GoToPrison("Arrested");
 		field[31] = new Territory("Amagertorv", 300, 26, 130, 390, 900, 1100, 1275);
