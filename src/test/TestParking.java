@@ -84,7 +84,7 @@ public class TestParking {
 		//Test if Refuge has received money now
 		assertEquals(refuge.account.getScore(),65);
 		
-		/**
+		/*
 		 * Test if parking receives money when you buy Fleet field
 		 */
 		

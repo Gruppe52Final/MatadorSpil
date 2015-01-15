@@ -29,8 +29,7 @@ public class TestTerritory {
 	@Test
 	public void test() {
 		
-//		territory.setOwner(player);
-		
+	
 		//Test if player is deducted territory price when buying
 		territory.landOnField(player, refuge);
 		

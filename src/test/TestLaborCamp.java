@@ -15,7 +15,6 @@ import game.Player;
 public class TestLaborCamp {
 	
 	Dice dice = new Dice();
-	GameBoard gameBoard = new GameBoard(dice);
 	Game game = new Game();
 	Player player1 = new Player("TestParkingPlayer");
 	Player player2 = new Player("TestRent");
@@ -23,6 +22,7 @@ public class TestLaborCamp {
 	Refuge refuge = new Refuge("Parkering");
 	LaborCamp laborCamp1 = new LaborCamp("Tuborg", 150, 100, dice);
 	LaborCamp laborCamp2 = new LaborCamp("Carlsberg", 150, 100, dice);
+	GameBoard gameBoard = new GameBoard(dice);
 	
 	@Test
 	public void test() {
