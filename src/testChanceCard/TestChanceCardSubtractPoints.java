@@ -37,7 +37,7 @@ public class TestChanceCardSubtractPoints {
 			
 		//Test all subtractPoints cards
 		int startingIndex = 0;
-		int endingIndex = 1;
+		int endingIndex = 5;
 		for (int i = startingIndex; i < endingIndex; i++) {
 			chanceCards[i].activate(player1);
 			
