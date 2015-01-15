@@ -119,7 +119,7 @@ public class Game {
 			//currentPlayer.OwnsTerritoryGroup
 			if(currentPlayer.canBuyHouses()) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
-					gui.setHouse(gui.choosePropertyToHouse(currentPlayer),gui.chooseNumberOfHousesToBuy(), gameboard);
+//					gui.setHouse(gui.choosePropertyToHouse(currentPlayer),gui.chooseNumberOfHousesToBuy(), gameboard);
 				}
 			} else {
 				//Shows message for what player has turn

@@ -102,10 +102,10 @@ public class Player {
 		boolean x = false;
 		int group = 0;
 	for (int i = 0; i < propertiesOwned.length; i++) {
-		if(propertiesOwned[0].equals("Rødovrevej")) {
+		if(propertiesOwned[i].equals("Rødovrevej")) {
 			group++;
 		} 
-			else if(propertiesOwned[1].equals("Hvidovrevej")){
+			else if(propertiesOwned[i].equals("Hvidovrevej")){
 				group++;
 			}
 		}

@@ -7,11 +7,17 @@ public class Territory extends Ownable {
 
 	private int rent;
 	private int houses;
+	private int hotelRent;
+	private int[] houseRent = new int[4];
 	private MatadorGUI gui = new MatadorGUI();
 
-	public Territory(String name, int price, int rent) {
+	public Territory(String name, int price, int rent, int houseRent1, int houseRent2, int houseRent3, int houseRent4, int hotelRent) {
 		super(price, name);
 		this.rent = rent;
+		houseRent[0] = houseRent1;
+		houseRent[1] = houseRent2;
+		houseRent[2] = houseRent3;
+		houseRent[3] = houseRent4;
 	}
 
 	

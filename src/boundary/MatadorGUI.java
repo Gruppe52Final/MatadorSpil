@@ -403,19 +403,38 @@ public class MatadorGUI {
 	public String chooseNumberOfHousesToBuy() {
 		return GUI.getUserSelection("How many houses do you want to buy?", "1","2","3","4");
 	}
-
-	public void setHouse(String choosePropertyToHouse, String numberOfHouses, GameBoard gameBoard) {
-		int fieldNumber = 0;
-		int houseCount = Integer.parseInt(numberOfHouses);
-		if(choosePropertyToHouse.equals("Rødovrevej")) {
-			fieldNumber = 2;
-		} else if (choosePropertyToHouse.equals("Hvidovrevej")) {
-			fieldNumber = 4;
-		}
-		Territory territory = (Territory) gameBoard.getField(fieldNumber - 1);
-		int currentHouses = territory.getHouses();
-		GUI.setHouses(fieldNumber, (houseCount + currentHouses));
-		territory.setHouses(houseCount + currentHouses);
+	
+	//Not working correctly in test
+	public void updateHouses(GameBoard gameBoard) {
+		for (int i = 0; i < 39; i++) {
+			if(gameBoard.getField(i) instanceof Territory) {
+				Territory territory;
+				territory = (Territory) gameBoard.getField(i);
+				GUI.setHouses((i), ((Territory) gameBoard.getField(i)).getHouses());
+				System.out.println(territory.getHouses() + "field " + i);
+				GUI.setHouses(3, 1);
+				}
+			}
 	}
+
+//	public void setHouse(String choosePropertyToHouse, String numberOfHouses, GameBoard gameBoard) {
+//		int fieldNumber = 0;
+//		int houseCount = Integer.parseInt(numberOfHouses);
+//		if(choosePropertyToHouse.equals("Rødovrevej")) {
+//			fieldNumber = 2;
+//		} else if (choosePropertyToHouse.equals("Hvidovrevej")) {
+//			fieldNumber = 4;
+//		}
+//		Territory territory = (Territory) gameBoard.getField(fieldNumber - 1);
+//		int currentHouses = territory.getHouses();
+//		GUI.setHouses(fieldNumber, (houseCount + currentHouses));
+//		territory.setHouses(houseCount + currentHouses);
+//	}
+	
+	public void setHouse(int fieldNumber, int numberOfHouses) {
+		GUI.setHouses(fieldNumber, numberOfHouses);
+	}
+
+
 
 }
