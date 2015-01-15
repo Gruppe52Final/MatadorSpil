@@ -45,23 +45,25 @@ public class Chance extends Fields {
 	}
 	
 	public void createCardList() {
-		chanceCards = new ChanceCards[6];		
+		chanceCards = new ChanceCards[14];
+		//Substract cards
 		chanceCards[0] = new ChanceSubtractPoints(Texts.text[39], 15);
 		chanceCards[1] = new ChanceSubtractPoints(Texts.text[40], 150);
 		chanceCards[2] = new ChanceSubtractPoints(Texts.text[41], 125);
 		chanceCards[3] = new ChanceSubtractPoints(Texts.text[42], 120);
 		chanceCards[4] = new ChanceSubtractPoints(Texts.text[43], 60);
 		chanceCards[5] = new ChanceSubtractPoints(Texts.text[44], 50);
-		chanceCards[6] = new ChanceAddPoints(Texts.text[45], 150);
+		//Add cards
+		chanceCards[6] = new ChanceAddPoints(Texts.text[45], 25*gui.playerAmount());
 		chanceCards[7] = new ChanceAddPoints(Texts.text[46], 200);
-		chanceCards[7] = new ChanceAddPoints(Texts.text[47], 200);
-		chanceCards[8] = new ChanceAddPoints(Texts.text[48], 20);
-		chanceCards[9] = new ChanceAddPoints(Texts.text[49], 50);
-		chanceCards[10] = new ChanceAddPoints(Texts.text[50], 5);
-		chanceCards[11] = new ChanceAddPoints(Texts.text[51], 50);
-		chanceCards[12] = new ChanceAddPoints(Texts.text[52], 100);
-		chanceCards[13] = new ChanceAddPoints(Texts.text[53], 108);
-		chanceCards[14] = new ChanceAddPoints(Texts.text[54], 100);
+		chanceCards[8] = new ChanceAddPoints(Texts.text[47], 200);
+		chanceCards[9] = new ChanceAddPoints(Texts.text[48], 20);
+		chanceCards[10] = new ChanceAddPoints(Texts.text[49], 50);
+		chanceCards[11] = new ChanceAddPoints(Texts.text[50], 5);
+		chanceCards[12] = new ChanceAddPoints(Texts.text[51], 50);
+		chanceCards[13] = new ChanceAddPoints(Texts.text[52], 100);
+		chanceCards[14] = new ChanceAddPoints(Texts.text[53], 108);
+		chanceCards[15] = new ChanceAddPoints(Texts.text[54], 100);
 		
 	}
 	
