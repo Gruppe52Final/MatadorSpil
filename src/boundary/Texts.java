@@ -45,13 +45,24 @@ public class Texts {
 		"Du har ikke nok point til at betale kaution ... vent på din løsladelse", //36
 		" . Du har nu ", //37
 		" fængsels tur tilbage",//38
+		//ChanceCardsSubtract
 		"Betal for vognvask og smøring kr. 15,00.", //39
 		"De har kørt frem for \"Fuld stop\". Betal 150 point.", //40
 		"Betal 125 point for 2 kasser øl", //41
 		"Du har købt et nyt dæk til din bil. Betal 120 point.", //42
 		"De har måtte vedtage en parkeringsbøde. Betal 60 point til banken.", //43
 		"De har været en tur i udlandet og haft for mange cigaretter med hjem. Betal told 50 point", //44
-		
+		//ChanceCardsAdd
+		"De har lagt penge ud til sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller 25 point.", //45
+		"Værdien af egen avl fra nyttehaven udgør 200 point, som De modtager af banken.", //46
+		"Kommunen har eftergivet et kvartals skat, hæv i banken til en glad aften kr. 200,00.", //47
+		"De har solgt deres gamle klude. Modtag kr. 20,00.", //48
+		"Modtag udbytte af Deres aktier, kr. 50,00.", //49
+		"De har rettidigt aflevert Deres abonnementskort, Depositum kr. 5,00 udbetales Dem af banken.", //50
+		"Grundet på dyrtiden har De fået gageforhøjelse. Modtag kr.50,00.", //51
+		"Manufakturvarerne er blevet billigere og bedre, herved sparer De kr. 100,00 som De modtager af banken.", //52
+		"Efter auktionen på Assistentshuset, hvor De havde pasntsat Deres tøj, modtager De ekstra kr. 108,00.", //53
+		"Deres præmieobligation er kommet ud. De modtager kr. 100,00 af banken.", //54
 		};
 	
 	private String[] textEnglish = 
@@ -95,12 +106,14 @@ public class Texts {
 			"You don't have enough points to pay bail... wait for your parole", //36
 			" .You now have ", //37
 			" prison turn left ", //38
+			//ChanceCardsSubtract
 			"Pay for carwash and lubrication 15 points", //39
 			"You have driven through a \"full stop\". Pay 150 points .", //40
 			"Pay 125 points for receiving two boxes of beer", //41
 			"You have purchased a new tire for your vehicle. Pay 120 points.", //42
 			"You have to pay a parking ticket. Pay 60 points to the bank.", //43
 			"You have been a trip abroad and purchased too many cigarettes. Pay customs 50 points.", //44
+			
 		};
 	
 

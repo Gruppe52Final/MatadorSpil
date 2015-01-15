@@ -2,6 +2,7 @@ package fields;
 
 import chanceCards.ChanceCards;
 import chanceCards.ChanceSubtractPoints;
+import chanceCards.ChanceAddPoints;
 import game.Player;
 import boundary.MatadorGUI;
 import boundary.Texts;
@@ -51,6 +52,16 @@ public class Chance extends Fields {
 		chanceCards[3] = new ChanceSubtractPoints(Texts.text[42], 120);
 		chanceCards[4] = new ChanceSubtractPoints(Texts.text[43], 60);
 		chanceCards[5] = new ChanceSubtractPoints(Texts.text[44], 50);
+		chanceCards[6] = new ChanceAddPoints(Texts.text[45], 150);
+		chanceCards[7] = new ChanceAddPoints(Texts.text[46], 200);
+		chanceCards[7] = new ChanceAddPoints(Texts.text[47], 200);
+		chanceCards[8] = new ChanceAddPoints(Texts.text[48], 20);
+		chanceCards[9] = new ChanceAddPoints(Texts.text[49], 50);
+		chanceCards[10] = new ChanceAddPoints(Texts.text[50], 5);
+		chanceCards[11] = new ChanceAddPoints(Texts.text[51], 50);
+		chanceCards[12] = new ChanceAddPoints(Texts.text[52], 100);
+		chanceCards[13] = new ChanceAddPoints(Texts.text[53], 108);
+		chanceCards[14] = new ChanceAddPoints(Texts.text[54], 100);
 		
 	}
 	
