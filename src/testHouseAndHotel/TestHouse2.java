@@ -1,4 +1,4 @@
-package test;
+package testHouseAndHotel;
 
 import static org.junit.Assert.*;
 

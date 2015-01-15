@@ -18,6 +18,7 @@ public class Territory extends Ownable {
 		houseRent[1] = houseRent2;
 		houseRent[2] = houseRent3;
 		houseRent[3] = houseRent4;
+		this.hotelRent = hotelRent;
 	}
 
 	
@@ -29,10 +30,12 @@ public class Territory extends Ownable {
 	
 	public int getRent() {
 		int currentRent = 0;
-		if(houses == 0) {
+		if(houses == 5) {
+			currentRent = hotelRent;
+		} else if (houses > 0) {
+			currentRent = houseRent[houses-1];
+		} else {
 			currentRent = baseRent;
-		} else if(houses > 0) {
-			currentRent = houseRent[houses -1];
 		}
 		return currentRent;
 	}

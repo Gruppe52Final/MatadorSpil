@@ -1,5 +1,6 @@
-package test;
+package testHouseAndHotel;
 
+import static org.junit.Assert.*;
 import fields.Territory;
 import game.Dice;
 import game.Game;
@@ -10,8 +11,8 @@ import org.junit.Test;
 
 import boundary.MatadorGUI;
 
-public class TestHouse {
-	
+public class TestHotelRent {
+
 	Dice dice = new Dice();
 	Game game = new Game();
 	Player[] playerList;
@@ -34,6 +35,8 @@ public class TestHouse {
 		playerList[0] = new Player("TestPlayer1");
 		playerList[1] = new Player("TestPlayer2");		
 		player = playerList[0];		
+		Player landingPlayer; 
+		landingPlayer = playerList[1];
 		game.setPlayers(playerList);		
 		game.setCars();		
 	
@@ -47,36 +50,39 @@ public class TestHouse {
 		territory2.landOnField(player);
 		
 		
-		//Check if player now has option to buy houses 
-//		gui.OptionToBuyHouse();
-		game.nextPlayer(player);
+		territory1.addProperty(player);
+		territory2.addProperty(player);		
+
+
+		gui.setHotel(2);
+		territory1.setHouses(5);
+		gui.setHotel(4);
+		territory2.setHouses(5);
 		
-//		Buy property 1
-		dice.setDice1(1);
-		dice.setDice2(0);
-		
-		game.movePlayer(player, dice);	
-		gameBoard.landOnField(player);
-		
-		
-//		Buy property 2
-		dice.setDice1(1);
+		dice.setDice1(2);
 		dice.setDice2(1);
 		
-		game.movePlayer(player, dice);	
-		gameBoard.landOnField(player);
+		int rent = territory1.getRent();
+		int startingCash = landingPlayer.account.getScore();
 		
-		//Does player have option to buy houses now ?
+		game.nextPlayer(landingPlayer);
+		game.movePlayer(landingPlayer, dice);
 		
-		dice.setDice1(1);
-		dice.setDice2(1);
+		gameBoard.landOnField(landingPlayer);
 		
-		game.nextPlayer(player);
-//		game.movePlayer(player, dice);	
-//		gameBoard.landOnField(player);
+		//Has landingPlayer been deducted the amount?
+		assertEquals(landingPlayer.account.getScore(), (startingCash - rent));
 		
-		game.nextPlayer(player);
-		game.nextPlayer(player);
+		//Has the owning player been deposited the amount?
+		assertEquals(player.account.getScore(), (startingCash + rent));
+		
+		game.nextPlayer(landingPlayer);
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -86,3 +92,4 @@ public class TestHouse {
 	}
 
 }
+
