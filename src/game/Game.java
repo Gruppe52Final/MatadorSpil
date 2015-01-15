@@ -111,15 +111,14 @@ public class Game {
 					checkIfPlayerWon(player);
 					
 
+				}
 			}
-		}
+		}	
 	}	
-}	
 	public void nextPlayer(Player currentPlayer) {		
-			//currentPlayer.OwnsTerritoryGroup
 			if(currentPlayer.canBuyHouses()) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
-//					gui.setHouse(gui.choosePropertyToHouse(currentPlayer),gui.chooseNumberOfHousesToBuy(), gameboard);
+					gui.setHouse(gui.choosePropertyToHouse(currentPlayer),gui.chooseNumberOfHousesToBuy(), gameboard);
 				}
 			} else {
 				//Shows message for what player has turn
