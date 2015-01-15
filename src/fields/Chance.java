@@ -54,7 +54,7 @@ public class Chance extends Fields {
 		chanceCards[4] = new ChanceSubtractPoints(Texts.text[43], 60);
 		chanceCards[5] = new ChanceSubtractPoints(Texts.text[44], 50);
 		//Add cards
-		chanceCards[6] = new ChanceAddPoints(Texts.text[45], 25*gui.playerAmount());
+		chanceCards[6] = new ChanceAddPoints(Texts.text[45], 25*(gui.playerAmount()-1));
 		chanceCards[7] = new ChanceAddPoints(Texts.text[46], 200);
 		chanceCards[8] = new ChanceAddPoints(Texts.text[47], 200);
 		chanceCards[9] = new ChanceAddPoints(Texts.text[48], 20);
