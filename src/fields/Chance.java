@@ -45,7 +45,7 @@ public class Chance extends Fields {
 	}
 	
 	public void createCardList() {
-		chanceCards = new ChanceCards[14];
+		chanceCards = new ChanceCards[16];
 		//Substract cards
 		chanceCards[0] = new ChanceSubtractPoints(Texts.text[39], 15);
 		chanceCards[1] = new ChanceSubtractPoints(Texts.text[40], 150);
