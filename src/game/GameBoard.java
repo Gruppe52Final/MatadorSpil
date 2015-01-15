@@ -103,4 +103,11 @@ public class GameBoard {
 		
 		
 	}
+
+	public int getTerritoryHousePrice(int position) {
+		Territory territory;
+		territory = (Territory) getField(position);
+		return territory.getHousePrice();
+		
+	}
 }

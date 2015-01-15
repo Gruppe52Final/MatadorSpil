@@ -119,10 +119,36 @@ public class Game {
 			}
 		}	
 	}	
+	
+	public void buyHousesOption(Player currentPlayer) {
+		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer);
+		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
+		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses)) {
+			subtractHousePrice(currentPlayer, gameboard, numberOfHouses);
+			gui.setHouse(propertyToHouse,numberOfHouses, gameboard);
+			gui.updateBalance(currentPlayer);
+		}
+	}
+	
+	private void subtractHousePrice(Player currentPlayer,
+			GameBoard gameboard, int numberOfHouses) {
+		int housePrice = gameboard.getTerritoryHousePrice(currentPlayer.getPosition());
+		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
+	}
+
+	private boolean checkIfPlayerCanAffordHouses(Player currentPlayer, GameBoard gameboard, int numberOfHouses) {
+			boolean x = false;
+			int housePrice = gameboard.getTerritoryHousePrice(currentPlayer.getPosition());
+			if(currentPlayer.account.getScore() > numberOfHouses * housePrice) {
+				x = true;
+			}
+			return x;
+	}
+
 	public void nextPlayer(Player currentPlayer) {		
 			if(currentPlayer.canBuyHouses()) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
-					gui.setHouse(gui.choosePropertyToHouse(currentPlayer),gui.chooseNumberOfHousesToBuy(), gameboard);
+					buyHousesOption(currentPlayer);
 				}
 			} else {
 				//Shows message for what player has turn
@@ -219,5 +245,9 @@ public class Game {
 	//Also used for testing purposes
 	public Player getCurrentPlayer() {
 	return currentPlayer;
+	}
+
+	public void buyHouse(Player currentPlayer, GameBoard gameBoard) {
+			
 	}
 }

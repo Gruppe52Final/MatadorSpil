@@ -15,6 +15,12 @@ public class TestPrison {
 	Dice dice = new Dice();
 	@Test
 	public void test() {
+		/**
+		 * Inscructions for succesfull test...
+		 * 1. Press "Yes" first time
+		 * 2. Press "No" afterwards everytime
+		 * If the test fails, then some code has been broken....
+		 */
 		//Test if player goes to field[10] after being arrested on field[30]
 		
 		//Make sure player is starting on field 0

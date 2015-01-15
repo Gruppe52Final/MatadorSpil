@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import boundary.MatadorGUI;
 
-public class TestHotelPurchase {
+public class TestHousePricing {
 
 	Dice dice = new Dice();
 	Game game = new Game();
@@ -22,10 +22,9 @@ public class TestHotelPurchase {
 	GameBoard gameBoard = new GameBoard(dice);
 	MatadorGUI gui = new MatadorGUI();
 	
-	
 	@Test
-	public void test() {
-	
+	public void test() {		
+		
 		/**
 		 * Test if player can buy a house on Rødovrevej and Hvidovrevej
 		 */		
@@ -34,46 +33,32 @@ public class TestHotelPurchase {
 		playerList = new Player[2];		
 		playerList[0] = new Player("TestPlayer1");
 		playerList[1] = new Player("TestPlayer2");		
-		player = playerList[0];	
+		player = playerList[0];		
 		game.setPlayers(playerList);		
-		game.setCars();		
-	
+		game.setCars();	
+		player.setPosition(3);
 		
-		//Makes player own Hvidovrevej and Rødovrevej
-		territory1 = (Territory) gameBoard.getField(3);		
-//		territory1.setOwner(player);		
-		territory1.landOnField(player);
-		territory2 = (Territory) gameBoard.getField(1);		
-//		territory2.setOwner(player);
-		territory2.landOnField(player);		
+		//Makes player owner of territory and add those properties to his ownership list
+		territory1 = (Territory) gameBoard.getField(3);	
+		territory2 = (Territory) gameBoard.getField(1);	
+		territory1.setOwner(player);
+		territory2.setOwner(player);
 		territory1.addProperty(player);
-		territory2.addProperty(player);		
-
-
-		gui.setHouse(2, 4);
-		territory1.setHouses(4);
-		gui.setHouse(4, 4);
-		territory2.setHouses(4);
+		territory2.addProperty(player);	
 		
-		dice.setDice1(2);
-		dice.setDice2(1);
 		
-
-		
+		//Check if player now has option to buy houses 
 		game.nextPlayer(player);
 		
+		int startingCash = player.account.getScore();
 		
+		//Buy one house and check if price is deducted from his score
+//		game.buyHouse(player);
 		
+//		assertEquals(player.account.getScore(),(startingCash - territory1.getHousePrice()));
 		
-		
-		
-		
-		
-		
-		
-		
+		game.nextPlayer(player);
 		
 	}
 
 }
-

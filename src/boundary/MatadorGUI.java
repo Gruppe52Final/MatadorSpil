@@ -417,9 +417,9 @@ public class MatadorGUI {
 			}
 	}
 
-	public void setHouse(String choosePropertyToHouse, String numberOfHouses, GameBoard gameBoard) {
+	public void setHouse(String choosePropertyToHouse, int numberOfHouses, GameBoard gameBoard) {
 		int fieldNumber = 0;
-		int houseCount = Integer.parseInt(numberOfHouses);
+		int houseCount = numberOfHouses;
 		if(choosePropertyToHouse.equals("Rødovrevej")) {
 			fieldNumber = 2;
 		} else if (choosePropertyToHouse.equals("Hvidovrevej")) {
@@ -427,8 +427,13 @@ public class MatadorGUI {
 		}
 		Territory territory = (Territory) gameBoard.getField(fieldNumber - 1);
 		int currentHouses = territory.getHouses();
-		GUI.setHouses(fieldNumber, (houseCount + currentHouses));
-		territory.setHouses(houseCount + currentHouses);
+		if (currentHouses >= 4) {
+			GUI.setHotel(fieldNumber, true);
+			territory.setHouses(houseCount + currentHouses);
+		} else if (currentHouses <= 4) {
+			GUI.setHouses(fieldNumber, (houseCount + currentHouses));		//This should ideally be the only line called in here!!
+			territory.setHouses(houseCount + currentHouses);
+		}
 	}
 	
 	public void setHouse(int fieldNumber, int numberOfHouses) {
