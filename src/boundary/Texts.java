@@ -37,7 +37,7 @@ public class Texts {
 		"Du har passeret start feltet og modtager ", //28
 		"DU er gået falit.", //29
 		" på fængsel du er kun på besøg og kan forlade når som helst", //30
-		"du er i fængsel kast lige tergninger for at komme ud", //31
+		"Du er i fængsel kast lige tergninger for at komme ud", //31
 		"Du er blevet fængslet.", //32
 		" du kan endten betale dig ud", //33
 		" eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger)", //34
@@ -114,16 +114,16 @@ public class Texts {
 			"You have to pay a parking ticket. Pay 60 points to the bank.", //43
 			"You have been a trip abroad and purchased too many cigarettes. Pay customs 50 points.", //44
 			//ChanceCardsAdd
-			"you have put money out for potluck . Curiously pay all immediately . Receive from each player 25 points .", //45
+			"You have put money out for potluck. Curiously pay all immediately. Receive from each player 25 points.", //45
 			"The value of home-grown from utility garden is 200 points, as the recipient of the bank.", //46
-			"The municipality has waived a quarterly tax raise in the bank for a happy evening  200.00 point.", //47
-			"you have sold your old rags . Receive  20.00 point .", //48
-			"Receive yield of your shares , 50.00 points.", //49
-			"you have timely handed your subscription card Deposit  5.00 point paid to you by the bank.", //50
+			"The municipality has waived a quarterly tax raise in the bank for a happy evening 200.00 point.", //47
+			"You have sold your old rags. Receive 20.00 point.", //48
+			"Receive yield of your shares, 50.00 points.", //49
+			"You have timely handed your subscription card Deposit 5.00 point paid to you by the bank.", //50
 			"Due to the high cost of living have you received salary increase. Receive 50,00 point.", //51
-			"Manufakturvarerne has become cheaper and better, it saves the kr . 100.00 as the recipient of the bank.", //52
-			"After the auction the Assistant house where they had pasntsat your clothes , you will receive extra kr . 108,00 .", //53
-			"your premium bond has come out . you receive  100.00 points of the bank.", //54
+			"Manufakturvarerne has become cheaper and better, it saves the kr. 100.00 as the recipient of the bank.", //52
+			"After the auction the Assistant house where they had pasntsat your clothes, you will receive extra kr. 108,00.", //53
+			"Your premium bond has come out. You receive  100.00 points of the bank.", //54
 		};
 	
 

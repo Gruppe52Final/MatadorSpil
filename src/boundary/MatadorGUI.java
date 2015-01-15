@@ -46,9 +46,9 @@ public class MatadorGUI {
 		field[1] = new Street.Builder().setTitle("Rødovrevej")
 				.setDescription("Rødovrevej").setBgColor(Color.decode("#6495ED"))
 				.setSubText("Price: 60").setRent("Rent: 2").build();
-		field[2] = new Tax.Builder().setTitle("Prøv Lykken")
+		field[2] = new Street.Builder().setTitle("Prøv Lykken")
 				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
-				.setSubText("Pay: 2000").build();
+				.setSubText("Træk et kort").build();
 		field[3] = new Street.Builder().setTitle("Hvidovrevej")
 				.setDescription("Hvidovrevej").setBgColor(Color.decode("#6495ED"))
 				.setSubText("Price: 60").setRent("Rent: 4").build();
@@ -63,7 +63,7 @@ public class MatadorGUI {
 				.setSubText("Price: 100").setRent("Rent: 6").build();
 		field[7] = new Street.Builder().setTitle("Prøv Lykken")
 				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
-				.setSubText("Price: 3000").setRent("Rent: 700").build();
+				.setSubText("Træk et kort").build();
 		field[8] = new Street.Builder().setTitle("Valby Langgade")
 				.setDescription("Valby Langgade").setBgColor(Color.decode("#FF6347"))
 				.setSubText("Price: 100").setRent("Rent: 6").build();
@@ -92,7 +92,7 @@ public class MatadorGUI {
 				.setSubText("Price: 180").setRent("Rent: 14").build();
 		field[17] = new Street.Builder().setTitle("Prøv Lykken")
 				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
-				.setSubText("Price: 5500").setRent("Rent: 2600").build();
+				.setSubText("Træk et kort").build();
 		field[18] = new Street.Builder().setTitle("Hellerupvej")
 				.setDescription("Hellerupvej").setBgColor(Color.GRAY)
 				.setSubText("Price: 180").setRent("Rent: 14").build();
@@ -100,14 +100,14 @@ public class MatadorGUI {
 				.setDescription("Strandvejen").setBgColor(Color.GRAY)
 				.setSubText("Price: 200").setRent("Rent: 16").build();
 		field[20] = new Refuge.Builder().setTitle("Parkering")
-				.setDescription("Parkering").setBgColor(Color.white)
-				.setSubText("Recieve: 5000").build();
+				.setDescription("Bonus").setBgColor(Color.white)
+				.setSubText("Bonus").build();
 		field[21] = new Street.Builder().setTitle("Trianglen")
 				.setDescription("Trianglen").setBgColor(Color.red)
 				.setSubText("Price: 220").setRent("Rent: 18").build();
 		field[22] = new Street.Builder().setTitle("Prøv Lykken")
 				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
-				.setSubText("Price: 5500").setRent("Rent: 2600").build();
+				.setSubText("Træk et kort").build();
 		field[23] = new Street.Builder().setTitle("Østerbrogade")
 				.setDescription("Østerbrogade").setBgColor(Color.red)
 				.setSubText("Price: 220").setRent("Rent: 18").build();
@@ -139,7 +139,7 @@ public class MatadorGUI {
 				.setSubText("Price: 300").setRent("Rent: 26").build();
 		field[33] = new Street.Builder().setTitle("Prøv Lykken")
 				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
-				.setSubText("Price: 5500").setRent("Rent: 2600").build();
+				.setSubText("Træk et kort").build();
 		field[34] = new Street.Builder().setTitle("Nygade")
 				.setDescription("Nygade").setBgColor(Color.yellow)
 				.setSubText("Price: 320").setRent("Rent: 28").build();
@@ -148,7 +148,7 @@ public class MatadorGUI {
 				.setSubText("Price: 200").setRent("Rent: 25").build();
 		field[36] = new Street.Builder().setTitle("Prøv Lykken")
 				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
-				.setSubText("Price: 5500").setRent("Rent: 2600").build();
+				.setSubText("Træk et kort").build();
 		field[37] = new Street.Builder().setTitle("Frederiksberggade")
 				.setDescription("Frederiksberggade").setBgColor(Color.decode("#800080"))
 				.setSubText("Price: 350").setRent("Rent: 35").build();
