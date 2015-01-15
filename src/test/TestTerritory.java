@@ -16,14 +16,15 @@ public class TestTerritory {
 
 	
 	Dice dice = new Dice();
-	GameBoard gameBoard = new GameBoard(dice);
+	
 	Game game = new Game();
 	Player player = new Player("TestTerritoryPlayer");
-	Territory territory = new Territory("Valby Langgade", 100, 6);
+	Territory territory = new Territory("Valby Langgade", 100, 6, 30, 90, 270, 400, 550);
 	Refuge refuge = new Refuge("Parkering");
 	LaborCamp laborCamp = new LaborCamp("Tuborg", 150, 100, dice);
 	Player playerLanding = new Player("LandingOnTerritoryField");
 	int startingCash = player.account.getScore();
+	GameBoard gameBoard = new GameBoard(dice);
 	
 	@Test
 	public void test() {
@@ -43,10 +44,10 @@ public class TestTerritory {
 		territory.landOnField(playerLanding, refuge);
 		
 		//Is his account deducted the rent ?
-		assertEquals(playerLanding.account.getScore(),(startingCash - territory.getRent()));
+		assertEquals(playerLanding.account.getScore(),(startingCash - territory.getBaseRent()));
 		
 		//Is the rent transfered to the other player?
-		assertEquals(player.account.getScore(),(startingCash + territory.getRent()));
+		assertEquals(player.account.getScore(),(startingCash + territory.getBaseRent()));
 		
 		//Make sure player has no fleet or laborcamps when just buying territory
 		assertEquals(player.getLaborCamp(),0);

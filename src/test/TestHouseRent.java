@@ -35,6 +35,8 @@ public class TestHouseRent {
 		playerList[0] = new Player("TestPlayer1");
 		playerList[1] = new Player("TestPlayer2");		
 		player = playerList[0];		
+		Player landingPlayer; 
+		landingPlayer = playerList[1];
 		game.setPlayers(playerList);		
 		game.setCars();		
 	
@@ -79,23 +81,33 @@ public class TestHouseRent {
 		
 		
 		territory1.addProperty(player);
-		territory2.addProperty(player);
-		
-		
-		
+		territory2.addProperty(player);		
 
 
-		gui.setHouse(2, 1);
-		territory1.setHouses(1);
-		gui.setHouse(4, 1);
-		territory2.setHouses(1);
+		gui.setHouse(2, 4);
+		territory1.setHouses(4);
+		gui.setHouse(4, 4);
+		territory2.setHouses(4);
 		
-		game.nextPlayer(player);
-		game.movePlayer(player, dice);
+		dice.setDice1(2);
+		dice.setDice2(1);
 		
-		System.out.println(territory1.getHouses());
-		assertEquals(territory1.getHouses(),1);
-		assertEquals(territory2.getHouses(),1);
+		int rent = territory1.getRent();
+		int startingCash = landingPlayer.account.getScore();
+		
+		game.nextPlayer(landingPlayer);
+		game.movePlayer(landingPlayer, dice);
+		
+		gameBoard.landOnField(landingPlayer);
+		
+		//Has landingPlayer been deducted the amount?
+		assertEquals(landingPlayer.account.getScore(), (startingCash - rent));
+		
+		//Has the owning player been deposited the amount?
+		assertEquals(player.account.getScore(), (startingCash + rent));
+		
+		
+		
 		
 		
 		

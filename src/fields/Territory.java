@@ -5,7 +5,7 @@ import game.Player;
 
 public class Territory extends Ownable {
 
-	private int rent;
+	private int baseRent;
 	private int houses;
 	private int hotelRent;
 	private int[] houseRent = new int[4];
@@ -13,7 +13,7 @@ public class Territory extends Ownable {
 
 	public Territory(String name, int price, int rent, int houseRent1, int houseRent2, int houseRent3, int houseRent4, int hotelRent) {
 		super(price, name);
-		this.rent = rent;
+		this.baseRent = rent;
 		houseRent[0] = houseRent1;
 		houseRent[1] = houseRent2;
 		houseRent[2] = houseRent3;
@@ -23,31 +23,40 @@ public class Territory extends Ownable {
 	
 	@Override
 	public String toString() {
-		return "Type: Territory --- Name: " + super.getName() + " --- Price: " + super.getPrice() + " --- Rent: " + rent + "\n";
+		return "Type: Territory --- Name: " + super.getName() + " --- Price: " + super.getPrice() + " --- BaseRent: " + baseRent + "\n";
 	}
 
 	
-
+	public int getRent() {
+		int currentRent = 0;
+		if(houses == 0) {
+			currentRent = baseRent;
+		} else if(houses > 0) {
+			currentRent = houseRent[houses -1];
+		}
+		return currentRent;
+	}
 
 	@Override
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		if (getOwner() != player && getOwner() != null) {
-			if (player.account.getScore() >= rent) {
-				gui.fieldTax(super.getName(), getOwner().getName(), rent);		//Har givet nullPointerError	
-				getOwner().account.addPoints(rent);
-				player.account.subtractPoints(rent);
+			int currentRent = getRent();
+			if (player.account.getScore() >= currentRent) {
+				gui.fieldTax(super.getName(), getOwner().getName(), currentRent);		//Har givet nullPointerError	
+				getOwner().account.addPoints(currentRent);
+				player.account.subtractPoints(currentRent);
 				gui.updateBalance(player);			// the player looses if the rent is higher than the players balance
 				gui.updateBalance(getOwner());
 			}
 			// the player loses if the rent is higher than the players balance
 			else {
 				insufficientFunds(player);
-			}		
-		}		
-	}
+			}			
+		}
+	}		
 	
-	public int getRent() {
-		return rent;
+	public int getBaseRent() {
+		return baseRent;
 	}
 
 
