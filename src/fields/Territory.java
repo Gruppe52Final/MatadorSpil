@@ -8,10 +8,11 @@ public class Territory extends Ownable {
 	private int baseRent;
 	private int houses;
 	private int hotelRent;
+	private String color;
 	private int[] houseRent = new int[4];
 	private MatadorGUI gui = new MatadorGUI();
 
-	public Territory(String name, int price, int rent, int houseRent1, int houseRent2, int houseRent3, int houseRent4, int hotelRent) {
+	public Territory(String name, int price, int rent, int houseRent1, int houseRent2, int houseRent3, int houseRent4, int hotelRent, String color) {
 		super(price, name);
 		this.baseRent = rent;
 		houseRent[0] = houseRent1;
@@ -19,6 +20,7 @@ public class Territory extends Ownable {
 		houseRent[2] = houseRent3;
 		houseRent[3] = houseRent4;
 		this.hotelRent = hotelRent;
+		this.color = color;
 	}
 
 	

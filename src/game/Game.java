@@ -15,7 +15,7 @@ public class Game {
 
 	private int playerAmount = 0;
 	private int passStartMoney = 200;
-	private MatadorGUI gui = new MatadorGUI(); //This is set now so ChanceCard is not giving nullpoint error
+	private MatadorGUI gui = new MatadorGUI(); 
 	private int lostCount = 0;
 	private Dice dice = new Dice();
 	private GameBoard gameboard;
@@ -31,15 +31,16 @@ public class Game {
 	}
 	
 	public Game() {
-		gui.createField();
+	gui.createField();
+
 	String language = gui.selectLanguage();
  	if(language.equals("Dansk")) {
  		gui = new MatadorGUI("Dansk");
  		} else if(language.equals("English")) {
  			gui = new MatadorGUI("English");
 		}
- 	gameboard = new GameBoard(dice); //If this is set earlier in class, Chance() will invoke an nullpointerError
- 	
+	 	gameboard = new GameBoard(dice); //If this is set earlier in class, Chance() will invoke an nullpointerError
+
 	}
 	public void setPlayers(Player[] player) {
 		this.player = player;
@@ -60,17 +61,20 @@ public class Game {
 	}
 	
 	public void init() {
-		
+
 	//Gets input from player actor outside system boundary
 	playerAmount = gui.playerAmount();
 	
+	
 	player = new Player[playerAmount];
+	
+	gui.createPlayers(playerAmount, player);
 
 	}
 	
 	public void run() {
 		
-		createPlayers();
+//		createPlayers();
 		
 		// The game continues as long as won equals false
 		while (!won) {

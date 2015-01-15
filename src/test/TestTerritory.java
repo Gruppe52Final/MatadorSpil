@@ -19,7 +19,7 @@ public class TestTerritory {
 	
 	Game game = new Game();
 	Player player = new Player("TestTerritoryPlayer");
-	Territory territory = new Territory("Valby Langgade", 100, 6, 30, 90, 270, 400, 550);
+	Territory territory = new Territory("Valby Langgade", 100, 6, 30, 90, 270, 400, 550, "pink");
 	Refuge refuge = new Refuge("Parkering");
 	LaborCamp laborCamp = new LaborCamp("Tuborg", 150, 100, dice);
 	Player playerLanding = new Player("LandingOnTerritoryField");
