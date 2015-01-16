@@ -127,10 +127,9 @@ public class Game {
 		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer,gameboard);
 		int fieldNumber = gameboard.getFieldNumberFromPropertyName(propertyToHouse);
 		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
-
-		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses)) {
-			subtractHousePrice(currentPlayer, gameboard, numberOfHouses);
-			
+		System.out.println(currentPlayer.getPosition() + " position buyHousesOption");
+		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses, fieldNumber)) {
+			subtractHousePrice(currentPlayer, gameboard, numberOfHouses, fieldNumber);			
 			gui.setHouse(fieldNumber,numberOfHouses, gameboard);
 			gui.updateBalance(currentPlayer);
 		}
@@ -138,17 +137,16 @@ public class Game {
 	
 	
 	private void subtractHousePrice(Player currentPlayer,
-			GameBoard gameboard, int numberOfHouses) {
+			GameBoard gameboard, int numberOfHouses, int fieldNumber) {
 		System.out.println(currentPlayer.getName());
-		int housePrice = gameboard.getTerritoryHousePrice(currentPlayer.getPosition());
+		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
 		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
 	}
 
-	private boolean checkIfPlayerCanAffordHouses(Player currentPlayer, GameBoard gameboard, int numberOfHouses) {
+	private boolean checkIfPlayerCanAffordHouses(Player currentPlayer, GameBoard gameboard, int numberOfHouses, int fieldNumber) {
 			boolean x = false;
-			System.out.println(currentPlayer.getName());
-			
-			int housePrice = gameboard.getTerritoryHousePrice(currentPlayer.getPosition());
+			System.out.println("fisse " + fieldNumber + "hej");			
+			int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
 			if(currentPlayer.account.getScore() > numberOfHouses * housePrice) {
 				x = true;
 			}
@@ -156,6 +154,7 @@ public class Game {
 	}
 
 	public void nextPlayer(Player currentPlayer, GameBoard gameboard) {
+		System.out.println(currentPlayer.getPosition() + " position nextPlayer");
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
 					System.out.println(currentPlayer.getPosition());

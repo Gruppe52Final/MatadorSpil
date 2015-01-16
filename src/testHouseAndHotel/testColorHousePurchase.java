@@ -69,20 +69,18 @@ public class testColorHousePurchase {
 		 * Test if player landing on fields is deducted the correct rent
 		 */
 		
-		player2.setPosition(9);
-		
-		System.out.println(player2.getPosition() + "player.getPosition 1st ");
-		System.out.println(player2.getName());
+		player2.setPosition(6);
 		
 		
 		//Check if player now has option to buy houses - buy house on Roskilde
-		game.nextPlayer(player2, gameBoard);
+		game.nextPlayer(player1, gameBoard);
 		
 		System.out.println(player2.getPosition() + "player.getPosition 2nd ");
 		System.out.println(player2.getName());
 
 		
 		int rent = territory1.getRent();
+		System.out.println(rent);
 		int startingCash = player2.account.getScore();	
 		
 		
@@ -96,7 +94,7 @@ public class testColorHousePurchase {
 		assertEquals(player2.account.getScore(), (startingCash - rent));
 		
 		//Has the owning player been deposited the amount?
-		assertEquals(player1.account.getScore(), (startingCash + rent));
+		assertEquals(player1.account.getScore(), ((startingCash - territory1.getHousePrice()) + rent));
 	}
 
 }
