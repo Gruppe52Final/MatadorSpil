@@ -122,16 +122,18 @@ public class Game {
 		}	
 	}	
 	
-	public void buyHousesOption(Player currentPlayer) {
+	public void buyHousesOption(Player currentPlayer, GameBoard gameboard) {
 //		String[] propertyToHouse = gameboard.ReturnPropertiesHouseable(currentPlayer);
 		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer,gameboard);
+		int fieldNumber = gameboard.getFieldNumberFromPropertyName(propertyToHouse);
 		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
 		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses)) {
 			subtractHousePrice(currentPlayer, gameboard, numberOfHouses);
-			gui.setHouse(propertyToHouse,numberOfHouses, gameboard);
+			gui.setHouse(fieldNumber,numberOfHouses, gameboard);
 			gui.updateBalance(currentPlayer);
 		}
 	}
+	
 	
 	private void subtractHousePrice(Player currentPlayer,
 			GameBoard gameboard, int numberOfHouses) {
@@ -151,7 +153,7 @@ public class Game {
 	public void nextPlayer(Player currentPlayer, GameBoard gameboard) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
-					buyHousesOption(currentPlayer);
+					buyHousesOption(currentPlayer, gameboard);
 				}
 			} else {
 				//Shows message for what player has turn

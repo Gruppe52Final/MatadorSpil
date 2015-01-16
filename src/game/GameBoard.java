@@ -145,30 +145,38 @@ public class GameBoard {
 		return x;
 		}
 	
+	public int getFieldNumberFromPropertyName(String propertyToHouse) {
+		int fieldNumber = 0;
+		for (int i = 0; i < field.length; i++) {
+			if(field[i] instanceof Territory) {
+				Territory territory;
+				territory = (Territory) field[i];
+				if (territory.getName().equals(propertyToHouse)) {
+					fieldNumber = i;
+				}
+			}
+		}		
+		return fieldNumber;
+	}
+	
 	
 	public ArrayList<String> ReturnPropertiesHouseable(Player player) {
-		Territory[] territory = new Territory[40];
 		ArrayList<String> houseable = new ArrayList<String>();
+		Territory[] territory = new Territory[40];
 		boolean x = false;
 		for (int i = 0; i < field.length; i++) {
 			if(field[i] instanceof Territory) {
 				territory[i] = (Territory) field[i];
 			}
 		}
-		System.out.println(territory[1]);
-		System.out.println(territory[3]);
-		System.out.println(territory[1].getOwner());
-		System.out.println(territory[3].getOwner());
-		if(territory[1].getOwner() == player && territory[3].getOwner() == player) {
-			System.out.println("nej");
-			houseable.add(territory[1].getName());
-			houseable.add(territory[3].getName());
-		}
 		if(territory[6].getOwner() == player && territory[8].getOwner() == player && territory[9].getOwner() == player) {
-			System.out.println("ugh");
 			houseable.add(territory[6].getName());
 			houseable.add(territory[8].getName());
 			houseable.add(territory[9].getName());
+		}
+		if(territory[1].getOwner() == player && territory[3].getOwner() == player) {
+			houseable.add(territory[1].getName());
+			houseable.add(territory[3].getName());
 		}
 		if(territory[11].getOwner() == player && territory[13].getOwner() == player && territory[14].getOwner() == player) {
 			houseable.add(territory[11].getName());
@@ -199,8 +207,7 @@ public class GameBoard {
 			houseable.add(territory[37].getName());
 			houseable.add(territory[39].getName());
 		}
-		System.out.println("fucking lort");
-		System.out.println(houseable.get(0));
+
 		return houseable;
 	}
 		

@@ -69,7 +69,12 @@ public class testColorHousePurchase {
 		
 
 		//Check if player now has option to buy houses 
-		gui.choosePropertyToHouse(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
 		
 		
 

@@ -1,5 +1,6 @@
 package testHouseAndHotel;
 
+import static org.junit.Assert.*;
 import fields.Territory;
 import game.Dice;
 import game.Game;
