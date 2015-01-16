@@ -123,7 +123,8 @@ public class Game {
 	}	
 	
 	public void buyHousesOption(Player currentPlayer) {
-		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer);
+//		String[] propertyToHouse = gameboard.ReturnPropertiesHouseable(currentPlayer);
+		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer,gameboard);
 		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
 		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses)) {
 			subtractHousePrice(currentPlayer, gameboard, numberOfHouses);

@@ -396,11 +396,8 @@ public class MatadorGUI {
 		
 	}
 
-	public String choosePropertyToHouse(Player currentPlayer) {		
-		for (int i = 0; i < currentPlayer.getPropertiesOwned().length; i++) {
-			System.out.println(currentPlayer.getPropertiesOwned()[i]);
-		}
-		return GUI.getUserSelection("Which property do you want a house/hotel on?",  currentPlayer.getPropertiesOwned());
+	public String choosePropertyToHouse(Player currentPlayer, GameBoard gameboard) {		
+		return GUI.getUserSelection("Which property do you want a house/hotel on?", (String[]) gameboard.ReturnPropertiesHouseable(currentPlayer).toArray());
 	}
 	
 	public String chooseNumberOfHousesToBuy() {

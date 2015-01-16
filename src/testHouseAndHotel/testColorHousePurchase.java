@@ -21,6 +21,9 @@ public class testColorHousePurchase {
 	Territory territory2;
 	Territory territory3;
 	Territory territory4;
+	Territory territory5;
+	Territory territory6;
+	
 	GameBoard gameBoard = new GameBoard(dice);
 	MatadorGUI gui = new MatadorGUI();
 
@@ -44,28 +47,31 @@ public class testColorHousePurchase {
 		territory2 = (Territory) gameBoard.getField(8);	
 		territory3 = (Territory) gameBoard.getField(9);	
 		territory4 = (Territory) gameBoard.getField(9);
+		territory5 = (Territory) gameBoard.getField(1);	
+		territory6 = (Territory) gameBoard.getField(3);
 
 		territory1.setOwner(player);
 		territory2.setOwner(player);
 		territory3.setOwner(player);
+		territory5.setOwner(player);
+		territory6.setOwner(player);
 		territory1.addProperty(player);
 		territory2.addProperty(player);
 		territory3.addProperty(player);		
+		territory5.addProperty(player);		
+		territory6.addProperty(player);
 		territory1.landOnField(player);
 		territory2.landOnField(player);
 		territory3.landOnField(player);
+		territory5.landOnField(player);
+		territory6.landOnField(player);
 		
 		
-		
-		//Check if player now has option to buy houses 
-		game.nextPlayer(player, gameBoard);
-		
-		int startingCash = player.account.getScore();
-		
-		game.nextPlayer(player, gameBoard);
-		game.nextPlayer(player, gameBoard);
 
-		game.nextPlayer(player, gameBoard);
+		//Check if player now has option to buy houses 
+		gui.choosePropertyToHouse(player, gameBoard);
+		
+		
 
 		
 		//Buy one house and check if price is deducted from his score

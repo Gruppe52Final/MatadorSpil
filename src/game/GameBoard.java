@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+
 import fields.Chance;
 import fields.Fields;
 import fields.Fleet;
@@ -143,58 +145,64 @@ public class GameBoard {
 		return x;
 		}
 	
-//	public String[] ReturnPropertiesHouseable(Player player) {
-//		Territory[] territory = new Territory[40];
-//		boolean x = false;
-//		String[] houseable = new String[3];
-//		for (int i = 0; i < field.length; i++) {
-//			if(field[i] instanceof Territory) {
-//				territory[i] = (Territory) field[i];
-//			}
-//		}
-//		if(territory[6].getOwner() == player && territory[8].getOwner() == player && territory[9].getOwner() == player) {
-//			houseable[0] = territory[6].getName();
-//			houseable[1] = territory[8].getName();
-//			houseable[2] = territory[9].getName();
-//		}
-//		if(territory[1].getOwner() == player && territory[3].getOwner() == player) {
-//			houseable[1] = territory[6].getName();
-//			houseable[3] = territory[8].getName();
-//			houseable[2] = "";
-//		}
-//		if(territory[11].getOwner() == player && territory[13].getOwner() == player && territory[14].getOwner() == player) {
-//			houseable[0] = territory[11].getName();
-//			houseable[1] = territory[13].getName();
-//			houseable[2] = territory[14].getName();
-//		}
-//		if(territory[16].getOwner() == player && territory[18].getOwner() == player && territory[19].getOwner() == player) {
-//			houseable[0] = territory[16].getName();
-//			houseable[1] = territory[18].getName();
-//			houseable[2] = territory[19].getName();
-//		}
-//		if(territory[21].getOwner() == player && territory[23].getOwner() == player && territory[24].getOwner() == player) {
-//			houseable[0] = territory[21].getName();
-//			houseable[1] = territory[23].getName();
-//			houseable[2] = territory[24].getName();
-//		}
-//		if(territory[26].getOwner() == player && territory[27].getOwner() == player && territory[29].getOwner() == player) {
-//			houseable[0] = territory[26].getName();
-//			houseable[1] = territory[27].getName();
-//			houseable[2] = territory[29].getName();
-//		}
-//		if(territory[31].getOwner() == player && territory[32].getOwner() == player && territory[34].getOwner() == player) {
-//			houseable[0] = territory[31].getName();
-//			houseable[1] = territory[32].getName();
-//			houseable[2] = territory[34].getName();
-//		}
-//		if(territory[37].getOwner() == player && territory[39].getOwner() == player) {
-//			houseable[0] = territory[37].getName();
-//			houseable[1] = territory[39].getName();
-//			houseable[2] = "";
-//		}
-//
-//		return houseable;
-//		}
+	
+	public ArrayList<String> ReturnPropertiesHouseable(Player player) {
+		Territory[] territory = new Territory[40];
+		ArrayList<String> houseable = new ArrayList<String>();
+		boolean x = false;
+		for (int i = 0; i < field.length; i++) {
+			if(field[i] instanceof Territory) {
+				territory[i] = (Territory) field[i];
+			}
+		}
+		System.out.println(territory[1]);
+		System.out.println(territory[3]);
+		System.out.println(territory[1].getOwner());
+		System.out.println(territory[3].getOwner());
+		if(territory[1].getOwner() == player && territory[3].getOwner() == player) {
+			System.out.println("nej");
+			houseable.add(territory[1].getName());
+			houseable.add(territory[3].getName());
+		}
+		if(territory[6].getOwner() == player && territory[8].getOwner() == player && territory[9].getOwner() == player) {
+			System.out.println("ugh");
+			houseable.add(territory[6].getName());
+			houseable.add(territory[8].getName());
+			houseable.add(territory[9].getName());
+		}
+		if(territory[11].getOwner() == player && territory[13].getOwner() == player && territory[14].getOwner() == player) {
+			houseable.add(territory[11].getName());
+			houseable.add(territory[13].getName());
+			houseable.add(territory[14].getName());
+		}
+		if(territory[16].getOwner() == player && territory[18].getOwner() == player && territory[19].getOwner() == player) {
+			houseable.add(territory[16].getName());
+			houseable.add(territory[18].getName());
+			houseable.add(territory[19].getName());
+		}
+		if(territory[21].getOwner() == player && territory[23].getOwner() == player && territory[24].getOwner() == player) {
+			houseable.add(territory[21].getName());
+			houseable.add(territory[23].getName());
+			houseable.add(territory[24].getName());
+		}
+		if(territory[26].getOwner() == player && territory[27].getOwner() == player && territory[29].getOwner() == player) {
+			houseable.add(territory[26].getName());
+			houseable.add(territory[27].getName());
+			houseable.add(territory[29].getName());
+		}
+		if(territory[31].getOwner() == player && territory[32].getOwner() == player && territory[34].getOwner() == player) {
+			houseable.add(territory[31].getName());
+			houseable.add(territory[32].getName());
+			houseable.add(territory[34].getName());
+		}
+		if(territory[37].getOwner() == player && territory[39].getOwner() == player) {
+			houseable.add(territory[37].getName());
+			houseable.add(territory[39].getName());
+		}
+		System.out.println("fucking lort");
+		System.out.println(houseable.get(0));
+		return houseable;
+	}
 		
 	
 	public Player getOwnerOfTerritory(int fieldNumber) {
