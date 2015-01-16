@@ -76,8 +76,7 @@ public class Game {
 	
 	public void run() {
 		
-//		createPlayers();
-		
+
 		// The game continues as long as won equals false
 		while (!won) {
 			//Goes through the player[]
@@ -89,7 +88,7 @@ public class Game {
 					//Sets currentPlayer object
 					currentPlayer = player[i];
 					
-					//Shows message for what player has turn
+					//Shows message for the player having current turn, might have option to buy houses, or option to throw dice
 					nextPlayer(currentPlayer, gameboard);
 					
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
@@ -114,8 +113,7 @@ public class Game {
 					checkIfPlayerLost(currentPlayer, player);
 			
 					//Checks if one player has won in the player array
-					checkIfPlayerWon(player);
-					
+					checkIfPlayerWon(player);					
 
 				}
 			}
@@ -123,11 +121,9 @@ public class Game {
 	}	
 	
 	public void buyHousesOption(Player currentPlayer, GameBoard gameboard) {
-//		String[] propertyToHouse = gameboard.ReturnPropertiesHouseable(currentPlayer);
 		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer,gameboard);
 		int fieldNumber = gameboard.getFieldNumberFromPropertyName(propertyToHouse);
 		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
-		System.out.println(currentPlayer.getPosition() + " position buyHousesOption");
 		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses, fieldNumber)) {
 			subtractHousePrice(currentPlayer, gameboard, numberOfHouses, fieldNumber);			
 			gui.setHouse(fieldNumber,numberOfHouses, gameboard);
@@ -138,14 +134,12 @@ public class Game {
 	
 	private void subtractHousePrice(Player currentPlayer,
 			GameBoard gameboard, int numberOfHouses, int fieldNumber) {
-		System.out.println(currentPlayer.getName());
 		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
 		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
 	}
 
 	private boolean checkIfPlayerCanAffordHouses(Player currentPlayer, GameBoard gameboard, int numberOfHouses, int fieldNumber) {
-			boolean x = false;
-			System.out.println("fisse " + fieldNumber + "hej");			
+			boolean x = false;	
 			int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
 			if(currentPlayer.account.getScore() > numberOfHouses * housePrice) {
 				x = true;
@@ -154,10 +148,8 @@ public class Game {
 	}
 
 	public void nextPlayer(Player currentPlayer, GameBoard gameboard) {
-		System.out.println(currentPlayer.getPosition() + " position nextPlayer");
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
-					System.out.println(currentPlayer.getPosition());
 					buyHousesOption(currentPlayer, gameboard);
 				}
 			} else {
@@ -171,15 +163,10 @@ public class Game {
 		gui.showDice(dice.getDice1(), dice.getDice2());
 
 		//Updates the position variable inside player object
-//		player.setPosition(player.getPosition() + dice.getSum());
 		player.addRollToPosition(dice.getSum());
 		
 		//Updates the position of the cars on GUI
-		gui.updatePosition(player);
-		
-//		currentPlayer.setJustOutOfPrison(false);
-		
-		
+		gui.updatePosition(player);		
 		
 	}
 
@@ -194,7 +181,6 @@ public class Game {
 				currentPlayer.setPrisonTurns(0);
 				//Subtract 100 points from players account
 				currentPlayer.account.subtractPoints(100);	
-				currentPlayer.setJustOutOfPrison(true);				
 				//Update GUI
 				gui.updateBalance(currentPlayer);
 				
@@ -209,8 +195,6 @@ public class Game {
 				//If both dice are equal, he's out of prison
 				if (dice.getDice1() == dice.getDice2()) {
 					currentPlayer.setPrisonTurns(0);
-
-					currentPlayer.setJustOutOfPrison(true);
 
 				} else {
 					currentPlayer.setPrisonTurns(currentPlayer.getPrisonTurns() - 1);

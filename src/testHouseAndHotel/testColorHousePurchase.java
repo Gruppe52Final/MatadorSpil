@@ -75,12 +75,8 @@ public class testColorHousePurchase {
 		//Check if player now has option to buy houses - buy house on Roskilde
 		game.nextPlayer(player1, gameBoard);
 		
-		System.out.println(player2.getPosition() + "player.getPosition 2nd ");
-		System.out.println(player2.getName());
-
 		
 		int rent = territory1.getRent();
-		System.out.println(rent);
 		int startingCash = player2.account.getScore();	
 		
 		

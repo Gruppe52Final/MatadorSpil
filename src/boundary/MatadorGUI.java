@@ -405,7 +405,7 @@ public class MatadorGUI {
 	}
 	
 	public String chooseNumberOfHousesToBuy() {
-		return GUI.getUserSelection("How many houses do you want to buy?", "1","2","3","4");
+		return GUI.getUserSelection("How many houses do you want to buy?", "1","2","3","4","5");
 	}
 	
 	//Not working correctly in test
@@ -415,14 +415,12 @@ public class MatadorGUI {
 				Territory territory;
 				territory = (Territory) gameBoard.getField(i);
 				GUI.setHouses((i), ((Territory) gameBoard.getField(i)).getHouses());
-				System.out.println(territory.getHouses() + "field " + i);
 				}
 			}
 	}
 
 	public void setHouse(int fieldNumber, int numberOfHouses, GameBoard gameBoard) {
 		int houseCount = numberOfHouses;
-		System.out.println(fieldNumber);
 		Territory territory = (Territory) gameBoard.getField(fieldNumber);
 		int currentHouses = territory.getHouses();
 		if (currentHouses >= 4) {

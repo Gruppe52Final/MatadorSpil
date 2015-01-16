@@ -220,7 +220,6 @@ public class GameBoard {
 
 	public int getTerritoryHousePrice(int position) {
 		Territory territory;
-		System.out.println(position);
 		territory = (Territory) field[position];
 		return territory.getHousePrice();		
 	}

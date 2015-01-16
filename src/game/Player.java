@@ -13,7 +13,6 @@ public class Player {
 	private boolean dead;
 	public Account account = new Account();
 	private int previousPosition;
-	private boolean justOutOfPrison;
 	private String[] propertiesOwned;
 	private boolean[] fieldsOwned;
 	String[] colorsOwned;
@@ -91,17 +90,7 @@ public class Player {
 	public void setPosition(int i) {
 		position = i;		
 	}
-@Deprecated
-	public void setJustOutOfPrison(boolean b) {
-		justOutOfPrison = b;
-		
-	}
-@Deprecated
-	public boolean getJustOutOfPrison() {
-		return justOutOfPrison;
-	}
-
-		
+	
 	public void addProperty(String nameOfProperty) {		
 		for (int i = 0; i < propertiesOwned.length; i++) {
 			if(propertiesOwned[i].equals("")) {
@@ -110,7 +99,7 @@ public class Player {
 			}
 		}
 	}
-
+	
 	public void addColor(String color) {
 		for (int i = 0; i < colorsOwned.length; i++) {
 			if(colorsOwned[i].equals("")) {
@@ -125,5 +114,6 @@ public class Player {
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 }
