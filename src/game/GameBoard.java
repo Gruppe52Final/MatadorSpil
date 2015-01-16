@@ -32,7 +32,7 @@ public class GameBoard {
 		field[9] = new Territory("Allégade", 120, 8, 40, 100, 300, 450, 600, 50, "pink");
 		field[10] = new VisitPrison("Jail");
 		field[11] = new Territory("Fredriksberg Allé", 140, 10, 50, 150, 450, 625, 750, 100, "green");
-		field[12] = new LaborCamp("Tuborg", 150, 10, dice);
+		field[12] = new LaborCamp("Tuborg", 150, 4, dice);
 		field[13] = new Territory("Bülowsvej", 140, 10, 50, 150, 450, 625, 750, 100, "green");
 		field[14] = new Territory("Gl Kongevej", 160, 12, 60, 180, 500, 700, 900, 100, "green");
 		field[15] = new Fleet("Mols-Linien",  200);
@@ -48,7 +48,7 @@ public class GameBoard {
 		field[25] = new Fleet("Gedser-Rostock",  200);
 		field[26] = new Territory("Bredgade", 260, 22, 110, 330, 800, 975, 1150, 150, "white");
 		field[27] = new Territory("Kgs Nytorv", 260, 22, 110, 330, 800, 975, 1150, 150, "white");
-		field[28] = new LaborCamp("Carlsberg", 150, 10, dice);
+		field[28] = new LaborCamp("Carlsberg", 150, 4, dice);
 		field[29] = new Territory("Østergade", 280, 22, 90, 250, 700, 875, 1050, 150, "white");
 		field[30] = new GoToPrison("Arrested");
 		field[31] = new Territory("Amagertorv", 300, 26, 130, 390, 900, 1100, 1275, 200, "yellow");
@@ -103,11 +103,38 @@ public class GameBoard {
 		
 		
 	}
+	public Fields[] getFields() {
+		return field;
+	}
+	
+//	public boolean canPlayerBuyHouses(Player player) {
+//		boolean x = false;
+//		int count = 0;
+//		Territory territory;
+////		String[] color = new String[100];
+//		String color = "";
+//		Fields fieldOwned[] = new Fields[40];
+//		
+//		for (int i = 0; i < field.length; i++) {
+//			territory = (Territory) field[i];
+//			if(player == territory.getOwner() && territory.getColor() {
+//				
+//			}
+//		}
+//		return x;
+//		}
+		
+	
+	public Player getOwnerOfTerritory(int fieldNumber) {
+		Territory territory;
+		territory = (Territory) getField(fieldNumber);
+		Player owner = territory.getOwner();
+		return owner;
+	}
 
 	public int getTerritoryHousePrice(int position) {
 		Territory territory;
 		territory = (Territory) getField(position);
-		return territory.getHousePrice();
-		
+		return territory.getHousePrice();		
 	}
 }

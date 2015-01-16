@@ -15,6 +15,8 @@ public class Player {
 	private int previousPosition;
 	private boolean justOutOfPrison;
 	private String[] propertiesOwned;
+	private boolean[] fieldsOwned;
+	String[] colorsOwned;
 
 	// Object that stores the name and position of a player
 	public Player(String name) {
@@ -112,6 +114,17 @@ public class Player {
 	if(group ==2) {
 		x =true;
 	}
+		
+		
+//	int TwoProperties = 0;
+//	int ThreeProperties = 0;
+//	for (int i = 0; i < colorsOwned.length; i++) {
+//		if(colorsOwned[i].equals("blue") || colorsOwned[i].equals("purple")) {
+//			TwoProperties++;
+//		} else if(colorsOwned)
+//	}	
+	
+		
 	return x;
 	}
 
@@ -122,6 +135,21 @@ public class Player {
 				break;
 			}
 		}
+	}
+
+	public void addColor(String color) {
+		for (int i = 0; i < colorsOwned.length; i++) {
+			if(colorsOwned[i].equals("")) {
+				colorsOwned[i] = color;
+				break;
+			}
+		}
+		
+	}
+
+	public void addFieldNumberOwned() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

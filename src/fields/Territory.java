@@ -79,6 +79,8 @@ public class Territory extends Ownable {
 	public void addProperty(Player player) {
 		setOwner(player);
 		player.addProperty(super.getName());
+//		player.addColor(color);
+		player.addFieldNumberOwned();
 	}
 	
 	public void setHouses(int houses) {
@@ -94,6 +96,12 @@ public class Territory extends Ownable {
 	public int getHousePrice() {
 		return housePrice;
 	}
+
+
+	public String getColor() {
+		return color;
+	}
+	
 	
 
 

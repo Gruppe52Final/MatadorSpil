@@ -8,6 +8,8 @@ package game;
 
 
 import boundary.MatadorGUI;
+import fields.Fields;
+import fields.Territory;
 
 
 
@@ -143,6 +145,33 @@ public class Game {
 				x = true;
 			}
 			return x;
+	}
+	
+	public boolean canPlayerBuyHouses(Player player, GameBoard gameBoard) {		
+		boolean x = false;
+		
+//		if(player == gameBoard)
+		
+//		int count = 0;
+//		Territory territory1;
+//		String[] color = new String[50];
+//		Fields[] fields;
+//		Fields[] territoryFields;
+//		fields = gameBoard.getFields();
+//		for (int i = 0; i < fields.length; i++) {
+//			if(!(fields[i] instanceof Territory)) {				
+//				fields[i] = null;
+//				}
+//		for (int i = 0; i < fields.length; i++) {
+//			if(!(fields[i] == null)) {
+//				territoryFields = fields[i]
+//			}
+//		}
+//			
+//
+//	
+//		}
+		return x;
 	}
 
 	public void nextPlayer(Player currentPlayer) {		
