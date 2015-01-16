@@ -303,9 +303,12 @@ public class MatadorGUI {
 	
 	public String taxPick(String name) {
 		return GUI.getUserSelection(
-				Texts.text[21] + name + Texts.text[23]
-						+ Texts.text[24],
+				name + Texts.text[23] + Texts.text[24],
 					Texts.text[25], Texts.text[26]);
+	}
+	
+	public void taxPay(String name) {
+		GUI.showMessage(name + Texts.text[23] + Texts.text[55]);
 	}
 	
 	public void fundsTooLowToPayTax() {
