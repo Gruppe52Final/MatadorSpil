@@ -397,7 +397,10 @@ public class MatadorGUI {
 	}
 
 	public String choosePropertyToHouse(Player currentPlayer) {		
-		return GUI.getUserSelection("Which property do you want a house/hotel on?", currentPlayer.getPropertiesOwned());
+		for (int i = 0; i < currentPlayer.getPropertiesOwned().length; i++) {
+			System.out.println(currentPlayer.getPropertiesOwned()[i]);
+		}
+		return GUI.getUserSelection("Which property do you want a house/hotel on?",  currentPlayer.getPropertiesOwned());
 	}
 	
 	public String chooseNumberOfHousesToBuy() {
@@ -418,14 +421,14 @@ public class MatadorGUI {
 	}
 
 	public void setHouse(String choosePropertyToHouse, int numberOfHouses, GameBoard gameBoard) {
-		int fieldNumber = 0;
+		int fieldNumber = 3;		//We need to get fieldNumber dynamicly
 		int houseCount = numberOfHouses;
 		if(choosePropertyToHouse.equals("Rødovrevej")) {
 			fieldNumber = 2;
 		} else if (choosePropertyToHouse.equals("Hvidovrevej")) {
 			fieldNumber = 4;
 		}
-		Territory territory = (Territory) gameBoard.getField(fieldNumber - 1);
+		Territory territory = (Territory) gameBoard.getField(fieldNumber);
 		int currentHouses = territory.getHouses();
 		if (currentHouses >= 4) {
 			GUI.setHotel(fieldNumber, true);

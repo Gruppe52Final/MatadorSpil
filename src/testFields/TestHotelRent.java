@@ -65,7 +65,7 @@ public class TestHotelRent {
 		int rent = territory1.getRent();
 		int startingCash = landingPlayer.account.getScore();
 		
-		game.nextPlayer(landingPlayer);
+		game.nextPlayer(landingPlayer, gameBoard);
 		game.movePlayer(landingPlayer, dice);
 		
 		gameBoard.landOnField(landingPlayer);
@@ -76,7 +76,7 @@ public class TestHotelRent {
 		//Has the owning player been deposited the amount?
 		assertEquals(player.account.getScore(), (startingCash + rent));
 		
-		game.nextPlayer(landingPlayer);
+		game.nextPlayer(landingPlayer, gameBoard);
 		
 		
 		

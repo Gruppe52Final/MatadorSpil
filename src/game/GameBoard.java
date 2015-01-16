@@ -107,21 +107,93 @@ public class GameBoard {
 		return field;
 	}
 	
-//	public boolean canPlayerBuyHouses(Player player) {
+	public boolean canPlayerBuyHouses(Player player) {
+		Territory[] territory = new Territory[40];
+		boolean x = false;
+		for (int i = 0; i < field.length; i++) {
+			if(field[i] instanceof Territory) {
+				territory[i] = (Territory) field[i];
+			}
+		}
+		if(territory[6].getOwner() == player && territory[8].getOwner() == player && territory[9].getOwner() == player) {
+			x = true;
+		}
+		if(territory[1].getOwner() == player && territory[3].getOwner() == player) {
+			x = true;
+		}
+		if(territory[11].getOwner() == player && territory[13].getOwner() == player && territory[14].getOwner() == player) {
+			x = true;
+		}
+		if(territory[16].getOwner() == player && territory[18].getOwner() == player && territory[19].getOwner() == player) {
+			x = true;
+		}
+		if(territory[21].getOwner() == player && territory[23].getOwner() == player && territory[24].getOwner() == player) {
+			x = true;
+		}
+		if(territory[26].getOwner() == player && territory[27].getOwner() == player && territory[29].getOwner() == player) {
+			x = true;
+		}
+		if(territory[31].getOwner() == player && territory[32].getOwner() == player && territory[34].getOwner() == player) {
+			x = true;
+		}
+		if(territory[37].getOwner() == player && territory[39].getOwner() == player) {
+			x = true;
+		}
+
+		return x;
+		}
+	
+//	public String[] ReturnPropertiesHouseable(Player player) {
+//		Territory[] territory = new Territory[40];
 //		boolean x = false;
-//		int count = 0;
-//		Territory territory;
-////		String[] color = new String[100];
-//		String color = "";
-//		Fields fieldOwned[] = new Fields[40];
-//		
+//		String[] houseable = new String[3];
 //		for (int i = 0; i < field.length; i++) {
-//			territory = (Territory) field[i];
-//			if(player == territory.getOwner() && territory.getColor() {
-//				
+//			if(field[i] instanceof Territory) {
+//				territory[i] = (Territory) field[i];
 //			}
 //		}
-//		return x;
+//		if(territory[6].getOwner() == player && territory[8].getOwner() == player && territory[9].getOwner() == player) {
+//			houseable[0] = territory[6].getName();
+//			houseable[1] = territory[8].getName();
+//			houseable[2] = territory[9].getName();
+//		}
+//		if(territory[1].getOwner() == player && territory[3].getOwner() == player) {
+//			houseable[1] = territory[6].getName();
+//			houseable[3] = territory[8].getName();
+//			houseable[2] = "";
+//		}
+//		if(territory[11].getOwner() == player && territory[13].getOwner() == player && territory[14].getOwner() == player) {
+//			houseable[0] = territory[11].getName();
+//			houseable[1] = territory[13].getName();
+//			houseable[2] = territory[14].getName();
+//		}
+//		if(territory[16].getOwner() == player && territory[18].getOwner() == player && territory[19].getOwner() == player) {
+//			houseable[0] = territory[16].getName();
+//			houseable[1] = territory[18].getName();
+//			houseable[2] = territory[19].getName();
+//		}
+//		if(territory[21].getOwner() == player && territory[23].getOwner() == player && territory[24].getOwner() == player) {
+//			houseable[0] = territory[21].getName();
+//			houseable[1] = territory[23].getName();
+//			houseable[2] = territory[24].getName();
+//		}
+//		if(territory[26].getOwner() == player && territory[27].getOwner() == player && territory[29].getOwner() == player) {
+//			houseable[0] = territory[26].getName();
+//			houseable[1] = territory[27].getName();
+//			houseable[2] = territory[29].getName();
+//		}
+//		if(territory[31].getOwner() == player && territory[32].getOwner() == player && territory[34].getOwner() == player) {
+//			houseable[0] = territory[31].getName();
+//			houseable[1] = territory[32].getName();
+//			houseable[2] = territory[34].getName();
+//		}
+//		if(territory[37].getOwner() == player && territory[39].getOwner() == player) {
+//			houseable[0] = territory[37].getName();
+//			houseable[1] = territory[39].getName();
+//			houseable[2] = "";
+//		}
+//
+//		return houseable;
 //		}
 		
 	

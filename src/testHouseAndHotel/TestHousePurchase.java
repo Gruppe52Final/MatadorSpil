@@ -47,7 +47,7 @@ public class TestHousePurchase {
 		
 		//Check if player now has option to buy houses 
 //		gui.OptionToBuyHouse();
-		game.nextPlayer(player);
+		game.nextPlayer(player, gameBoard);
 		
 //		Buy property 1
 		dice.setDice1(1);
@@ -69,12 +69,15 @@ public class TestHousePurchase {
 		dice.setDice1(1);
 		dice.setDice2(1);
 		
-		game.nextPlayer(player);
+		game.nextPlayer(player, gameBoard);
 //		game.movePlayer(player, dice);	
 //		gameBoard.landOnField(player);
 		
-		game.nextPlayer(player);
-		game.nextPlayer(player);
+		game.nextPlayer(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
+		
+		System.out.println(gameBoard.canPlayerBuyHouses(player));
+
 		
 		
 		

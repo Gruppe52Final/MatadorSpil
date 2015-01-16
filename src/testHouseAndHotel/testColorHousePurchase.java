@@ -39,7 +39,7 @@ public class testColorHousePurchase {
 		game.setCars();	
 		player.setPosition(3);
 		
-		//Makes player owner of territory and add those properties to his ownership list
+//		Makes player owner of territory and add those properties to his ownership list
 		territory1 = (Territory) gameBoard.getField(6);	
 		territory2 = (Territory) gameBoard.getField(8);	
 		territory3 = (Territory) gameBoard.getField(9);	
@@ -50,17 +50,23 @@ public class testColorHousePurchase {
 		territory3.setOwner(player);
 		territory1.addProperty(player);
 		territory2.addProperty(player);
-		territory3.addProperty(player);
+		territory3.addProperty(player);		
+		territory1.landOnField(player);
+		territory2.landOnField(player);
+		territory3.landOnField(player);
 		
-
-		
-//		System.out.println(gameBoard.canPlayerBuyHouses(player));
 		
 		
 		//Check if player now has option to buy houses 
-		game.nextPlayer(player);
+		game.nextPlayer(player, gameBoard);
 		
 		int startingCash = player.account.getScore();
+		
+		game.nextPlayer(player, gameBoard);
+		game.nextPlayer(player, gameBoard);
+
+		game.nextPlayer(player, gameBoard);
+
 		
 		//Buy one house and check if price is deducted from his score
 //		game.buyHouse(player);

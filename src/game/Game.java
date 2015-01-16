@@ -90,7 +90,7 @@ public class Game {
 					currentPlayer = player[i];
 					
 					//Shows message for what player has turn
-					nextPlayer(currentPlayer);
+					nextPlayer(currentPlayer, gameboard);
 					
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 					dice.throwDice();							
@@ -146,36 +146,9 @@ public class Game {
 			}
 			return x;
 	}
-	
-	public boolean canPlayerBuyHouses(Player player, GameBoard gameBoard) {		
-		boolean x = false;
-		
-//		if(player == gameBoard)
-		
-//		int count = 0;
-//		Territory territory1;
-//		String[] color = new String[50];
-//		Fields[] fields;
-//		Fields[] territoryFields;
-//		fields = gameBoard.getFields();
-//		for (int i = 0; i < fields.length; i++) {
-//			if(!(fields[i] instanceof Territory)) {				
-//				fields[i] = null;
-//				}
-//		for (int i = 0; i < fields.length; i++) {
-//			if(!(fields[i] == null)) {
-//				territoryFields = fields[i]
-//			}
-//		}
-//			
-//
-//	
-//		}
-		return x;
-	}
 
-	public void nextPlayer(Player currentPlayer) {		
-			if(currentPlayer.canBuyHouses()) {
+	public void nextPlayer(Player currentPlayer, GameBoard gameboard) {
+			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
 					buyHousesOption(currentPlayer);
 				}

@@ -60,7 +60,7 @@ public class TestHotelPurchase {
 		
 
 		
-		game.nextPlayer(player);
+		game.nextPlayer(player, gameBoard);
 		
 		
 		

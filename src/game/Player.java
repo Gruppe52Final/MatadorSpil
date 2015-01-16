@@ -27,9 +27,10 @@ public class Player {
 		prisonTurns = 0;
 		dead = false;
 		this.name = name;
-		propertiesOwned = new String[2];
-		propertiesOwned[0] = "";
-		propertiesOwned[1] = "";
+		propertiesOwned = new String[3];
+		for (int i = 0; i < propertiesOwned.length; i++) {
+			propertiesOwned[i] = "";
+		}
 	}
 
 	// Method that returns the name of the player
@@ -100,34 +101,7 @@ public class Player {
 		return justOutOfPrison;
 	}
 
-	public boolean canBuyHouses() {
-		boolean x = false;
-		int group = 0;
-	for (int i = 0; i < propertiesOwned.length; i++) {
-		if(propertiesOwned[i].equals("Rødovrevej")) {
-			group++;
-		} 
-			else if(propertiesOwned[i].equals("Hvidovrevej")){
-				group++;
-			}
-		}
-	if(group ==2) {
-		x =true;
-	}
 		
-		
-//	int TwoProperties = 0;
-//	int ThreeProperties = 0;
-//	for (int i = 0; i < colorsOwned.length; i++) {
-//		if(colorsOwned[i].equals("blue") || colorsOwned[i].equals("purple")) {
-//			TwoProperties++;
-//		} else if(colorsOwned)
-//	}	
-	
-		
-	return x;
-	}
-
 	public void addProperty(String nameOfProperty) {		
 		for (int i = 0; i < propertiesOwned.length; i++) {
 			if(propertiesOwned[i].equals("")) {

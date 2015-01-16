@@ -48,7 +48,7 @@ public class TestHousePricing {
 		
 		
 		//Check if player now has option to buy houses 
-		game.nextPlayer(player);
+		game.nextPlayer(player, gameBoard);
 		
 		int startingCash = player.account.getScore();
 		
@@ -57,7 +57,7 @@ public class TestHousePricing {
 		
 //		assertEquals(player.account.getScore(),(startingCash - territory1.getHousePrice()));
 		
-		game.nextPlayer(player);
+		game.nextPlayer(player, gameBoard);
 		
 	}
 
