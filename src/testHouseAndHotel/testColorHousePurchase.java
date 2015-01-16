@@ -37,10 +37,11 @@ public class testColorHousePurchase {
 		playerList = new Player[2];		
 		playerList[0] = new Player("TestPlayer1");
 		playerList[1] = new Player("TestPlayer2");		
-		player = playerList[0];		
+		Player player1 = playerList[0];		
+		Player player2 = playerList[1];
+		
 		game.setPlayers(playerList);		
 		game.setCars();	
-		player.setPosition(3);
 		
 //		Makes player owner of territory and add those properties to his ownership list
 		territory1 = (Territory) gameBoard.getField(6);	
@@ -50,41 +51,52 @@ public class testColorHousePurchase {
 		territory5 = (Territory) gameBoard.getField(1);	
 		territory6 = (Territory) gameBoard.getField(3);
 
-		territory1.setOwner(player);
-		territory2.setOwner(player);
-		territory3.setOwner(player);
-		territory5.setOwner(player);
-		territory6.setOwner(player);
-		territory1.addProperty(player);
-		territory2.addProperty(player);
-		territory3.addProperty(player);		
-		territory5.addProperty(player);		
-		territory6.addProperty(player);
-		territory1.landOnField(player);
-		territory2.landOnField(player);
-		territory3.landOnField(player);
-		territory5.landOnField(player);
-		territory6.landOnField(player);
+		territory1.setOwner(player1);
+		territory2.setOwner(player1);
+		territory3.setOwner(player1);
+		territory5.setOwner(player1);
+		territory6.setOwner(player1);
+		territory1.addProperty(player1);
+		territory2.addProperty(player1);
+		territory3.addProperty(player1);		
+		territory5.addProperty(player1);		
+		territory6.addProperty(player1);
 		
 		
 
-		//Check if player now has option to buy houses 
-		game.nextPlayer(player, gameBoard);
-		game.nextPlayer(player, gameBoard);
-		game.nextPlayer(player, gameBoard);
-		game.nextPlayer(player, gameBoard);
-		game.nextPlayer(player, gameBoard);
-		game.nextPlayer(player, gameBoard);
+
+		/**
+		 * Test if player landing on fields is deducted the correct rent
+		 */
+		
+		player2.setPosition(9);
+		
+		System.out.println(player2.getPosition() + "player.getPosition 1st ");
+		System.out.println(player2.getName());
 		
 		
+		//Check if player now has option to buy houses - buy house on Roskilde
+		game.nextPlayer(player2, gameBoard);
+		
+		System.out.println(player2.getPosition() + "player.getPosition 2nd ");
+		System.out.println(player2.getName());
 
 		
-		//Buy one house and check if price is deducted from his score
-//		game.buyHouse(player);
+		int rent = territory1.getRent();
+		int startingCash = player2.account.getScore();	
 		
-//		assertEquals(player.account.getScore(),(startingCash - territory1.getHousePrice()));
-//		
-//		game.nextPlayer(player);
+		
+		game.nextPlayer(player2, gameBoard);
+
+
+		
+		gameBoard.landOnField(player2);
+		
+		//Has landingPlayer been deducted the amount?
+		assertEquals(player2.account.getScore(), (startingCash - rent));
+		
+		//Has the owning player been deposited the amount?
+		assertEquals(player1.account.getScore(), (startingCash + rent));
 	}
 
 }

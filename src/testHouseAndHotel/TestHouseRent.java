@@ -49,36 +49,7 @@ public class TestHouseRent {
 //		territory2.setOwner(player);
 		territory2.landOnField(player);
 		
-//		
-//		//Check if player now has option to buy houses 
-////		gui.OptionToBuyHouse();
-//		game.nextPlayer(player);
-//		
-////		Buy property 1
-//		dice.setDice1(1);
-//		dice.setDice2(0);
-//		
-//		game.movePlayer(player, dice);	
-//		gameBoard.landOnField(player);
-//		
-//		
-////		Buy property 2
-//		dice.setDice1(1);
-//		dice.setDice2(1);
-//		
-//		game.movePlayer(player, dice);	
-//		gameBoard.landOnField(player);
-//		
-//		//Does player have option to buy houses now ?
-//		
-//		dice.setDice1(1);
-//		dice.setDice2(1);
-//		
-//		game.nextPlayer(player);
-////		game.movePlayer(player, dice);	
-////		gameBoard.landOnField(player);
-		
-		
+	
 		
 		territory1.addProperty(player);
 		territory2.addProperty(player);		

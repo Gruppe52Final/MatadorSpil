@@ -127,8 +127,10 @@ public class Game {
 		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer,gameboard);
 		int fieldNumber = gameboard.getFieldNumberFromPropertyName(propertyToHouse);
 		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
+
 		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses)) {
 			subtractHousePrice(currentPlayer, gameboard, numberOfHouses);
+			
 			gui.setHouse(fieldNumber,numberOfHouses, gameboard);
 			gui.updateBalance(currentPlayer);
 		}
@@ -137,12 +139,15 @@ public class Game {
 	
 	private void subtractHousePrice(Player currentPlayer,
 			GameBoard gameboard, int numberOfHouses) {
+		System.out.println(currentPlayer.getName());
 		int housePrice = gameboard.getTerritoryHousePrice(currentPlayer.getPosition());
 		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
 	}
 
 	private boolean checkIfPlayerCanAffordHouses(Player currentPlayer, GameBoard gameboard, int numberOfHouses) {
 			boolean x = false;
+			System.out.println(currentPlayer.getName());
+			
 			int housePrice = gameboard.getTerritoryHousePrice(currentPlayer.getPosition());
 			if(currentPlayer.account.getScore() > numberOfHouses * housePrice) {
 				x = true;
@@ -153,6 +158,7 @@ public class Game {
 	public void nextPlayer(Player currentPlayer, GameBoard gameboard) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
+					System.out.println(currentPlayer.getPosition());
 					buyHousesOption(currentPlayer, gameboard);
 				}
 			} else {
