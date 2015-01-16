@@ -63,6 +63,7 @@ public class Texts {
 		"Manufakturvarerne er blevet billigere og bedre, herved sparer De kr. 100,00 som De modtager af banken.", //52
 		"Efter auktionen på Assistentshuset, hvor De havde pasntsat Deres tøj, modtager De ekstra kr. 108,00.", //53
 		"Deres præmieobligation er kommet ud. De modtager kr. 100,00 af banken.", //54
+		"Betal 100 point.",//55
 		};
 	
 	private String[] textEnglish = 
@@ -124,6 +125,7 @@ public class Texts {
 			"Manufakturvarerne has become cheaper and better, it saves the kr. 100.00 as the recipient of the bank.", //52
 			"After the auction the Assistant house where they had pasntsat your clothes, you will receive extra kr. 108,00.", //53
 			"Your premium bond has come out. You receive  100.00 points of the bank.", //54
+			"Pay 100 points.",//55
 		};
 	
 
