@@ -73,14 +73,14 @@ public class testColorHousePurchase {
 		
 		
 		//Check if player now has option to buy houses - buy house on Roskilde
-		game.nextPlayer(player1, gameBoard);
+		game.playerTurnMessage(player1, gameBoard);
 		
 		
 		int rent = territory1.getRent();
 		int startingCash = player2.account.getScore();	
 		
 		
-		game.nextPlayer(player2, gameBoard);
+		game.playerTurnMessage(player2, gameBoard);
 
 
 		

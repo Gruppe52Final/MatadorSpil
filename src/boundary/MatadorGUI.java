@@ -336,7 +336,7 @@ public class MatadorGUI {
 				currentPlayer.getName());		
 	}
 
-	public void nextPlayer(Player currentPlayer) {
+	public void throwDiceOptionOnly(Player currentPlayer) {
 		GUI.showMessage(currentPlayer.getName()
 				+ text.text[2]);
 		

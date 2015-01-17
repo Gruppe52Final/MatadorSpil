@@ -60,7 +60,7 @@ public class TestHotelPurchase {
 		
 
 		
-		game.nextPlayer(player, gameBoard);
+		game.playerTurnMessage(player, gameBoard);
 		
 		
 		

@@ -66,7 +66,7 @@ public class TestHouseRent {
 		int rent = territory1.getRent();
 		int startingCash = landingPlayer.account.getScore();
 		
-		game.nextPlayer(landingPlayer, gameBoard);
+		game.playerTurnMessage(landingPlayer, gameBoard);
 		game.movePlayer(landingPlayer, dice);
 		
 		gameBoard.landOnField(landingPlayer);

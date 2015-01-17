@@ -89,7 +89,7 @@ public class Game {
 					currentPlayer = player[i];
 					
 					//Shows message for the player having current turn, might have option to buy houses, or option to throw dice
-					nextPlayer(currentPlayer, gameboard);
+					playerTurnMessage(currentPlayer, gameboard);
 					
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 					dice.throwDice();							
@@ -147,14 +147,14 @@ public class Game {
 			return x;
 	}
 
-	public void nextPlayer(Player currentPlayer, GameBoard gameboard) {
+	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
 					buyHousesOption(currentPlayer, gameboard);
 				}
 			} else {
 				//Shows message for what player has turn
-				gui.nextPlayer(currentPlayer);
+				gui.throwDiceOptionOnly(currentPlayer);
 			}
 	}
 	
