@@ -13,9 +13,6 @@ public class Player {
 	private boolean dead;
 	public Account account = new Account();
 	private int previousPosition;
-	private String[] propertiesOwned;
-	private boolean[] fieldsOwned;
-	String[] colorsOwned;
 
 	// Object that stores the name and position of a player
 	public Player(String name) {
@@ -26,10 +23,6 @@ public class Player {
 		prisonTurns = 0;
 		dead = false;
 		this.name = name;
-		propertiesOwned = new String[3];
-		for (int i = 0; i < propertiesOwned.length; i++) {
-			propertiesOwned[i] = "";
-		}
 	}
 
 	// Method that returns the name of the player
@@ -58,10 +51,7 @@ public class Player {
 	public int getFleets() {
 		return fleets;
 	}
-	
-	public String[] getPropertiesOwned() {
-		return propertiesOwned;
-	}
+
 	
 	public void addLaborCamp(){
 		laborCamp++;
@@ -90,30 +80,7 @@ public class Player {
 	public void setPosition(int i) {
 		position = i;		
 	}
-	
-	public void addProperty(String nameOfProperty) {		
-		for (int i = 0; i < propertiesOwned.length; i++) {
-			if(propertiesOwned[i].equals("")) {
-				propertiesOwned[i] = nameOfProperty;
-				break;
-			}
-		}
-	}
-	
-	public void addColor(String color) {
-		for (int i = 0; i < colorsOwned.length; i++) {
-			if(colorsOwned[i].equals("")) {
-				colorsOwned[i] = color;
-				break;
-			}
-		}
-		
-	}
 
-	public void addFieldNumberOwned() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	
 }

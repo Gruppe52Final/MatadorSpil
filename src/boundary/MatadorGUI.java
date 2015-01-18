@@ -165,7 +165,7 @@ public class MatadorGUI {
 		return Integer.parseInt(GUI.getUserSelection(
 				Texts.text[1], "2", "3", "4", "5", "6"));
 	}
-	
+
 	public void createPlayers(int playerAmount, Player[] player) {
 		// Array that holds the cars for the GUI
 		Car[] car = new Car[6];
@@ -177,8 +177,6 @@ public class MatadorGUI {
 		car[5] = new Car.Builder().primaryColor(Color.black).build();
 		
 		for (int i = 0; i < playerAmount; i++) {
-			player[i] = new Player(GUI.getUserString(Texts.text[0]
-					+ (i + 1) + ":"));
 			GUI.addPlayer(player[i].getName(), player[i].account.getScore(),
 					car[i]);
 			GUI.setCar(player[i].getPosition() + 1, player[i].getName());
@@ -202,14 +200,7 @@ public class MatadorGUI {
 			GUI.setCar(player[i].getPosition() + 1, player[i].getName());
 		}
 	}
-	
-	@Deprecated
-	public void nextPlayer(Player[] player, int currentPlayer) {
-		GUI.showMessage(player[currentPlayer].getName()
-				+ Texts.text[2]);
 		
-	}
-	
 	public void showDice(int dice1, int dice2) {
 		GUI.setDice(dice1, dice2);
 	}
@@ -400,7 +391,11 @@ public class MatadorGUI {
 	}
 
 	public String choosePropertyToHouse(Player currentPlayer, GameBoard gameboard) {
-		String[] arr = gameboard.ReturnPropertiesHouseable(currentPlayer).toArray(new String[gameboard.ReturnPropertiesHouseable(currentPlayer).size()]);
+		
+		int listLength = gameboard.ReturnPropertiesHouseable(currentPlayer).size();
+		
+		String[] arr = gameboard.ReturnPropertiesHouseable(currentPlayer).toArray(new String[listLength]);
+		
 		return GUI.getUserSelection("Which property do you want a house/hotel on?", arr);
 	}
 	
@@ -438,6 +433,19 @@ public class MatadorGUI {
 
 	public void setHotel(int fieldNumber) {
 		GUI.setHotel(fieldNumber, true);
+	}
+
+	public String sellPropertyOrThrowDice(Player currentPlayer) {
+		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "Sælg grund");	
+	}
+
+	public String choosePropertyToSell(String[] playerOwnedProperty) {
+		return GUI.getUserSelection("Vælg grund du vil sælge", playerOwnedProperty);		
+	}
+
+	public String choosePlayerToSellPropertyTo(String[] playerNames) {
+		return GUI.getUserSelection("Vælg spiller du vil sælge til", playerNames);		
+
 	}
 
 

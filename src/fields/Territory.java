@@ -78,9 +78,6 @@ public class Territory extends Ownable {
 	@Override
 	public void addProperty(Player player) {
 		setOwner(player);
-		player.addProperty(super.getName());
-//		player.addColor(color);
-		player.addFieldNumberOwned();
 	}
 	
 	public void setHouses(int houses) {

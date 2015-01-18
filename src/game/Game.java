@@ -7,7 +7,9 @@
 package game;
 
 
+import desktop_resources.GUI;
 import boundary.MatadorGUI;
+import boundary.Texts;
 import fields.Fields;
 import fields.Territory;
 
@@ -25,11 +27,12 @@ public class Game {
 	private Player currentPlayer;
 	private PrisonController prisonController = new PrisonController(gui);
 	private HouseController houseController;
-	Player[] player;	
+	private Player[] players;	
+	private PlayerList playerList;
 
 	
 	public Game() {
-	gui.createField();
+	gui.createField();	//Must be one of the first methods to call in GUI.jar
 
 	String language = gui.selectLanguage();
  	if(language.equals("Dansk")) {
@@ -48,9 +51,20 @@ public class Game {
 	playerAmount = gui.playerAmount();
 	
 	
-	player = new Player[playerAmount];
+	players = new Player[playerAmount];
 	
-	gui.createPlayers(playerAmount, player);
+	createPlayers();	
+	
+	playerList = new PlayerList(players);
+	
+	}
+	
+	public void createPlayers() {
+		for (int i = 0; i < playerAmount; i++) {
+			players[i] = new Player(GUI.getUserString(Texts.text[0]
+					+ (i + 1) + ":"));
+		}
+		gui.createPlayers(playerAmount, players);	
 
 	}
 	
@@ -60,13 +74,12 @@ public class Game {
 		// The game continues as long as won equals false
 		while (!won) {
 			//Goes through the player[]
-			for (int i = 0; i < player.length; i++) {
-				
+			for (int i = 0; i < players.length; i++) {
 				//If the player is not dead, he can have a turn!
-				if (!player[i].getDeathStatus()) {
+				if (!players[i].getDeathStatus()) {
 					
 					//Sets currentPlayer object
-					currentPlayer = player[i];
+					currentPlayer = players[i];
 					
 					//Shows message for the player having current turn, might have option to buy houses, or option to throw dice
 					playerTurnMessage(currentPlayer, gameboard);
@@ -90,10 +103,10 @@ public class Game {
 					gameboard.landOnField(currentPlayer);
 
 					// If a player has lost, adds one to lostCount and reset the players owned fields
-					checkIfPlayerLost(currentPlayer, player);
+					checkIfPlayerLost(currentPlayer);
 			
 					//Checks if one player has won in the player array
-					checkIfPlayerWon(player);					
+					checkIfPlayerWon(players);					
 
 				}
 			}
@@ -104,14 +117,39 @@ public class Game {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
 					houseController = new HouseController(gui, gameboard, currentPlayer); //Sets variables for housecontroller to use
-					houseController.buyHousesOption();
-				}
-			} else {
+					houseController.buyHousesOption();	//Player is given option to buy houses if he has a group in same color
+				}				
+			} else if(gameboard.playerHasOwnable(currentPlayer)) { //If player has ownable, he gets option to sell it to another player
+				String userOption = gui.sellPropertyOrThrowDice(currentPlayer);
+					if(userOption.equals("Kast")) {
+						//Does nothing, just continue back to game.run(), which will dice.Throw() next.
+					} else if(userOption.equals("Sælg grund")) {
+						sellProperty(currentPlayer, gameboard);
+					}
+			} else if(!gameboard.playerHasOwnable(currentPlayer)) {	//If player doesn't have ownable, he only has option to throw dice
 				//Shows message for what player has turn
 				gui.throwDiceOptionOnly(currentPlayer);
 			}
 	}
 	
+	private void sellProperty(Player currentPlayer, GameBoard gameboard) {
+		String[] playerNames = playerList.getPlayerNames();
+		String[] playerOwnedProperty = gameboard.getPlayerOwnableNames(currentPlayer);	
+		String propertyToSell = gui.choosePropertyToSell(playerOwnedProperty);
+		String buyingPlayer = gui.choosePlayerToSellPropertyTo(playerNames);
+	}
+
+
+	private String[] getPlayerNames(Player[] players) {
+		System.out.println(players[0].getName());
+		String[] playerNames = new String[players.length];
+		for (int i = 0; i < players.length; i++) {
+			playerNames[i] = players[i].getName();
+		}
+		return playerNames;
+	}
+
+
 	public void movePlayer(Player player, Dice dice) {
 		//Shows the dice on the GUI
 		gui.showDice(dice.getDice1(), dice.getDice2());
@@ -125,7 +163,7 @@ public class Game {
 	}
 
 	
-	public void checkIfPlayerLost( Player currentPlayer, Player[] player) {
+	public void checkIfPlayerLost( Player currentPlayer) {
 		if (currentPlayer.getDeathStatus()) {
 			//If the player is dead, remove them from the board and reset the fields owned
 			gui.removePlayer(currentPlayer);			
@@ -134,11 +172,11 @@ public class Game {
 		}		
 	}
 	
-	private void checkIfPlayerWon(Player[] player) {
+	private void checkIfPlayerWon(Player[] players) {
 		// If only one player is left, won is set to true
 		if (lostCount == playerAmount - 1) {
 			won = true;
-			gui.showWin(player, playerAmount);
+			gui.showWin(players, playerAmount);
 		}	
 	}
 

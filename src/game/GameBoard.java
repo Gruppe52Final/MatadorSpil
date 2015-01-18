@@ -209,6 +209,21 @@ public class GameBoard {
 		}
 		return houseable;
 	}
+	
+	public String[] getPlayerOwnableNames(Player player) {
+		ArrayList<String> ownables = new ArrayList<String>();
+		Territory territory;
+		for (int i = 0; i < field.length; i++) {
+			if(field[i] instanceof Territory) {
+				territory = (Territory) field[i];
+				if(territory.getOwner() == player) {
+					ownables.add(territory.getName());
+					}
+			}
+		}
+		String[] ownablesString = ownables.toArray(new String[ownables.size()]);
+		return ownablesString;
+	}
 		
 	
 	public Player getOwnerOfTerritory(int fieldNumber) {
@@ -222,5 +237,19 @@ public class GameBoard {
 		Territory territory;
 		territory = (Territory) field[position];
 		return territory.getHousePrice();		
+	}
+
+	public boolean playerHasOwnable(Player player) {
+		boolean x = false;
+		Territory territory;
+		for (int i = 0; i < field.length; i++) {
+			if(field[i] instanceof Territory) {
+				territory = (Territory) field[i];
+				if(territory.getOwner() == player) {
+					x = true;
+				}
+			}
+		}
+		return x;
 	}
 }
