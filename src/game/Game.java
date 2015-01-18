@@ -24,7 +24,7 @@ public class Game {
 	private boolean won = false;
 	private Player currentPlayer;
 	private PrisonController prisonController = new PrisonController(gui);
-	private HouseController houseController = new HouseController(gui);
+	private HouseController houseController;
 	Player[] player;	
 
 	
@@ -41,16 +41,6 @@ public class Game {
 
 	}
 
-	
-	public void setPlayerAmount(int playerAmount) {
-		this.playerAmount = playerAmount;
-	}
-	
-	public void createPlayers() {
-		//GUI places player cars on board with their chosen names
-		gui.createPlayers(playerAmount, player);
-			
-	}
 		
 	public void init() {
 
@@ -113,7 +103,8 @@ public class Game {
 	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
-					houseController.buyHousesOption(currentPlayer, gameboard);
+					houseController = new HouseController(gui, gameboard, currentPlayer); //Sets variables for housecontroller to use
+					houseController.buyHousesOption();
 				}
 			} else {
 				//Shows message for what player has turn

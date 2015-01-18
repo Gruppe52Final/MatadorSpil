@@ -8,26 +8,26 @@ public class HouseController {
 	private int fieldNumber;
 	private GameBoard gameboard;
 	private Player currentPlayer;
+	private int numberOfHouses;
 	
-	public HouseController(MatadorGUI gui) {
+	public HouseController(MatadorGUI gui, GameBoard gameboard, Player currentPlayer) {
 		this.gui = gui;
-	}
-	
-	
-	public void buyHousesOption(Player currentPlayer, GameBoard gameboard) {
 		this.gameboard = gameboard;
 		this.currentPlayer = currentPlayer;
 		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer,gameboard);
 		fieldNumber = gameboard.getFieldNumberFromPropertyName(propertyToHouse);
-		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
-		if(checkIfPlayerCanAffordHouses(numberOfHouses)) {
-			subtractHousePrice(numberOfHouses);			
+		numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
+	}
+	
+	public void buyHousesOption() {		
+		if(checkIfPlayerCanAffordHouses()) {
+			subtractHousePrice();			
 			gui.setHouse(fieldNumber,numberOfHouses, gameboard);
 			gui.updateBalance(currentPlayer);
 		}
 	}
 	
-	private boolean checkIfPlayerCanAffordHouses(int numberOfHouses) {
+	private boolean checkIfPlayerCanAffordHouses() {
 		boolean x = false;	
 		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
 		if(currentPlayer.account.getScore() > numberOfHouses * housePrice) {
@@ -36,7 +36,7 @@ public class HouseController {
 		return x;
 }
 	
-	private void subtractHousePrice(int numberOfHouses) {
+	private void subtractHousePrice() {
 		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
 		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
 	}

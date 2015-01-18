@@ -30,7 +30,7 @@ public class TestHotelRent {
 		 * Test if player can buy a house on Rødovrevej and Hvidovrevej
 		 */		
 		//Sets variables needed for Game.java
-		game.setPlayerAmount(2);		
+		
 		playerList = new Player[2];		
 		playerList[0] = new Player("TestPlayer1");
 		playerList[1] = new Player("TestPlayer2");		
