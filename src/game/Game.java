@@ -23,14 +23,10 @@ public class Game {
 	private GameBoard gameboard;
 	private boolean won = false;
 	private Player currentPlayer;
+	private PrisonController prisonController = new PrisonController(gui);
+	private HouseController houseController = new HouseController(gui);
 	Player[] player;	
 
-	
-	public static void main(String[] args) {
-		Game game = new Game();
-		game.init();
-		game.run();
-	}
 	
 	public Game() {
 	gui.createField();
@@ -44,9 +40,7 @@ public class Game {
 	 	gameboard = new GameBoard(dice); //If this is set earlier in class, Chance() will invoke an nullpointerError
 
 	}
-	public void setPlayers(Player[] player) {
-		this.player = player;
-	}
+
 	
 	public void setPlayerAmount(int playerAmount) {
 		this.playerAmount = playerAmount;
@@ -57,11 +51,7 @@ public class Game {
 		gui.createPlayers(playerAmount, player);
 			
 	}
-	
-	public void setCars() {
-		gui.setCars(player);
-	}
-	
+		
 	public void init() {
 
 	//Gets input from player actor outside system boundary
@@ -102,7 +92,7 @@ public class Game {
 					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
 					
 					if(currentPlayer.getPrisonTurns() > 0) {
-						prisonDialog(currentPlayer, dice);
+						prisonController.prisonDialog(currentPlayer, dice);
 					}				
 			
 					//Check if the field is ownable, used for depositing money on Refuge
@@ -119,38 +109,11 @@ public class Game {
 			}
 		}	
 	}	
-	
-	public void buyHousesOption(Player currentPlayer, GameBoard gameboard) {
-		String propertyToHouse = gui.choosePropertyToHouse(currentPlayer,gameboard);
-		int fieldNumber = gameboard.getFieldNumberFromPropertyName(propertyToHouse);
-		int numberOfHouses = Integer.valueOf(gui.chooseNumberOfHousesToBuy());
-		if(checkIfPlayerCanAffordHouses(currentPlayer, gameboard, numberOfHouses, fieldNumber)) {
-			subtractHousePrice(currentPlayer, gameboard, numberOfHouses, fieldNumber);			
-			gui.setHouse(fieldNumber,numberOfHouses, gameboard);
-			gui.updateBalance(currentPlayer);
-		}
-	}
-	
-	
-	private void subtractHousePrice(Player currentPlayer,
-			GameBoard gameboard, int numberOfHouses, int fieldNumber) {
-		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
-		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
-	}
-
-	private boolean checkIfPlayerCanAffordHouses(Player currentPlayer, GameBoard gameboard, int numberOfHouses, int fieldNumber) {
-			boolean x = false;	
-			int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
-			if(currentPlayer.account.getScore() > numberOfHouses * housePrice) {
-				x = true;
-			}
-			return x;
-	}
-
+		
 	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
-					buyHousesOption(currentPlayer, gameboard);
+					houseController.buyHousesOption(currentPlayer, gameboard);
 				}
 			} else {
 				//Shows message for what player has turn
@@ -170,37 +133,6 @@ public class Game {
 		
 	}
 
-	public void prisonDialog(Player currentPlayer, Dice dice) {
-		boolean payOutOfPrison = false;
-		payOutOfPrison = gui.payOutOfPrison(currentPlayer);
-		if(payOutOfPrison) {				
-			//Check if player has enough money to actually pay himself out...	
-			
-			//If he has more than 100 points, let him out and subtract the points
-			if (currentPlayer.account.getScore() >= 100) {
-				currentPlayer.setPrisonTurns(0);
-				//Subtract 100 points from players account
-				currentPlayer.account.subtractPoints(100);	
-				//Update GUI
-				gui.updateBalance(currentPlayer);
-				
-				//If he doesn't have enough, tell him this in GUI.
-				} else if (currentPlayer.account.getScore() < 100) {					
-					gui.cantPayOutOfPrison(currentPlayer);
-				}
-			//If player chooses not to pay bail, or doesn't have enough money, we throw the dice.
-			} else if(!payOutOfPrison || (currentPlayer.account.getScore() < 100)) {
-				//Shows the dice on the GUI
-				gui.showDice(dice.getDice1(), dice.getDice2());
-				//If both dice are equal, he's out of prison
-				if (dice.getDice1() == dice.getDice2()) {
-					currentPlayer.setPrisonTurns(0);
-
-				} else {
-					currentPlayer.setPrisonTurns(currentPlayer.getPrisonTurns() - 1);
-				}
-			}
-		}	
 	
 	public void checkIfPlayerLost( Player currentPlayer, Player[] player) {
 		if (currentPlayer.getDeathStatus()) {
@@ -227,21 +159,4 @@ public class Game {
 			}
 			
 		}
-	
-	public Dice getDice() {
-		return dice;
-	}
-	
-	//Used for TestPrison.java purpose
-	public void setCurrentPlayer(Player player) {
-		currentPlayer = player;
-	}
-	//Also used for testing purposes
-	public Player getCurrentPlayer() {
-	return currentPlayer;
-	}
-
-	public void buyHouse(Player currentPlayer, GameBoard gameBoard) {
-			
-	}
 }

@@ -34,9 +34,8 @@ public class TestHousePricing {
 		playerList[0] = new Player("TestPlayer1");
 		playerList[1] = new Player("TestPlayer2");		
 		player = playerList[0];		
-		game.setPlayers(playerList);		
-		game.setCars();	
 		player.setPosition(3);
+		gui.setCars(playerList);
 		
 		//Makes player owner of territory and add those properties to his ownership list
 		territory1 = (Territory) gameBoard.getField(3);	

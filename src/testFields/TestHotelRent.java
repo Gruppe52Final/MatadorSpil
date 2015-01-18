@@ -37,8 +37,6 @@ public class TestHotelRent {
 		player = playerList[0];		
 		Player landingPlayer; 
 		landingPlayer = playerList[1];
-		game.setPlayers(playerList);		
-		game.setCars();		
 	
 		
 		//Makes player own Hvidovrevej and Rødovrevej

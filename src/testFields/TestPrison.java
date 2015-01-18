@@ -1,10 +1,15 @@
 package testFields;
 
-import static org.junit.Assert.*;
-import game.*;
-import fields.*;
+import static org.junit.Assert.assertEquals;
+import fields.GoToPrison;
+import game.Dice;
+import game.Game;
+import game.Player;
+import game.PrisonController;
 
 import org.junit.Test;
+
+import boundary.MatadorGUI;
 
 public class TestPrison {
 	
@@ -13,6 +18,8 @@ public class TestPrison {
 	int startingCash = player.account.getScore(); 
 	Game game = new Game();
 	Dice dice = new Dice();
+	MatadorGUI gui = new MatadorGUI();
+	PrisonController prisonController = new PrisonController(gui);
 	@Test
 	public void test() {
 		/**
@@ -46,11 +53,12 @@ public class TestPrison {
 		//Is player in prison now ?
 		assertEquals(player.getPrisonTurns(),3);
 		
+		
 		//1,2 just artificial dice numbers, not used in this test for payout
 		dice.setDice1(1);
 		dice.setDice2(2);
 		//Check YES to pay out of prison!		
-		game.prisonDialog(player, dice);		
+		prisonController.prisonDialog(player, dice);		
 		
 		//Does the player go on as usual with dices from field 10, after paying out ?
 		
@@ -82,7 +90,7 @@ public class TestPrison {
 		dice.setDice2(1);
 		
 		//Choose No, to test throwing dice
-		game.prisonDialog(player,dice);
+		prisonController.prisonDialog(player, dice);
 		
 		//Is player out of prison now ?
 		assertEquals(player.getPrisonTurns(),0);
@@ -116,11 +124,11 @@ public class TestPrison {
 		dice.setDice2(5);
 		
 		//Three dice throws
-		game.prisonDialog(player, dice);
+		prisonController.prisonDialog(player, dice);
 		assertEquals(player.getPrisonTurns(),2);
-		game.prisonDialog(player, dice);
+		prisonController.prisonDialog(player, dice);
 		assertEquals(player.getPrisonTurns(),1);
-		game.prisonDialog(player, dice);
+		prisonController.prisonDialog(player, dice);
 		assertEquals(player.getPrisonTurns(),0);
 		
 		//Give player a turn

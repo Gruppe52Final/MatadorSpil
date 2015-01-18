@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import boundary.MatadorGUI;
 
-public class TestHousePurchase {
+public class TestHousePurchase2 {
 	
 	Dice dice = new Dice();
 	Game game = new Game();
@@ -19,6 +19,7 @@ public class TestHousePurchase {
 	Player player;
 	Territory territory1;
 	Territory territory2;
+	Territory territory3;
 	GameBoard gameBoard = new GameBoard(dice);
 	MatadorGUI gui = new MatadorGUI();
 	
@@ -35,22 +36,22 @@ public class TestHousePurchase {
 		playerList[0] = new Player("TestPlayer1");
 		playerList[1] = new Player("TestPlayer2");		
 		player = playerList[0];		
-	
+		gui.setCars(playerList);
 		
 		//Makes objects Hvidovrevej and Rødovrevej
-		territory1 = (Territory) gameBoard.getField(3);		
+		territory1 = (Territory) gameBoard.getField(21);		
 		territory1.landOnField(player);
-		territory2 = (Territory) gameBoard.getField(1);		
+		territory2 = (Territory) gameBoard.getField(23);		
 		territory2.landOnField(player);
-		
+		territory3 = (Territory) gameBoard.getField(24);		
+		territory3.landOnField(player);
 		
 		//Check if player now has option to buy houses 
-//		gui.OptionToBuyHouse();
 		game.playerTurnMessage(player, gameBoard);
 		
 //		Buy property 1
-		dice.setDice1(1);
-		dice.setDice2(0);
+		dice.setDice1(20);
+		dice.setDice2(1);
 		
 		game.movePlayer(player, dice);	
 		gameBoard.landOnField(player);
@@ -63,10 +64,18 @@ public class TestHousePurchase {
 		game.movePlayer(player, dice);	
 		gameBoard.landOnField(player);
 		
+		
+//		Buy property 3
+		dice.setDice1(1);
+		dice.setDice2(0);
+		
+		game.movePlayer(player, dice);	
+		gameBoard.landOnField(player);
+		
 		//Does player have option to buy houses now ?
 		
 		dice.setDice1(1);
-		dice.setDice2(1);
+		dice.setDice2(0);
 		
 		game.playerTurnMessage(player, gameBoard);
 //		game.movePlayer(player, dice);	
