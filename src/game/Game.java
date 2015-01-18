@@ -61,7 +61,7 @@ public class Game {
 	
 	public void createPlayers() {
 		for (int i = 0; i < playerAmount; i++) {
-			players[i] = new Player(GUI.getUserString(Texts.text[0]
+			players[i] = new Player(GUI.getUserString(Texts.text[0]		//This GUI call should be in MatadorGUI, but not the creation of player object.
 					+ (i + 1) + ":"));
 		}
 		gui.createPlayers(playerAmount, players);	
@@ -98,8 +98,7 @@ public class Game {
 						prisonController.prisonDialog(currentPlayer, dice);
 					}				
 			
-					//Check if the field is ownable, used for depositing money on Refuge
-					//Check if the field is ownable 
+
 					gameboard.landOnField(currentPlayer);
 
 					// If a player has lost, adds one to lostCount and reset the players owned fields
@@ -133,23 +132,13 @@ public class Game {
 	}
 	
 	private void sellProperty(Player currentPlayer, GameBoard gameboard) {
-		String[] playerNames = playerList.getPlayerNames();
+		String[] buyingPlayers = playerList.getBuyerNames(currentPlayer);
 		String[] playerOwnedProperty = gameboard.getPlayerOwnableNames(currentPlayer);	
 		String propertyToSell = gui.choosePropertyToSell(playerOwnedProperty);
-		String buyingPlayer = gui.choosePlayerToSellPropertyTo(playerNames);
+		String buyingPlayer = gui.choosePlayerToSellPropertyTo(buyingPlayers);
 	}
 
-
-	private String[] getPlayerNames(Player[] players) {
-		System.out.println(players[0].getName());
-		String[] playerNames = new String[players.length];
-		for (int i = 0; i < players.length; i++) {
-			playerNames[i] = players[i].getName();
-		}
-		return playerNames;
-	}
-
-
+	
 	public void movePlayer(Player player, Dice dice) {
 		//Shows the dice on the GUI
 		gui.showDice(dice.getDice1(), dice.getDice2());
@@ -188,4 +177,10 @@ public class Game {
 			}
 			
 		}
+
+
+	public void setPlayerList(PlayerList playerList2) {
+		this.playerList = playerList2;
+		
+	}
 }

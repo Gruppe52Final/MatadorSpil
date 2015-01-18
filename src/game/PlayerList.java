@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PlayerList {
 	private Player[] players;
@@ -19,5 +20,24 @@ public class PlayerList {
 		String stringListNames[] = listNames.toArray(new String[listSize]);
 		return stringListNames;
 	}
+
+	public String[] getBuyerNames(Player sellingPlayer) {
+		String[] buyingPlayers = new String[0];
+		for (int i = 0; i < players.length; i++) {
+			if (players[i].getName() != sellingPlayer.getName()) {
+				buyingPlayers = addElement(buyingPlayers, players[i].getName());
+			}
+		}
+		return buyingPlayers;
+	}
+	
+	public String[] addElement(String[] input, String input1) {
+		String[] temp;
+		temp = Arrays.copyOf(input, input.length + 1);
+		temp[temp.length - 1] = input1;
+		return temp;
+	}
+	
+	
 
 }

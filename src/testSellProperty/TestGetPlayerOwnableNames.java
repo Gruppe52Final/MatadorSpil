@@ -49,6 +49,8 @@ public class TestGetPlayerOwnableNames {
 		
 		//Get output of player ownable names
 		assertEquals(gameBoard.getPlayerOwnableNames(player)[0], "Rødovrevej");
+		assertEquals(gameBoard.getPlayerOwnableNames(player)[1], "Hvidovrevej");
+
 
 	}
 
