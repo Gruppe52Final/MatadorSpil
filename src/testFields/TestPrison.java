@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import fields.GoToPrison;
 import game.Dice;
 import game.Game;
+import game.PassStartCheck;
 import game.Player;
 import game.PrisonController;
 
@@ -20,6 +21,7 @@ public class TestPrison {
 	Dice dice = new Dice();
 	MatadorGUI gui = new MatadorGUI();
 	PrisonController prisonController = new PrisonController(gui);
+	PassStartCheck passStartCheck = new PassStartCheck();
 	@Test
 	public void test() {
 		/**
@@ -45,7 +47,7 @@ public class TestPrison {
 		assertEquals(player.getPrisonTurns(),3);
 		
 		//We run the checkIfPlayerPassedStart to see if he can have start cash
-		game.checkIfPlayerPassedStart(player, 10); //5 is just a random dicethrow
+		passStartCheck.checkIfPlayerPassedStart(player, 10); //5 is just a random dicethrow
 		
 		//So does it still have the same cash as when the player object was created?
 		assertEquals(player.account.getScore(), startingCash);

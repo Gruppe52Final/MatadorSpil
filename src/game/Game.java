@@ -18,7 +18,6 @@ import fields.Territory;
 public class Game {
 
 	private int playerAmount = 0;
-	private int passStartMoney = 200;
 	private MatadorGUI gui = new MatadorGUI(); 
 	private int lostCount = 0;
 	private Dice dice = new Dice();
@@ -29,6 +28,9 @@ public class Game {
 	private HouseController houseController;
 	private Player[] players;	
 	private PlayerList playerList;
+	private PassStartCheck passStartCheck;
+	private PropertyController propertyController;
+	private int passStartMoney = 200;
 
 	
 	public Game() {
@@ -41,22 +43,16 @@ public class Game {
  			gui = new MatadorGUI("English");
 		}
 	 	gameboard = new GameBoard(dice); //If this is set earlier in class, Chance() will invoke an nullpointerError
-
 	}
 
 		
 	public void init() {
 
 	//Gets input from player actor outside system boundary
-	playerAmount = gui.playerAmount();
-	
-	
-	players = new Player[playerAmount];
-	
-	createPlayers();	
-	
-	playerList = new PlayerList(players);
-	
+	playerAmount = gui.playerAmount();	
+	players = new Player[playerAmount];	
+	createPlayers();		
+	playerList = new PlayerList(players);	
 	}
 	
 	public void createPlayers() {
@@ -98,7 +94,6 @@ public class Game {
 						prisonController.prisonDialog(currentPlayer, dice);
 					}				
 			
-
 					gameboard.landOnField(currentPlayer);
 
 					// If a player has lost, adds one to lostCount and reset the players owned fields
@@ -111,6 +106,15 @@ public class Game {
 			}
 		}	
 	}	
+	
+	public void checkIfPlayerPassedStart(Player player, int diceSum) {
+		System.out.println(player.getName());
+		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
+				player.account.addPoints(passStartMoney);
+				gui.passedStart(player, passStartMoney);
+				gui.updateBalance(player);	
+			}			
+		}
 		
 	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
@@ -123,7 +127,7 @@ public class Game {
 					if(userOption.equals("Kast")) {
 						//Does nothing, just continue back to game.run(), which will dice.Throw() next.
 					} else if(userOption.equals("Sælg grund")) {
-						sellProperty(currentPlayer, gameboard);
+						propertyController.sellProperty(currentPlayer, gameboard, playerList);
 					}
 			} else if(!gameboard.playerHasOwnable(currentPlayer)) {	//If player doesn't have ownable, he only has option to throw dice
 				//Shows message for what player has turn
@@ -131,25 +135,6 @@ public class Game {
 			}
 	}
 	
-	private void sellProperty(Player currentPlayer, GameBoard gameboard) {
-		//Lots of variables needed to sell
-		String[] buyingPlayers = playerList.getBuyerNames(currentPlayer);
-		String[] playerOwnedProperty = gameboard.getPlayerOwnableNames(currentPlayer);	
-		String propertyToSell = gui.choosePropertyToSell(playerOwnedProperty);
-		String buyingPlayerName = gui.choosePlayerToSellPropertyTo(buyingPlayers);
-		Player buyingPlayer = playerList.getPlayerObjectFromString(buyingPlayerName);
-		int price = gui.getSellingPropertySellingPrice();
-		boolean confirmation = gui.askForPlayerConfirmation(buyingPlayer.getName(), propertyToSell, currentPlayer.getName(), price);
-//		If the buying player has money and wants to buy, the transfer will be completed below
-		if(confirmation && buyingPlayer.account.getScore() > price) {
-			buyingPlayer.account.subtractPoints(price);
-			currentPlayer.account.addPoints(price);
-			gameboard.setOwner(buyingPlayer, propertyToSell);
-			gui.sellConfirmation(currentPlayer.getName(), buyingPlayer.getName(), propertyToSell);
-			gui.updateBalance(buyingPlayer);
-			gui.updateBalance(currentPlayer);
-		}
-	}
 
 	
 	public void movePlayer(Player player, Dice dice) {
@@ -181,15 +166,6 @@ public class Game {
 			gui.showWin(players, playerAmount);
 		}	
 	}
-
-	public void checkIfPlayerPassedStart(Player player, int diceSum) {
-		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
-				player.account.addPoints(passStartMoney);
-				gui.passedStart(player, passStartMoney);
-				gui.updateBalance(player);	
-			}
-			
-		}
 
 
 	public void setPlayerList(PlayerList playerList2) {

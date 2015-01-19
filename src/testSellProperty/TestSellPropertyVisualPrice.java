@@ -1,12 +1,13 @@
 package testSellProperty;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import fields.Territory;
 import game.Dice;
 import game.Game;
 import game.GameBoard;
 import game.Player;
 import game.PlayerList;
+import game.PropertyController;
 
 import org.junit.Test;
 
@@ -22,6 +23,7 @@ public class TestSellPropertyVisualPrice {
 	Territory territory2;
 	GameBoard gameBoard = new GameBoard(dice);
 	MatadorGUI gui = new MatadorGUI();
+	PropertyController propertyController = new PropertyController();
 	
 	
 	
@@ -52,7 +54,7 @@ public class TestSellPropertyVisualPrice {
 //		territory2.addProperty(player);	
 		
 		//Visual test, is player now given option to sell property?
-		game.playerTurnMessage(players[0], gameBoard);
+		propertyController.sellProperty(players[0], gameBoard, playerList);
 		
 		//Is players[1] now owner of the property?
 		assertEquals(territory1.getOwner(),players[1]);

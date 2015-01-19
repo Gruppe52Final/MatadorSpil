@@ -6,6 +6,7 @@ import game.Game;
 import game.GameBoard;
 import game.Player;
 import game.PlayerList;
+import game.PropertyController;
 
 import org.junit.Test;
 
@@ -21,6 +22,7 @@ public class TestSellPropertyVisual {
 	Territory territory2;
 	GameBoard gameBoard = new GameBoard(dice);
 	MatadorGUI gui = new MatadorGUI();
+	PropertyController propertyController = new PropertyController();
 	
 	
 	
@@ -51,7 +53,7 @@ public class TestSellPropertyVisual {
 //		territory2.addProperty(player);	
 		
 		//Visual test, is player now given option to sell property?
-		game.playerTurnMessage(players[0], gameBoard);
+		propertyController.sellProperty(players[0], gameBoard, playerList);
 
 		
 		
