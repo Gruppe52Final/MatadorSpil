@@ -414,25 +414,14 @@ public class MatadorGUI {
 			}
 	}
 
-	public void setHouse(int fieldNumber, int numberOfHouses, GameBoard gameBoard) {
-		int houseCount = numberOfHouses;
-		Territory territory = (Territory) gameBoard.getField(fieldNumber);
-		int currentHouses = territory.getHouses();
-		if (currentHouses >= 4) {
-			GUI.setHotel((fieldNumber + 1), true);
-			territory.setHouses(houseCount + currentHouses);
-		} else if (currentHouses <= 4) {
-			GUI.setHouses((fieldNumber + 1), (houseCount + currentHouses));		//This should ideally be the only line called in here!!
-			territory.setHouses(houseCount + currentHouses);
-		}
-	}
+
 	
 	public void setHouse(int fieldNumber, int numberOfHouses) {
 		GUI.setHouses(fieldNumber, numberOfHouses);
 	}
 
-	public void setHotel(int fieldNumber) {
-		GUI.setHotel(fieldNumber, true);
+	public void setHotel(int fieldNumber, boolean value) {
+		GUI.setHotel(fieldNumber, value);
 	}
 
 	public String sellPropertyOrThrowDice(Player currentPlayer) {
@@ -446,6 +435,27 @@ public class MatadorGUI {
 	public String choosePlayerToSellPropertyTo(String[] playerNames) {
 		return GUI.getUserSelection("Vælg spiller du vil sælge til", playerNames);		
 
+	}
+
+	public int getSellingPropertySellingPrice() {
+		return GUI.getUserInteger("Indtast prisen du ønsker at få for ejendommen:");
+	}
+
+	public void setHouses(int fieldNumber, int houseCount) {
+		GUI.setHouses(fieldNumber, houseCount);
+		
+	}
+
+	public boolean askForPlayerConfirmation(String buyingPlayer, String propertyName, String sellingPlayer, int propertyPrice) {
+		return GUI.getUserLeftButtonPressed("Vil du " + buyingPlayer + " købe " + propertyName + " af " + sellingPlayer + 
+				", for " + propertyPrice + " points?", Texts.text[6], Texts.text[7]);
+		
+	}
+
+	public void sellConfirmation(String sellerName, String buyerName,
+			String propertyToSell) {
+		GUI.showMessage(sellerName + " har solgt " + propertyToSell + " til " + buyerName);
+		
 	}
 
 

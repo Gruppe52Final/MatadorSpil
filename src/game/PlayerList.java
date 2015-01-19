@@ -37,6 +37,16 @@ public class PlayerList {
 		temp[temp.length - 1] = input1;
 		return temp;
 	}
+
+	public Player getPlayerObjectFromString(String playerName) {
+		Player returnPlayer = new Player("");
+		for (int i = 0; i < players.length; i++) {
+			if(players[i].getName() == playerName) {
+				returnPlayer = players[i];
+			}
+		}
+		return returnPlayer;
+	}
 	
 	
 

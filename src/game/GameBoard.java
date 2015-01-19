@@ -252,4 +252,17 @@ public class GameBoard {
 		}
 		return x;
 	}
+
+
+	public void setOwner(Player buyingPlayer, String propertyToSell) {
+		Ownable ownable;
+		for (int i = 0; i < field.length; i++) {
+			if(field[i] instanceof Ownable) {
+				ownable = (Ownable) field[i]; 
+				if(ownable.getName() == propertyToSell) {
+					ownable.setOwner(buyingPlayer);
+				}
+			}
+		}
+	}
 }

@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+import fields.Territory;
 import boundary.MatadorGUI;
 
 public class HouseController {
@@ -22,7 +24,7 @@ public class HouseController {
 	public void buyHousesOption() {		
 		if(checkIfPlayerCanAffordHouses()) {
 			subtractHousePrice();			
-			gui.setHouse(fieldNumber,numberOfHouses, gameboard);
+			setHouse(fieldNumber,numberOfHouses, gameboard);
 			gui.updateBalance(currentPlayer);
 		}
 	}
@@ -39,6 +41,19 @@ public class HouseController {
 	private void subtractHousePrice() {
 		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
 		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
+	}
+	
+	public void setHouse(int fieldNumber, int numberOfHouses, GameBoard gameBoard) {
+		int houseCount = numberOfHouses;
+		Territory territory = (Territory) gameBoard.getField(fieldNumber);
+		int currentHouses = territory.getHouses();
+		if (currentHouses >= 4) {
+			gui.setHotel((fieldNumber + 1), true);
+			territory.setHouses(houseCount + currentHouses);		//Boundary works as controller here - not good - needs fix!
+		} else if (currentHouses <= 4) {
+			gui.setHouses((fieldNumber + 1), (houseCount + currentHouses));		//This should ideally be the only line called in here!!
+			territory.setHouses(houseCount + currentHouses);
+		}
 	}
 
 }

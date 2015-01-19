@@ -51,9 +51,9 @@ public class TestHotelRent {
 		territory2.addProperty(player);		
 
 
-		gui.setHotel(2);
+		gui.setHotel(2, true);
 		territory1.setHouses(5);
-		gui.setHotel(4);
+		gui.setHotel(4, true);
 		territory2.setHouses(5);
 		
 		dice.setDice1(2);
