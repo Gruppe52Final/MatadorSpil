@@ -8,7 +8,6 @@ public class PassStartCheck {
 	private MatadorGUI gui = new MatadorGUI();
 	
 	public void checkIfPlayerPassedStart(Player player, int diceSum) {
-		System.out.println(player.getName());
 		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
 				player.account.addPoints(passStartMoney);
 				gui.passedStart(player, passStartMoney);

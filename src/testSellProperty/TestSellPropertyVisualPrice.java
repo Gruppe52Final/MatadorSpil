@@ -40,7 +40,6 @@ public class TestSellPropertyVisualPrice {
 		
 		PlayerList playerList = new PlayerList(players);
 		
-		game.setPlayerList(playerList);
 
 		
 		//Create territory objects

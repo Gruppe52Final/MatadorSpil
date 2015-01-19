@@ -19,10 +19,8 @@ public class Game {
 
 	private int playerAmount = 0;
 	private MatadorGUI gui = new MatadorGUI(); 
-	private int lostCount = 0;
 	private Dice dice = new Dice();
 	private GameBoard gameboard;
-	private boolean won = false;
 	private Player currentPlayer;
 	private PrisonController prisonController = new PrisonController(gui);
 	private HouseController houseController;
@@ -64,11 +62,10 @@ public class Game {
 
 	}
 	
-	public void run() {
-		
+	public void run() {		
 
 		// The game continues as long as won equals false
-		while (!won) {
+		while (!playerList.checkIfPlayerWon(players)) {
 			//Goes through the player[]
 			for (int i = 0; i < players.length; i++) {
 				//If the player is not dead, he can have a turn!
@@ -100,21 +97,13 @@ public class Game {
 					checkIfPlayerLost(currentPlayer);
 			
 					//Checks if one player has won in the player array
-					checkIfPlayerWon(players);					
+					playerList.checkIfPlayerWon(players);					
 
 				}
 			}
 		}	
 	}	
 	
-	public void checkIfPlayerPassedStart(Player player, int diceSum) {
-		System.out.println(player.getName());
-		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
-				player.account.addPoints(passStartMoney);
-				gui.passedStart(player, passStartMoney);
-				gui.updateBalance(player);	
-			}			
-		}
 		
 	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
@@ -155,21 +144,8 @@ public class Game {
 			//If the player is dead, remove them from the board and reset the fields owned
 			gui.removePlayer(currentPlayer);			
 			gameboard.resetOwnedFields(currentPlayer);
-			lostCount++;
 		}		
 	}
 	
-	private void checkIfPlayerWon(Player[] players) {
-		// If only one player is left, won is set to true
-		if (lostCount == playerAmount - 1) {
-			won = true;
-			gui.showWin(players, playerAmount);
-		}	
-	}
-
-
-	public void setPlayerList(PlayerList playerList2) {
-		this.playerList = playerList2;
-		
-	}
+	
 }

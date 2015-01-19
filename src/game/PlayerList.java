@@ -3,8 +3,11 @@ package game;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import boundary.MatadorGUI;
+
 public class PlayerList {
 	private Player[] players;
+	private MatadorGUI gui = new MatadorGUI();
 	
 	public PlayerList(Player[] players) {
 		this.players = players;
@@ -46,6 +49,22 @@ public class PlayerList {
 			}
 		}
 		return returnPlayer;
+	}
+	
+	public boolean checkIfPlayerWon(Player[] players) {
+		boolean won = false;
+		int lostCount = 0;
+		for (int i = 0; i < players.length; i++) {
+			if(players[i].getDeathStatus()) {
+				lostCount++;
+			}
+		}
+		// If only one player is left, won is set to true
+		if (lostCount == (players.length - 1)) {
+			won = true;
+			gui.showWin(players, players.length);
+		}
+		return won;
 	}
 	
 	
