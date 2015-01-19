@@ -36,15 +36,15 @@ public class Texts {
 		"Skatten højere end din balance. i stedet betaler du 10% dine point", //27
 		"Du har passeret start feltet og modtager ", //28
 		"DU er gået falit.", //29
-		" på fængsel du er kun på besøg og kan forlade når som helst", //30
-		"Du er i fængsel kast lige tergninger for at komme ud", //31
+		"fængsel du er kun på besøg og kan forlade når som helst.", //30
+		"Du er i fængsel kast lige tergninger for at komme ud.", //31
 		"Du er blevet fængslet.", //32
 		" du kan endten betale dig ud", //33
-		" eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger)", //34
+		" eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger).", //34
 		" er i fængsel. Vil du betale 100 point for at komme ud?", //35
-		"Du har ikke nok point til at betale kaution ... vent på din løsladelse", //36
-		" . Du har nu ", //37
-		" fængsels tur tilbage",//38
+		"Du har ikke nok point til at betale kaution ... vent på din løsladelse.", //36
+		" Du har nu ", //37
+		" fængsels tur tilbage.",//38
 		//ChanceCardsSubtract
 		"Betal for vognvask og smøring kr. 15,00.", //39
 		"De har kørt frem for \"Fuld stop\". Betal 150 point.", //40
@@ -98,15 +98,15 @@ public class Texts {
 			"The tax is higher than your balance. Instead you pay 10% of your score", //27
 			"You have have passed Start field and receive ", //28
 			"You have gone bankrupt.", //29
-			"prison You're only on a visit and can leave any time.", // 30
-			"You are in prison, throw equal dice to get out", // 31
+			"jail. You're only on a visit and can leave any time.", // 30
+			"You are in jail, throw equal dice to get out.", // 31
 			"You're being taken to the jail. ", //32
 			"You either have to pay yourself out ", //33
-			"or be set free because of good behavior (by rolling two equal dice)", //34
+			"or be set free because of good behavior (by rolling two equal dice).", //34
 			" is in jail. Do you want to pay 100 points to get out?", //35
 			"You don't have enough points to pay bail... wait for your parole", //36
 			" .You now have ", //37
-			" prison turn left ", //38
+			" jail turn left ", //38
 			//ChanceCardsSubtract
 			"Pay for carwash and lubrication 15 points", //39
 			"You have driven through a \"full stop\". Pay 150 points .", //40
