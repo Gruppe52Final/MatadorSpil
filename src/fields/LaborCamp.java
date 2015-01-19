@@ -9,11 +9,13 @@ public class LaborCamp extends Ownable {
 	private int rent;
 	private Dice dice;
 	private MatadorGUI gui = new MatadorGUI();
-
-	public LaborCamp(String name,int price, int rent, Dice dice) {
-		super(price, name);
+	
+	
+	public LaborCamp(String name,int price, int rent, Dice dice, int pledge) {
+		super(price, name, pledge);
 		this.rent = rent;
 		this.dice = dice;
+		
 	}
 
 	

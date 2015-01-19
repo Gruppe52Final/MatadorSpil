@@ -19,9 +19,9 @@ public class TestTerritory {
 	
 	Game game = new Game();
 	Player player = new Player("TestTerritoryPlayer");
-	Territory territory = new Territory("Valby Langgade", 100, 6, 30, 90, 270, 400, 550, 200, "pink");
+	Territory territory = new Territory("Valby Langgade", 100, 6, 30, 90, 270, 400, 550, 200, "pink", 70);
 	Refuge refuge = new Refuge("Parkering");
-	LaborCamp laborCamp = new LaborCamp("Tuborg", 150, 100, dice);
+	LaborCamp laborCamp = new LaborCamp("Tuborg", 150, 100, dice, 70);
 	Player playerLanding = new Player("LandingOnTerritoryField");
 	int startingCash = player.getScore();
 	GameBoard gameBoard = new GameBoard(dice);

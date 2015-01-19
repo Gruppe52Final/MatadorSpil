@@ -21,8 +21,8 @@ public class TestFleet {
 	Player player = new Player("TestParkingPlayer");
 	Territory territory;
 	Refuge refuge;
-	Fleet fleet = new Fleet("Helsingør-Helsingborg", 200);
-	Fleet fleet2 = new Fleet("Mols-Linien",  200);
+	Fleet fleet = new Fleet("Helsingør-Helsingborg", 200, 70);
+	Fleet fleet2 = new Fleet("Mols-Linien",  200, 70);
 	Player playerLanding = new Player("LandingOnFleetField");
 	int startingCash;
 	

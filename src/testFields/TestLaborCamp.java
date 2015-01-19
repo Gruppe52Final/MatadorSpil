@@ -20,8 +20,8 @@ public class TestLaborCamp {
 	Player player2 = new Player("TestRent");
 	Territory territory;
 	Refuge refuge = new Refuge("Parkering");
-	LaborCamp laborCamp1 = new LaborCamp("Tuborg", 150, 100, dice);
-	LaborCamp laborCamp2 = new LaborCamp("Carlsberg", 150, 100, dice);
+	LaborCamp laborCamp1 = new LaborCamp("Tuborg", 150, 100, dice, 70);
+	LaborCamp laborCamp2 = new LaborCamp("Carlsberg", 150, 100, dice, 70);
 	GameBoard gameBoard = new GameBoard(dice);
 	
 	@Test

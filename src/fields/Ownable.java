@@ -9,11 +9,13 @@ public abstract class Ownable extends Fields {
 	private int price;
 	private String name;
 	private MatadorGUI gui = new MatadorGUI();
+	private int pledge;
 
-	public Ownable(int price, String name) {
+	public Ownable(int price, String name, int pledge) {
 		owner = null;
 		this.price = price;
 		this.setName(name);
+		this.pledge = pledge;
 	}
 	
 	@Override

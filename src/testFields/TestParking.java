@@ -20,8 +20,8 @@ public class TestParking {
 	Player player = new Player("TestParkingPlayer");
 	Territory territory;
 	Refuge refuge;
-	LaborCamp laborCamp = new LaborCamp("Tuborg", 150, 100, dice);
-	Fleet fleet = new Fleet("Helsingør-Helsingborg", 200);
+	LaborCamp laborCamp = new LaborCamp("Tuborg", 150, 100, dice, 70);
+	Fleet fleet = new Fleet("Helsingør-Helsingborg", 200, 70);
 	
 	
 	@Test

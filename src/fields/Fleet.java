@@ -9,8 +9,8 @@ public class Fleet extends Ownable {
 	private MatadorGUI gui = new MatadorGUI();
 	
 
-	public Fleet(String name, int price) {
-		super(price, name);
+	public Fleet(String name, int price, int pledge) {
+		super(price, name, pledge);
 		this.price = price;
 		rent[0] = 25;
 		rent[1] = 50;

@@ -14,8 +14,8 @@ public class Territory extends Ownable {
 	private MatadorGUI gui = new MatadorGUI();
 
 	public Territory(String name, int price, int rent, int houseRent1, int houseRent2,
-			int houseRent3, int houseRent4, int hotelRent, int housePrice, String color) {
-		super(price, name);
+			int houseRent3, int houseRent4, int hotelRent, int housePrice, String color, int pledge) {
+		super(price, name, pledge);
 		this.baseRent = rent;
 		houseRent[0] = houseRent1;
 		houseRent[1] = houseRent2;
