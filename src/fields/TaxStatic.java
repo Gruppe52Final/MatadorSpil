@@ -16,12 +16,12 @@ public class TaxStatic extends Fields {
 
 	@Override
 	public void landOnField(Player player) {
-		if (player.account.getScore() >= pay) {
+		if (player.getScore() >= pay) {
 			out.taxPay(name);
-			player.account.addPoints(-pay);
+			player.addPoints(-pay);
 		} else {
 			out.fundsTooLowToPayTax();
-			player.account.addPoints(-player.account.getScore());
+			player.addPoints(-player.getScore());
 			player.setDeathStatus(true);
 		}
 		out.updateBalance(player);

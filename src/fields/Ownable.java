@@ -33,12 +33,12 @@ public abstract class Ownable extends Fields {
 	
 	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
 		if (getOwner() == null) {
-			if (player.account.getScore() >= price) {
+			if (player.getScore() >= price) {
 				boolean buyField = gui.buyField(name, price);
 				if (buyField) {
-					player.account.subtractPoints(price);
+					player.subtractPoints(price);
 					addProperty(player);
-					refuge.account.addPoints(0.1 * price);
+					refuge.addPoints(0.1 * price);
 					gui.fieldBought(name);
 				} else {
 					gui.fieldRefused(name);
@@ -57,9 +57,9 @@ public abstract class Ownable extends Fields {
 	}
 	
 	public void insufficientFunds(Player player) {
-		getOwner().account.addPoints(player.account.getScore());
-		player.account.subtractPoints(player.account.getScore());				
-		gui.insufficiantFunds(getName(), owner.getName(), player.account.getScore());
+		getOwner().addPoints(player.getScore());
+		player.subtractPoints(player.getScore());				
+		gui.insufficiantFunds(getName(), owner.getName(), player.getScore());
 		gui.updateBalance(player);
 		gui.updateBalance(getOwner());				
 		player.setDeathStatus(true);

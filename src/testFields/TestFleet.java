@@ -33,7 +33,7 @@ public class TestFleet {
 		 * Test if owning one fleet field deducts money and transfer money
 		 */
 		
-		startingCash = player.account.getScore();
+		startingCash = player.getScore();
 		
 		//Make player buy a fleet
 		fleet.setOwner(player);
@@ -46,16 +46,16 @@ public class TestFleet {
 		fleet.landOnField(playerLanding,refuge);
 		
 		//Has the player now been deducted rent_1 ?
-		assertEquals((startingCash - rent[0]), playerLanding.account.getScore());
+		assertEquals((startingCash - rent[0]), playerLanding.getScore());
 		
 		//Has the owner got 25 point?
-		assertEquals(player.account.getScore(), (startingCash + rent[0]));
+		assertEquals(player.getScore(), (startingCash + rent[0]));
 		
 		//Transfer rent back to landingPlayer
-		playerLanding.account.addPoints(rent[0]);
+		playerLanding.addPoints(rent[0]);
 		
 		//Reset owners money
-		player.account.setPoints(startingCash);
+		player.setPoints(startingCash);
 		
 
 		
@@ -64,7 +64,7 @@ public class TestFleet {
 		 * Test if owning two fleets increases the rent
 		 */
 		
-		startingCash = player.account.getScore();
+		startingCash = player.getScore();
 		
 		//What if the player owns two fleets?
 		fleet2.setOwner(player);
@@ -73,7 +73,7 @@ public class TestFleet {
 
 		assertEquals(player.getFleets(),2);
 		
-		assertEquals(playerLanding.account.getScore(),1500);
+		assertEquals(playerLanding.getScore(),1500);
 		
 		//Make the poor player land on the fleet field again
 		fleet.landOnField(playerLanding, refuge);
@@ -81,22 +81,22 @@ public class TestFleet {
 		System.out.println(startingCash + " startingCash," + rent[1] + " rent[1]");
 		
 		//Has the player now been deducted even more rent ?
-		assertEquals((startingCash - rent[1]), playerLanding.account.getScore());
+		assertEquals((startingCash - rent[1]), playerLanding.getScore());
 		
 		//Has the owner now got 50 points ?
-		assertEquals(player.account.getScore(), (startingCash + rent[1]));
+		assertEquals(player.getScore(), (startingCash + rent[1]));
 		
 		//Transfer rent back to landingPlayer
-		playerLanding.account.addPoints(rent[0]);
+		playerLanding.addPoints(rent[0]);
 		
 		//Reset owners money
-		player.account.setPoints(startingCash);
+		player.setPoints(startingCash);
 		
 		/**
 		 * Test if owning three fleets increases the rent
 		 */
 		
-		startingCash = player.account.getScore();
+		startingCash = player.getScore();
 		
 
 		fleet2.setOwner(player);
@@ -106,7 +106,7 @@ public class TestFleet {
 		assertEquals(player.getFleets(),3);
 		
 		
-		playerLanding.account.setPoints(1500);
+		playerLanding.setPoints(1500);
 		
 		//Make the poor player land on the fleet field again
 		fleet.landOnField(playerLanding, refuge);
@@ -114,22 +114,22 @@ public class TestFleet {
 		System.out.println(startingCash + " startingCash," + rent[2] + " rent[2]");
 		
 		//Has the player now been deducted even more rent ?
-		assertEquals((startingCash - rent[2]), playerLanding.account.getScore());
+		assertEquals((startingCash - rent[2]), playerLanding.getScore());
 		
 		//Has the owner now got 50 points ?
-		assertEquals(player.account.getScore(), (startingCash + rent[2]));
+		assertEquals(player.getScore(), (startingCash + rent[2]));
 		
 		//Transfer rent back to landingPlayer
-		playerLanding.account.addPoints(rent[0]);
+		playerLanding.addPoints(rent[0]);
 		
 		//Reset owners money
-		player.account.setPoints(startingCash);
+		player.setPoints(startingCash);
 		
 		/**
 		 * Test if owning four fleets increases the rent
 		 */
 		
-		startingCash = player.account.getScore();
+		startingCash = player.getScore();
 		
 
 		fleet2.setOwner(player);
@@ -139,7 +139,7 @@ public class TestFleet {
 		assertEquals(player.getFleets(),4);
 		
 		
-		playerLanding.account.setPoints(1500);
+		playerLanding.setPoints(1500);
 		
 		//Make the poor player land on the fleet field again
 		fleet.landOnField(playerLanding, refuge);
@@ -147,16 +147,16 @@ public class TestFleet {
 		System.out.println(startingCash + " startingCash," + rent[3] + " rent[3]");
 		
 		//Has the player now been deducted even more rent ?
-		assertEquals((startingCash - rent[3]), playerLanding.account.getScore());
+		assertEquals((startingCash - rent[3]), playerLanding.getScore());
 		
 		//Has the owner now got 50 points ?
-		assertEquals(player.account.getScore(), (startingCash + rent[3]));
+		assertEquals(player.getScore(), (startingCash + rent[3]));
 		
 		//Transfer rent back to landingPlayer
-		playerLanding.account.addPoints(rent[0]);
+		playerLanding.addPoints(rent[0]);
 		
 		//Reset owners money
-		player.account.setPoints(startingCash);
+		player.setPoints(startingCash);
 		
 	}
 

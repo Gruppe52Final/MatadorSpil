@@ -15,7 +15,7 @@ public class TestRandomChanceCardDisplay {
 	private Dice dice = new Dice();
 	private Player player1 = new Player("TestChanceCardPlayer");
 	private MatadorGUI gui = new MatadorGUI();
-	int startingCash = player1.account.getScore();
+	int startingCash = player1.getScore();
 	private Chance chanceCards = new Chance("Dansk");
 	private GameBoard gameBoard = new GameBoard(dice);
 

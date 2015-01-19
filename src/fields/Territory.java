@@ -49,10 +49,10 @@ public class Territory extends Ownable {
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		if (getOwner() != player && getOwner() != null) {
 			int currentRent = getRent();
-			if (player.account.getScore() >= currentRent) {
+			if (player.getScore() >= currentRent) {
 				gui.fieldTax(super.getName(), getOwner().getName(), currentRent);		//Har givet nullPointerError	
-				getOwner().account.addPoints(currentRent);
-				player.account.subtractPoints(currentRent);
+				getOwner().addPoints(currentRent);
+				player.subtractPoints(currentRent);
 				gui.updateBalance(player);			// the player looses if the rent is higher than the players balance
 				gui.updateBalance(getOwner());
 			}

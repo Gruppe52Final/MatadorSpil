@@ -13,12 +13,12 @@ public class TaxPercentTest {
 	int pay = 200;
 	Player player = new Player("TestTaxPercent");
 	TaxPercent taxPercent = new TaxPercent("TaxPercent", pay);
-	int playerStartMoney = player.account.getScore();
+	int playerStartMoney = player.getScore();
 	Game game = new Game();
 	
 	
 	//Test if player is deducted 200 points by taxfield
-	assertEquals(player.account.getScore(),playerStartMoney);
+	assertEquals(player.getScore(),playerStartMoney);
 
 	//Initialize GUI
 
@@ -26,10 +26,10 @@ public class TaxPercentTest {
 	//Choose 200 points
 	taxPercent.landOnField(player);
 	
-	assertEquals(player.account.getScore(), playerStartMoney - pay);
+	assertEquals(player.getScore(), playerStartMoney - pay);
 	
 //	Test if player pays 10% if he can't pay taxes for 200 points	
-	player.account.setPoints(199);
+	player.setPoints(199);
 	
 	//Choose 200 points
 	taxPercent.landOnField(player);
@@ -37,12 +37,12 @@ public class TaxPercentTest {
 	
 	//Are we actually deducting 10% of his score... ?
 	
-	player.account.setPoints(100);
+	player.setPoints(100);
 	
 	//Choose 10%
 	taxPercent.landOnField(player);
 	
-	assertEquals(player.account.getScore(),90);
+	assertEquals(player.getScore(),90);
 	
 	
 	

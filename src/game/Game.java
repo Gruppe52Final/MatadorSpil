@@ -10,8 +10,6 @@ package game;
 import desktop_resources.GUI;
 import boundary.MatadorGUI;
 import boundary.Texts;
-import fields.Fields;
-import fields.Territory;
 
 
 
@@ -28,7 +26,6 @@ public class Game {
 	private PlayerList playerList;
 	private PassStartCheck passStartCheck = new PassStartCheck();
 	private PropertyController propertyController;
-	private int passStartMoney = 200;
 
 	
 	public Game() {

@@ -21,10 +21,10 @@ public class LaborCamp extends Ownable {
 		// if the field is owned by another player, a rent have to be paid
 		if (getOwner() != player && getOwner() != null) {
 			int fullRent = rent * dice.getSum() * getOwner().getLaborCamp();
-			if (player.account.getScore() >= fullRent) {
+			if (player.getScore() >= fullRent) {
 				gui.fieldTax(super.getName(), getOwner().getName(), fullRent);				
-				getOwner().account.addPoints(fullRent);
-				player.account.subtractPoints(fullRent);
+				getOwner().addPoints(fullRent);
+				player.subtractPoints(fullRent);
 				gui.updateBalance(player);
 			}
 			// the player looses if the rent is higher than the players balance

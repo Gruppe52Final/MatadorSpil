@@ -9,7 +9,7 @@ public class Refuge extends Fields {
 	
 private String Parking;
 private int startBonus = 50;
-public Account account = new Account();
+private Account account = new Account();
 private MatadorGUI out = new MatadorGUI();
 	
 	//Object that stores the name and start bonus 
@@ -23,7 +23,7 @@ private MatadorGUI out = new MatadorGUI();
 			//Prints the bonus for the player to see
 			out.bonusMessage(Parking, account.getScore());
 			//Add points to player
-			player.account.addPoints(account.getScore());
+			player.addPoints(account.getScore());
 			//updates balance of player
 			out.updateBalance(player);
 			//Resets parking accont
@@ -36,6 +36,22 @@ private MatadorGUI out = new MatadorGUI();
 	
 	public int getStartBonus() {
 		return startBonus;
+	}
+	
+	public void addPoints(double d) {
+		account.addPoints(d);
+	}
+	
+	public void subtractPoints(int d) {
+		account.subtractPoints(d);
+	}
+	
+	public void setPoints(int d) {
+		account.setPoints(d);
+	}
+	
+	public int getScore() {
+		return account.getScore();
 	}
 
 

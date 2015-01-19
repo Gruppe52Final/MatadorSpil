@@ -1,18 +1,17 @@
-package testSellProperty;
+package testProperty;
 
 import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import boundary.MatadorGUI;
 import fields.Territory;
 import game.Dice;
 import game.Game;
 import game.GameBoard;
 import game.Player;
 
-public class TestGetPlayerOwnableNames {
-	
+import org.junit.Test;
+
+import boundary.MatadorGUI;
+
+public class TestPlayerHasOwnable {
 
 	Dice dice = new Dice();
 	Game game = new Game();
@@ -22,9 +21,11 @@ public class TestGetPlayerOwnableNames {
 	Territory territory2;
 	GameBoard gameBoard = new GameBoard(dice);
 	MatadorGUI gui = new MatadorGUI();
-
+	
+	
 	@Test
 	public void test() {
+	
 		/**
 		 * Test if player can buy a house on Rødovrevej and Hvidovrevej
 		 */		
@@ -47,11 +48,15 @@ public class TestGetPlayerOwnableNames {
 		territory1.addProperty(player);
 		territory2.addProperty(player);	
 		
-		//Get output of player ownable names
-		assertEquals(gameBoard.getPlayerOwnableNames(player)[0], "Rødovrevej");
-		assertEquals(gameBoard.getPlayerOwnableNames(player)[1], "Hvidovrevej");
+		//Does gameboard see player has an ownable?
+		assertEquals(gameBoard.playerHasOwnable(player),true);
 
-
+		
+		
+		
+		
+		
 	}
 
 }
+

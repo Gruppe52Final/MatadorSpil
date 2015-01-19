@@ -34,7 +34,7 @@ public class TestFleet2 {
 		 * Test what happens when owner lands on fleetfield
 		 */
 		
-		startingCash = player.account.getScore();
+		startingCash = player.getScore();
 		
 		//Make player buy a fleet
 		fleet.setOwner(player);
@@ -47,12 +47,12 @@ public class TestFleet2 {
 		//Make sure player is owner of fleet field
 		assertEquals(player, fleet.getOwner());
 		
-		player.account.setPoints(startingCash);
+		player.setPoints(startingCash);
 		
 //		Make owner player land on the fleet field
 		fleet.landOnField(player,refuge);
 		
-		assertEquals(player.account.getScore(),startingCash);
+		assertEquals(player.getScore(),startingCash);
 		
 	}
 

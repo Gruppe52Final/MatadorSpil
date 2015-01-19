@@ -16,9 +16,9 @@ public class PropertyController {
 		int price = gui.getSellingPropertySellingPrice();
 		boolean confirmation = gui.askForPlayerConfirmation(buyingPlayer.getName(), propertyToSell, currentPlayer.getName(), price);
 //		If the buying player has money and wants to buy, the transfer will be completed below
-		if(confirmation && buyingPlayer.account.getScore() > price) {
-			buyingPlayer.account.subtractPoints(price);
-			currentPlayer.account.addPoints(price);
+		if(confirmation && buyingPlayer.getScore() > price) {
+			buyingPlayer.subtractPoints(price);
+			currentPlayer.addPoints(price);
 			gameboard.setOwner(buyingPlayer, propertyToSell);
 			gui.sellConfirmation(currentPlayer.getName(), buyingPlayer.getName(), propertyToSell);
 			gui.updateBalance(buyingPlayer);

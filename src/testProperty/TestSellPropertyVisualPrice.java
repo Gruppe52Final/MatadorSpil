@@ -1,5 +1,6 @@
-package testSellProperty;
+package testProperty;
 
+import static org.junit.Assert.assertEquals;
 import fields.Territory;
 import game.Dice;
 import game.Game;
@@ -12,7 +13,7 @@ import org.junit.Test;
 
 import boundary.MatadorGUI;
 
-public class TestSellPropertyVisual {
+public class TestSellPropertyVisualPrice {
 
 	Dice dice = new Dice();
 	Game game = new Game();
@@ -53,7 +54,9 @@ public class TestSellPropertyVisual {
 		
 		//Visual test, is player now given option to sell property?
 		propertyController.sellProperty(players[0], gameBoard, playerList);
-
+		
+		//Is players[1] now owner of the property?
+		assertEquals(territory1.getOwner(),players[1]);
 		
 		
 	}

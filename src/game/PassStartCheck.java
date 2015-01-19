@@ -9,7 +9,7 @@ public class PassStartCheck {
 	
 	public void checkIfPlayerPassedStart(Player player, int diceSum) {
 		if (!(diceSum + player.getPreviousPosition() == player.getPosition()) && (player.getPrisonTurns() == 0)) {
-				player.account.addPoints(passStartMoney);
+				player.addPoints(passStartMoney);
 				gui.passedStart(player, passStartMoney);
 				gui.updateBalance(player);	
 			}			

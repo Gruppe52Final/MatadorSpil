@@ -40,20 +40,20 @@ public class TestParking {
 		//Places player on board
 		territory.landOnField(player, refuge);
 		
-		assertEquals(player.account.getScore(),(1500 - territory.getPrice()));
+		assertEquals(player.getScore(),(1500 - territory.getPrice()));
 				
 		//Make sure that player is now owner
 		assertEquals(territory.getOwner(), player);
 		
 		//Set variable for money in the beginning
 		int startBonus = refuge.getStartBonus();
-		int playerStartMoney = player.account.getScore();
+		int playerStartMoney = player.getScore();
 		
 		//Make sure getPoints has been raised in Refuge,
 		// because of player buying a property		
-		assertNotEquals(startBonus,refuge.account.getScore());
+		assertNotEquals(startBonus,refuge.getScore());
 		
-		int bonus = refuge.account.getScore();
+		int bonus = refuge.getScore();
 		
 		//Lets make sure the bonus is not the default 50,
 		// but that something has been added from the previous buy
@@ -65,8 +65,8 @@ public class TestParking {
 
 		
 		//Lets see if the player received the bonus
-		assertEquals(player.account.getScore(),bonus + playerStartMoney);
-		assertEquals(player.account.getScore(),1424);
+		assertEquals(player.getScore(),bonus + playerStartMoney);
+		assertEquals(player.getScore(),1424);
 		
 		/**
 		Test if parking receives money when you buy a LaborCamp
@@ -82,7 +82,7 @@ public class TestParking {
 		assertEquals(laborCamp.getOwner(),player);
 		
 		//Test if Refuge has received money now
-		assertEquals(refuge.account.getScore(),65);
+		assertEquals(refuge.getScore(),65);
 		
 		/*
 		 * Test if parking receives money when you buy Fleet field
@@ -95,6 +95,6 @@ public class TestParking {
 		assertEquals(fleet.getOwner(),player);
 		
 		//Test if Refuge has received money now
-		assertEquals(refuge.account.getScore(),85);
+		assertEquals(refuge.getScore(),85);
 	}
 }

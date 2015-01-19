@@ -32,7 +32,7 @@ public class HouseController {
 	private boolean checkIfPlayerCanAffordHouses() {
 		boolean x = false;	
 		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
-		if(currentPlayer.account.getScore() > numberOfHouses * housePrice) {
+		if(currentPlayer.getScore() > numberOfHouses * housePrice) {
 			x = true;
 		}
 		return x;
@@ -40,7 +40,7 @@ public class HouseController {
 	
 	private void subtractHousePrice() {
 		int housePrice = gameboard.getTerritoryHousePrice(fieldNumber);
-		currentPlayer.account.subtractPoints(numberOfHouses * housePrice);	
+		currentPlayer.subtractPoints(numberOfHouses * housePrice);	
 	}
 	
 	public void setHouse(int fieldNumber, int numberOfHouses, GameBoard gameBoard) {

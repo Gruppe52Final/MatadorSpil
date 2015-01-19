@@ -17,6 +17,6 @@ public class ChanceAddPoints extends ChanceCards {
 
 	@Override
 	public void activate(Player player) {
-		player.account.addPoints(amount);		
+		player.addPoints(amount);		
 	}	
 }

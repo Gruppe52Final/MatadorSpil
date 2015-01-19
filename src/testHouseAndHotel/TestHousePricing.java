@@ -48,12 +48,12 @@ public class TestHousePricing {
 		//Check if player now has option to buy houses 
 		game.playerTurnMessage(player, gameBoard);
 		
-		int startingCash = player.account.getScore();
+		int startingCash = player.getScore();
 		
 		//Buy one house and check if price is deducted from his score
 //		game.buyHouse(player);
 		
-//		assertEquals(player.account.getScore(),(startingCash - territory1.getHousePrice()));
+//		assertEquals(player.getScore(),(startingCash - territory1.getHousePrice()));
 		
 		game.playerTurnMessage(player, gameBoard);
 		

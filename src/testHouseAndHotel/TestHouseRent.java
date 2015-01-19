@@ -61,7 +61,7 @@ public class TestHouseRent {
 		dice.setDice2(1);
 		
 		int rent = territory1.getRent();
-		int startingCash = landingPlayer.account.getScore();
+		int startingCash = landingPlayer.getScore();
 		
 		game.playerTurnMessage(landingPlayer, gameBoard);
 		game.movePlayer(landingPlayer, dice);
@@ -69,10 +69,10 @@ public class TestHouseRent {
 		gameBoard.landOnField(landingPlayer);
 		
 		//Has landingPlayer been deducted the amount?
-		assertEquals(landingPlayer.account.getScore(), (startingCash - rent));
+		assertEquals(landingPlayer.getScore(), (startingCash - rent));
 		
 		//Has the owning player been deposited the amount?
-		assertEquals(player.account.getScore(), (startingCash + rent));
+		assertEquals(player.getScore(), (startingCash + rent));
 		
 		
 		

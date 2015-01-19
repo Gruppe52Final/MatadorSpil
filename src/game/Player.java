@@ -11,7 +11,7 @@ public class Player {
 	private int position, fleets, laborCamp;
 	private int prisonTurns;
 	private boolean dead;
-	public Account account = new Account();
+	private Account account = new Account();
 	private int previousPosition;
 
 	// Object that stores the name and position of a player
@@ -39,6 +39,23 @@ public class Player {
 			position += roll;
 		}
 	}
+	
+	public void addPoints(double d) {
+		account.addPoints(d);
+	}
+	
+	public void subtractPoints(int d) {
+		account.subtractPoints(d);
+	}
+	
+	public void setPoints(int d) {
+		account.setPoints(d);
+	}
+	
+	public int getScore() {
+		return account.getScore();
+	}
+	
 	// Method that returns the position of the player
 	public int getPosition() {
 		return position;

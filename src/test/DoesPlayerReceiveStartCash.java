@@ -14,7 +14,7 @@ public class DoesPlayerReceiveStartCash {
 	
 	Player player = new Player("TestStartCash");
 	Dice dice = new Dice();
-	int startCash = player.account.getScore();
+	int startCash = player.getScore();
 	int passStartMoney = 4000;
 	int diceSum = 0;
 	
@@ -26,7 +26,7 @@ public class DoesPlayerReceiveStartCash {
 		
 		player.addRollToPosition(0);
 		assertEquals(player.getPosition(),0);
-		assertEquals(player.account.getScore(), startCash);
+		assertEquals(player.getScore(), startCash);
 		
 		//Now lets make the player pass the start field
 		
@@ -39,13 +39,13 @@ public class DoesPlayerReceiveStartCash {
 		
 		checkIfPlayerPassedStart(player, diceSum); //This should transfer money to player
 
-		assertEquals(player.account.getScore(), startCash + passStartMoney);
+		assertEquals(player.getScore(), startCash + passStartMoney);
 	}
 
 	private void checkIfPlayerPassedStart(Player player, int diceSum) {
 		player.getPreviousPosition();
 		if (!(diceSum + player.getPreviousPosition() == player.getPosition())) {
-			player.account.addPoints(passStartMoney);
+			player.addPoints(passStartMoney);
 		}		
 	}
 }

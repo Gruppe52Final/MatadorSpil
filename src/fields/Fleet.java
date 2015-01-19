@@ -21,10 +21,10 @@ public class Fleet extends Ownable {
 
 	public void checkFieldOwnedByAnotherPlayer(Player player) {
 		if (getOwner() != player && getOwner() != null) {
-			if (player.account.getScore() >= rent[getOwner().getFleets() - 1]) {
+			if (player.getScore() >= rent[getOwner().getFleets() - 1]) {
 				gui.fieldTax(super.getName(), getOwner().getName(), rent[getOwner().getFleets()  - 1]);
-				player.account.subtractPoints(rent[getOwner().getFleets() - 1]);
-				getOwner().account.addPoints(rent[getOwner().getFleets() - 1]);
+				player.subtractPoints(rent[getOwner().getFleets() - 1]);
+				getOwner().addPoints(rent[getOwner().getFleets() - 1]);
 				gui.updateBalance(player);
 				gui.updateBalance(getOwner());
 				// the player loses if the rent is higher than the players

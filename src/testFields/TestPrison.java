@@ -16,7 +16,7 @@ public class TestPrison {
 	
 	Player player = new Player("TestPrison");
 	GoToPrison goToPrisonField = new GoToPrison("Jail");
-	int startingCash = player.account.getScore(); 
+	int startingCash = player.getScore(); 
 	Game game = new Game();
 	Dice dice = new Dice();
 	MatadorGUI gui = new MatadorGUI();
@@ -50,7 +50,7 @@ public class TestPrison {
 		passStartCheck.checkIfPlayerPassedStart(player, 10); //5 is just a random dicethrow
 		
 		//So does it still have the same cash as when the player object was created?
-		assertEquals(player.account.getScore(), startingCash);
+		assertEquals(player.getScore(), startingCash);
 		
 		//Is player in prison now ?
 		assertEquals(player.getPrisonTurns(),3);
@@ -71,7 +71,7 @@ public class TestPrison {
 		assertEquals(player.getPosition(),15);
 		
 		//Has the player been subtracted 100 points?
-		assertEquals(player.account.getScore(), 1400);
+		assertEquals(player.getScore(), 1400);
 		
 		//Is player prisonturns 0 now?
 		assertEquals(player.getPrisonTurns(),0);

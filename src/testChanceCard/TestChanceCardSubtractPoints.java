@@ -19,7 +19,7 @@ public class TestChanceCardSubtractPoints {
 	private Dice dice = new Dice();
 	private Player player1 = new Player("TestChanceCardPlayer");
 	private MatadorGUI gui = new MatadorGUI();
-	int startingCash = player1.account.getScore();
+	int startingCash = player1.getScore();
 	private Chance chanceField = new Chance("English");
 	ChanceCards[] chanceCards;
 	int randomInt;
@@ -42,10 +42,10 @@ public class TestChanceCardSubtractPoints {
 			chanceCards[i].activate(player1);
 			
 			//Has player been deducted points .. ?
-			assertEquals(player1.account.getScore(), (startingCash - ((ChanceSubtractPoints) chanceCards[i]).getAmount()));
+			assertEquals(player1.getScore(), (startingCash - ((ChanceSubtractPoints) chanceCards[i]).getAmount()));
 			
 			//Reset player points
-			player1.account.setPoints(startingCash);
+			player1.setPoints(startingCash);
 		}
 		
 		

@@ -26,14 +26,14 @@ public class TestTaxStaticField {
 		//Testing if player loses 100 cash by landing on tax field 38 (statsskat gives minus 100 points)
 		player.addRollToPosition(38);		
 		assertEquals(player.getPosition(),38);		
-		assertEquals(player.account.getScore(),1500);		
+		assertEquals(player.getScore(),1500);		
 		tax.landOnField(player);
 		
 		//Test if player can pay, if they have enough money.		
-		assertEquals(player.account.getScore(),(1500-taxAmount));
+		assertEquals(player.getScore(),(1500-taxAmount));
 		
 		//Test if player dies, if they have too little money.		
-		player.account.setPoints(99);		
+		player.setPoints(99);		
 		tax.landOnField(player);		
 		assertEquals(player.getDeathStatus(), true);
 		

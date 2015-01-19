@@ -177,7 +177,7 @@ public class MatadorGUI {
 		car[5] = new Car.Builder().primaryColor(Color.black).build();
 		
 		for (int i = 0; i < playerAmount; i++) {
-			GUI.addPlayer(player[i].getName(), player[i].account.getScore(),
+			GUI.addPlayer(player[i].getName(), player[i].getScore(),
 					car[i]);
 			GUI.setCar(player[i].getPosition() + 1, player[i].getName());
 		}
@@ -195,7 +195,7 @@ public class MatadorGUI {
 		car[5] = new Car.Builder().primaryColor(Color.black).build();
 		
 		for (int i = 0; i < player.length; i++) {
-			GUI.addPlayer(player[i].getName(), player[i].account.getScore(),
+			GUI.addPlayer(player[i].getName(), player[i].getScore(),
 					car[i]);
 			GUI.setCar(player[i].getPosition() + 1, player[i].getName());
 		}
@@ -260,7 +260,7 @@ public class MatadorGUI {
 	}
 	
 	public void updateBalance(Player player) {
-		GUI.setBalance(player.getName(), player.account.getScore());
+		GUI.setBalance(player.getName(), player.getScore());
 	}
 	
 	public void insufficiantFunds(String fieldName, String playerName, int balance) {

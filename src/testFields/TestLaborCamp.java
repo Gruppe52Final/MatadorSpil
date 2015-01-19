@@ -27,9 +27,9 @@ public class TestLaborCamp {
 	@Test
 	public void test() {
 		
-		player2.account.setPoints(5000);
-		int startingCash = player1.account.getScore();
-		int startingCashAgain = player2.account.getScore();
+		player2.setPoints(5000);
+		int startingCash = player1.getScore();
+		int startingCashAgain = player2.getScore();
 		dice.throwDice();
 		
 		laborCamp1.landOnField(player1,refuge);
@@ -38,13 +38,13 @@ public class TestLaborCamp {
 		assertNotEquals(fullRent1,0);
 		
 		//Check player has been deducted laborCamp cost
-		assertEquals(player1.account.getScore(), startingCash - laborCamp1.getPrice());
+		assertEquals(player1.getScore(), startingCash - laborCamp1.getPrice());
 		
 		laborCamp1.landOnField(player2,refuge);
 		
 		//Test om playeren bliver fratrukket det korrekte rent
-		assertEquals(player2.account.getScore(), startingCashAgain - fullRent1);
-		assertEquals(player1.account.getScore(), startingCash - laborCamp1.getPrice() + fullRent1);
+		assertEquals(player2.getScore(), startingCashAgain - fullRent1);
+		assertEquals(player1.getScore(), startingCash - laborCamp1.getPrice() + fullRent1);
 		
 		laborCamp2.landOnField(player1,refuge);
 		laborCamp2.landOnField(player2,refuge);
@@ -53,8 +53,8 @@ public class TestLaborCamp {
 		int newCash1 = startingCash - laborCamp1.getPrice() + fullRent1 - laborCamp2.getPrice();
 		int newCash2 = startingCashAgain - fullRent1;
 		
-		assertEquals(player2.account.getScore(), newCash2 - fullRent2);
-		assertEquals(player1.account.getScore(), newCash1 + fullRent2);
+		assertEquals(player2.getScore(), newCash2 - fullRent2);
+		assertEquals(player1.getScore(), newCash1 + fullRent2);
 		
 	}
 

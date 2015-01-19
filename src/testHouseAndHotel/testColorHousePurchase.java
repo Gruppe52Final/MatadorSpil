@@ -74,7 +74,7 @@ public class testColorHousePurchase {
 		
 		
 		int rent = territory1.getRent();
-		int startingCash = player2.account.getScore();	
+		int startingCash = player2.getScore();	
 		
 		
 		game.playerTurnMessage(player2, gameBoard);
@@ -84,10 +84,10 @@ public class testColorHousePurchase {
 		gameBoard.landOnField(player2);
 		
 		//Has landingPlayer been deducted the amount?
-		assertEquals(player2.account.getScore(), (startingCash - rent));
+		assertEquals(player2.getScore(), (startingCash - rent));
 		
 		//Has the owning player been deposited the amount?
-		assertEquals(player1.account.getScore(), ((startingCash - territory1.getHousePrice()) + rent));
+		assertEquals(player1.getScore(), ((startingCash - territory1.getHousePrice()) + rent));
 	}
 
 }
