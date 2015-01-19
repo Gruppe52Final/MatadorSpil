@@ -28,7 +28,7 @@ public class Game {
 	private HouseController houseController;
 	private Player[] players;	
 	private PlayerList playerList;
-	private PassStartCheck passStartCheck;
+	private PassStartCheck passStartCheck = new PassStartCheck();
 	private PropertyController propertyController;
 	private int passStartMoney = 200;
 
@@ -88,7 +88,7 @@ public class Game {
 					}
 					
 					//Check if player passed start field, gives him passStartMoney in case
-					checkIfPlayerPassedStart(currentPlayer, dice.getSum());
+					passStartCheck.checkIfPlayerPassedStart(currentPlayer, dice.getSum());
 					
 					if(currentPlayer.getPrisonTurns() > 0) {
 						prisonController.prisonDialog(currentPlayer, dice);
