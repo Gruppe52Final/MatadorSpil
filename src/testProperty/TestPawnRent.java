@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import boundary.MatadorGUI;
 
-public class TestPawningOfProperty {
+public class TestPawnRent {
 
 	Dice dice = new Dice();
 	Game game = new Game();
@@ -25,7 +25,8 @@ public class TestPawningOfProperty {
 	GameBoard gameBoard = new GameBoard(dice);
 	MatadorGUI gui = new MatadorGUI();
 	PropertyController propertyController = new PropertyController();
-	
+	Refuge refuge = new Refuge("Parking");
+
 	
 	
 	@Test
@@ -36,8 +37,8 @@ public class TestPawningOfProperty {
 		 */
 		players = new Player[2];
 					
-		players[0] = new Player("TestPlayer1");
-		players[1] = new Player("TestPlayer2");	
+		players[0] = new Player("TestOwningPlayer");
+		players[1] = new Player("TestLandingPlayer");	
 		
 		PlayerList playerList = new PlayerList(players);
 		
@@ -50,13 +51,16 @@ public class TestPawningOfProperty {
 		territory1.setOwner(players[0]);
 		territory1.addProperty(players[0]);
 		
-		int pledge = territory1.getPledge();
 		
 		//Visual test, is player now given option to pawn property?
 		propertyController.pledgeProperty(players[0], gameBoard);
 				
-		//Test if player is deposited the pledge
-		assertEquals(players[0].getScore(), (startingCash + pledge));
+		//Make the non-owning player land on the field
+		territory1.landOnField(players[1], refuge);
+		
+		//Test if player landing on the pledged property is NOT withdrawn the rent
+		assertEquals(players[1].getScore(),1500);
+		
 		
 		
 		

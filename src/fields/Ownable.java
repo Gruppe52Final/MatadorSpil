@@ -9,13 +9,14 @@ public abstract class Ownable extends Fields {
 	private int price;
 	private String name;
 	private MatadorGUI gui = new MatadorGUI();
-	private int pledge;
+	private int pledgeMoney;
+	private boolean pledged = false;
 
-	public Ownable(int price, String name, int pledge) {
+	public Ownable(int price, String name, int pledgeMoney) {
 		owner = null;
 		this.price = price;
 		this.setName(name);
-		this.pledge = pledge;
+		this.pledgeMoney = pledgeMoney;
 	}
 	
 	@Override
@@ -32,6 +33,11 @@ public abstract class Ownable extends Fields {
 	public Player getOwner() {
 		return owner;
 	}
+	
+	public int getPledge() {
+		return pledgeMoney;
+	}
+	
 	
 	public void checkFieldNotOwnedByAnyone(Player player, Refuge refuge) {
 		if (getOwner() == null) {
@@ -71,11 +77,17 @@ public abstract class Ownable extends Fields {
 	public void landOnField(Player player, Refuge refuge) {
 		checkFieldOwnedByPlayerHimSelf(player);
 		checkFieldNotOwnedByAnyone(player, refuge);			
-		checkFieldOwnedByAnotherPlayer(player);				
+		if(!pledged) {
+			checkFieldOwnedByAnotherPlayer(player);				
+		} else if(pledged) {
+			gui.PropertyIsPledged(name);
+		}
 		// Updates the GUI balance for each player
 		gui.updateBalance(player);
 		
 	}
+	
+	
 
 	public int getPrice() {
 		return price;
@@ -92,6 +104,11 @@ public abstract class Ownable extends Fields {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setPledge(boolean pledgeStatus) {
+		pledged = pledgeStatus;
+		
 	}
 	
 	

@@ -87,7 +87,7 @@ public class Game {
 					if(currentPlayer.getPrisonTurns() > 0) {
 						prisonController.prisonDialog(currentPlayer, dice);
 					}				
-			
+					//LandOnField handles buying/selling/rent
 					gameboard.landOnField(currentPlayer);
 
 					// If a player has lost, adds one to lostCount and reset the players owned fields
@@ -109,11 +109,13 @@ public class Game {
 					houseController.buyHousesOption();	//Player is given option to buy houses if he has a group in same color
 				}				
 			} else if(gameboard.playerHasOwnable(currentPlayer)) { //If player has ownable, he gets option to sell it to another player
-				String userOption = gui.sellPropertyOrThrowDice(currentPlayer);
+				String userOption = gui.ownablesOptionsOrThrowDice(currentPlayer);
 					if(userOption.equals("Kast")) {
 						//Does nothing, just continue back to game.run(), which will dice.Throw() next.
 					} else if(userOption.equals("Sælg grund")) {
 						propertyController.sellProperty(currentPlayer, gameboard, playerList);
+					} else if(userOption.equals("Pantsæt")) {
+						propertyController.pledgeProperty(currentPlayer, gameboard);
 					}
 			} else if(!gameboard.playerHasOwnable(currentPlayer)) {	//If player doesn't have ownable, he only has option to throw dice
 				//Shows message for what player has turn

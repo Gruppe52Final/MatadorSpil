@@ -145,13 +145,13 @@ public class GameBoard {
 		return x;
 		}
 	
-	public int getFieldNumberFromPropertyName(String propertyToHouse) {
+	public int getFieldNumberFromPropertyName(String property) {
 		int fieldNumber = 0;
 		for (int i = 0; i < field.length; i++) {
 			if(field[i] instanceof Territory) {
 				Territory territory;
 				territory = (Territory) field[i];
-				if (territory.getName().equals(propertyToHouse)) {
+				if (territory.getName().equals(property)) {
 					fieldNumber = i;
 				}
 			}
@@ -265,4 +265,33 @@ public class GameBoard {
 			}
 		}
 	}
+
+	public int getPropertyPledge(String propertyToPledge) {
+		Ownable ownable;
+		int pledgeDeposit = 0;
+		for (int i = 0; i < field.length; i++) {
+			if( field[i] instanceof Ownable) {
+				ownable = (Ownable) field[i];
+				if(ownable.getName() == propertyToPledge) {
+					pledgeDeposit = ownable.getPledge();
+				}
+			}
+		}		
+		return pledgeDeposit;
+	}
+
+	public void pledgeProperty(String propertyToPledge) {
+		Ownable ownable;
+		for (int i = 0; i < field.length; i++) {
+			if( field[i] instanceof Ownable) {
+				ownable = (Ownable) field[i];
+				if(ownable.getName() == propertyToPledge) {
+					ownable.setPledge(true);
+				}
+			}
+		}
+		
+	}
+
+	
 }

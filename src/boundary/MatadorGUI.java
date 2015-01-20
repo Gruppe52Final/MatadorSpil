@@ -424,8 +424,8 @@ public class MatadorGUI {
 		GUI.setHotel(fieldNumber, value);
 	}
 
-	public String sellPropertyOrThrowDice(Player currentPlayer) {
-		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "Sælg grund");	
+	public String ownablesOptionsOrThrowDice(Player currentPlayer) {
+		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "Sælg grund", "Pantsæt");	
 	}
 
 	public String choosePropertyToSell(String[] playerOwnedProperty) {
@@ -455,6 +455,20 @@ public class MatadorGUI {
 	public void sellConfirmation(String sellerName, String buyerName,
 			String propertyToSell) {
 		GUI.showMessage(sellerName + " har solgt " + propertyToSell + " til " + buyerName);
+		
+	}
+
+	public String choosePropertyToPledge(String[] playerOwnedProperty) {
+		return GUI.getUserSelection("Vælg ejendom du vil pantsætte:", playerOwnedProperty);
+	}
+
+	public boolean askForPlayerConfirmationPledgeProperty(String propertyToPledge) {
+		return GUI.getUserLeftButtonPressed("Er du sikker på du vil pantsætte " + propertyToPledge, text.text[6], text.text[7]);
+		
+	}
+
+	public void PropertyIsPledged(String name) {
+		GUI.showMessage(name + " er pantsat, og der sker derfor ikke noget");
 		
 	}
 

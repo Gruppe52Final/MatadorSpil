@@ -98,7 +98,9 @@ public class Territory extends Ownable {
 	public String getColor() {
 		return color;
 	}
-	
+
+
+
 	
 
 

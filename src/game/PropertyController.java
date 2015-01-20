@@ -25,4 +25,17 @@ public class PropertyController {
 			gui.updateBalance(currentPlayer);
 		}
 	}
+
+	public void pledgeProperty(Player currentPlayer, GameBoard gameboard) {
+		String[] playerOwnedProperty = gameboard.getPlayerOwnableNames(currentPlayer);	
+		String propertyToPledge = gui.choosePropertyToPledge(playerOwnedProperty);
+		boolean confirmation = gui.askForPlayerConfirmationPledgeProperty(propertyToPledge);
+		if(confirmation) {
+			int propertyPledgeDeposit = gameboard.getPropertyPledge(propertyToPledge);
+			gameboard.pledgeProperty(propertyToPledge);
+			currentPlayer.addPoints(propertyPledgeDeposit);
+			gui.updateBalance(currentPlayer);
+		}
+	}
+	
 }
