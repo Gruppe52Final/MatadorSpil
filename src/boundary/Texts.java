@@ -1,4 +1,4 @@
-package boundary;
+ï»¿package boundary;
 
 public class Texts {	
 
@@ -6,63 +6,63 @@ public class Texts {
 	
 	private String[] textDansk =
 		{
-		"Skriv navn på spiller ", //0
-		"Velkommen, vælg antal spillere:", //1
+		"Skriv navn pÃ¥ spiller ", //0
+		"Velkommen, vÃ¦lg antal spillere:", //1
 		"'s tur til at kaste terningerne.", //2
-		"Du er gået fallit.", //3
+		"Du er gÃ¥et fallit.", //3
 		" har vundet!", //4
-		" har ingen ejer, vil du gerne købe det for ", //5
+		" har ingen ejer, vil du gerne kÃ¸be det for ", //5
 		"Ja", //6
 		"Nej", //7
-		"Du har købt ", //8
-		"Du nægtede at købe ", //9
-		"Du har ikke nok point til at købe ", //10
-		" er ejet af dig selv, og så sker der ikke noget.", //11
+		"Du har kÃ¸bt ", //8
+		"Du nÃ¦gtede at kÃ¸be ", //9
+		"Du har ikke nok point til at kÃ¸be ", //10
+		" er ejet af dig selv, og sÃ¥ sker der ikke noget.", //11
 		" er ejet af ", //12
-		" points vil bive overført til ", //13
+		" points vil bive overfÃ¸rt til ", //13
 		"'s balance", //14
-		", du har ikke råd til det. Dine resterende ", //15
-		"Du har landet på ", //16
+		", du har ikke rÃ¥d til det. Dine resterende ", //15
+		"Du har landet pÃ¥ ", //16
 		" og modtager ", //17
 		" points.", //18
 		". Du kan slappe af her, indtil det bliver din tur igen.", //19
-		" og må betale 200 points i skat", //20
-		"skatten er højere end din balance. ", //21
+		" og mÃ¥ betale 200 points i skat", //20
+		"skatten er hÃ¸jere end din balance. ", //21
 		"Du betaler resten af dine balance i stedet.", //22
 		" skal betales. ", //23
 		"Vil du betale 200 points eller 10% af dine totale point?", //24
 		"200", //25
 		"10%", //26
-		"Skatten højere end din balance. i stedet betaler du 10% dine point", //27
+		"Skatten hÃ¸jere end din balance. i stedet betaler du 10% dine point", //27
 		"Du har passeret start feltet og modtager ", //28
-		"DU er gået falit.", //29
-		"fængsel du er kun på besøg og kan forlade når som helst.", //30
-		"Du er i fængsel kast lige tergninger for at komme ud.", //31
-		"Du er blevet fængslet.", //32
+		"DU er gÃ¥et falit.", //29
+		"fÃ¦ngsel du er kun pÃ¥ besÃ¸g og kan forlade nÃ¥r som helst.", //30
+		"Du er i fÃ¦ngsel kast lige tergninger for at komme ud.", //31
+		"Du er blevet fÃ¦ngslet.", //32
 		" du kan endten betale dig ud", //33
-		" eller blive sat fri på grund af god opførsel (ved at rulle to ens terninger).", //34
-		" er i fængsel. Vil du betale 100 point for at komme ud?", //35
-		"Du har ikke nok point til at betale kaution ... vent på din løsladelse.", //36
+		" eller blive sat fri pÃ¥ grund af god opfÃ¸rsel (ved at rulle to ens terninger).", //34
+		" er i fÃ¦ngsel. Vil du betale 100 point for at komme ud?", //35
+		"Du har ikke nok point til at betale kaution ... vent pÃ¥ din lÃ¸sladelse.", //36
 		" Du har nu ", //37
-		" fængsels tur tilbage.",//38
+		" fÃ¦ngsels tur tilbage.",//38
 		//ChanceCardsSubtract
-		"Betal for vognvask og smøring kr. 15,00.", //39
-		"De har kørt frem for \"Fuld stop\". Betal 150 point.", //40
-		"Betal 125 point for 2 kasser øl", //41
-		"Du har købt et nyt dæk til din bil. Betal 120 point.", //42
-		"De har måtte vedtage en parkeringsbøde. Betal 60 point til banken.", //43
-		"De har været en tur i udlandet og haft for mange cigaretter med hjem. Betal told 50 point", //44
+		"Betal for vognvask og smÃ¸ring kr. 15,00.", //39
+		"De har kÃ¸rt frem for \"Fuld stop\". Betal 150 point.", //40
+		"Betal 125 point for 2 kasser Ã¸l", //41
+		"Du har kÃ¸bt et nyt dÃ¦k til din bil. Betal 120 point.", //42
+		"De har mÃ¥tte vedtage en parkeringsbÃ¸de. Betal 60 point til banken.", //43
+		"De har vÃ¦ret en tur i udlandet og haft for mange cigaretter med hjem. Betal told 50 point", //44
 		//ChanceCardsAdd
-		"De har lagt penge ud til sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller 25 point.", //45
-		"Værdien af egen avl fra nyttehaven udgør 200 point, som De modtager af banken.", //46
-		"Kommunen har eftergivet et kvartals skat, hæv i banken til en glad aften kr. 200,00.", //47
+		"De har lagt penge ud til sammenskudsgilde. MÃ¦rkvÃ¦rdigvis betaler alle straks. Modtag fra hver medspiller 25 point.", //45
+		"VÃ¦rdien af egen avl fra nyttehaven udgÃ¸r 200 point, som De modtager af banken.", //46
+		"Kommunen har eftergivet et kvartals skat, hÃ¦v i banken til en glad aften kr. 200,00.", //47
 		"De har solgt deres gamle klude. Modtag kr. 20,00.", //48
 		"Modtag udbytte af Deres aktier, kr. 50,00.", //49
 		"De har rettidigt aflevert Deres abonnementskort, Depositum kr. 5,00 udbetales Dem af banken.", //50
-		"Grundet på dyrtiden har De fået gageforhøjelse. Modtag kr.50,00.", //51
+		"Grundet pÃ¥ dyrtiden har De fÃ¥et gageforhÃ¸jelse. Modtag kr.50,00.", //51
 		"Manufakturvarerne er blevet billigere og bedre, herved sparer De kr. 100,00 som De modtager af banken.", //52
-		"Efter auktionen på Assistentshuset, hvor De havde pasntsat Deres tøj, modtager De ekstra kr. 108,00.", //53
-		"Deres præmieobligation er kommet ud. De modtager kr. 100,00 af banken.", //54
+		"Efter auktionen pÃ¥ Assistentshuset, hvor De havde pasntsat Deres tÃ¸j, modtager De ekstra kr. 108,00.", //53
+		"Deres prÃ¦mieobligation er kommet ud. De modtager kr. 100,00 af banken.", //54
 		"Betal 100 point.",//55
 		};
 	

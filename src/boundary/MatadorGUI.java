@@ -1,4 +1,4 @@
-package boundary;
+ï»¿package boundary;
 
 import fields.Territory;
 import game.GameBoard;
@@ -43,11 +43,11 @@ public class MatadorGUI {
 		field[0] = new Start.Builder().setTitle("Start")
 				.setDescription("Start").setSubText("Start")
 				.setBgColor(Color.RED).build();
-		field[1] = new Street.Builder().setTitle("Rødovrevej")
-				.setDescription("Rødovrevej").setBgColor(Color.decode("#6495ED"))
+		field[1] = new Street.Builder().setTitle("RÃ¸dovrevej")
+				.setDescription("RÃ¸dovrevej").setBgColor(Color.decode("#6495ED"))
 				.setSubText("Price: 60").setRent("Rent: 2").build();
-		field[2] = new Street.Builder().setTitle("Prøv Lykken")
-				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
+		field[2] = new Street.Builder().setTitle("PrÃ¸v Lykken")
+				.setDescription("PrÃ¸v Lykken").setBgColor(Color.LIGHT_GRAY)
 				.setSubText("Lykkekort").build();
 		field[3] = new Street.Builder().setTitle("Hvidovrevej")
 				.setDescription("Hvidovrevej").setBgColor(Color.decode("#6495ED"))
@@ -55,31 +55,31 @@ public class MatadorGUI {
 		field[4] = new Tax.Builder().setTitle("Indkomstskat")
 				.setDescription("Pay: 200 or 10%").setBgColor(Color.GRAY)
 				.setSubText("Pay: 200 or 10%").build();
-		field[5] = new Shipping.Builder().setTitle("Øresund A/S")
-				.setDescription("Øresund A/S").setBgColor(Color.white)
+		field[5] = new Shipping.Builder().setTitle("Ã˜resund A/S")
+				.setDescription("Ã˜resund A/S").setBgColor(Color.white)
 				.setSubText("Price: 200").setRent("Rent: 25").build();
 		field[6] = new Street.Builder().setTitle("Roskildevej")
 				.setDescription("Roskildevej").setBgColor(Color.decode("#FF6347"))
 				.setSubText("Price: 100").setRent("Rent: 6").build();
-		field[7] = new Street.Builder().setTitle("Prøv Lykken")
-				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
+		field[7] = new Street.Builder().setTitle("PrÃ¸v Lykken")
+				.setDescription("PrÃ¸v Lykken").setBgColor(Color.LIGHT_GRAY)
 				.setSubText("Lykkekort").build();
 		field[8] = new Street.Builder().setTitle("Valby Langgade")
 				.setDescription("Valby Langgade").setBgColor(Color.decode("#FF6347"))
 				.setSubText("Price: 100").setRent("Rent: 6").build();
-		field[9] = new Street.Builder().setTitle("Allégade")
-				.setDescription("Allégade").setBgColor(Color.decode("#FF6347"))
+		field[9] = new Street.Builder().setTitle("AllÃ©gade")
+				.setDescription("AllÃ©gade").setBgColor(Color.decode("#FF6347"))
 				.setSubText("Price: 120").setRent("Rent: 8").build();
 		field[10] = new Jail.Builder().setDescription("Jail")
 				.setBgColor(Color.DARK_GRAY).setSubText("Jail").build();
-		field[11] = new Street.Builder().setTitle("Fredriksberg Allé")
-				.setDescription("Fredriksberg Allé").setBgColor(Color.green)
+		field[11] = new Street.Builder().setTitle("Fredriksberg AllÃ©")
+				.setDescription("Fredriksberg AllÃ©").setBgColor(Color.green)
 				.setSubText("Price: 140").setRent("Rent: 10").build();
 		field[12] = new Brewery.Builder().setTitle("Tuborg")
 				.setDescription("Tuborg")
 				.setSubText("Price: 150").setRent("100 x dice").build();
-		field[13] = new Street.Builder().setTitle("Bülowsvej")
-				.setDescription("Bülowsvej").setBgColor(Color.green)
+		field[13] = new Street.Builder().setTitle("BÃ¼lowsvej")
+				.setDescription("BÃ¼lowsvej").setBgColor(Color.green)
 				.setSubText("Price: 140").setRent("Rent: 10").build();
 		field[14] = new Street.Builder().setTitle("Gl Kongevej")
 				.setDescription("Gl Kongevej").setBgColor(Color.green)
@@ -90,8 +90,8 @@ public class MatadorGUI {
 		field[16] = new Street.Builder().setTitle("Bernstorffsvej")
 				.setDescription("Bernstorffsvej").setBgColor(Color.GRAY)
 				.setSubText("Price: 180").setRent("Rent: 14").build();
-		field[17] = new Street.Builder().setTitle("Prøv Lykken")
-				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
+		field[17] = new Street.Builder().setTitle("PrÃ¸v Lykken")
+				.setDescription("PrÃ¸v Lykken").setBgColor(Color.LIGHT_GRAY)
 				.setSubText("Lykkekort").build();
 		field[18] = new Street.Builder().setTitle("Hellerupvej")
 				.setDescription("Hellerupvej").setBgColor(Color.GRAY)
@@ -105,17 +105,17 @@ public class MatadorGUI {
 		field[21] = new Street.Builder().setTitle("Trianglen")
 				.setDescription("Trianglen").setBgColor(Color.red)
 				.setSubText("Price: 220").setRent("Rent: 18").build();
-		field[22] = new Street.Builder().setTitle("Prøv Lykken")
-				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
+		field[22] = new Street.Builder().setTitle("PrÃ¸v Lykken")
+				.setDescription("PrÃ¸v Lykken").setBgColor(Color.LIGHT_GRAY)
 				.setSubText("Lykkekort").build();
-		field[23] = new Street.Builder().setTitle("Østerbrogade")
-				.setDescription("Østerbrogade").setBgColor(Color.red)
+		field[23] = new Street.Builder().setTitle("Ã˜sterbrogade")
+				.setDescription("Ã˜sterbrogade").setBgColor(Color.red)
 				.setSubText("Price: 220").setRent("Rent: 18").build();
-		field[24] = new Street.Builder().setTitle("Grønningen")
-				.setDescription("Grønningen").setBgColor(Color.red)
+		field[24] = new Street.Builder().setTitle("GrÃ¸nningen")
+				.setDescription("GrÃ¸nningen").setBgColor(Color.red)
 				.setSubText("Price: 240").setRent("Rent: 20").build();
-		field[25] = new Shipping.Builder().setTitle("Ø. K.")
-				.setDescription("Ø. K.").setBgColor(Color.white)
+		field[25] = new Shipping.Builder().setTitle("Ã˜. K.")
+				.setDescription("Ã˜. K.").setBgColor(Color.white)
 				.setSubText("Price: 200").setRent("Rent: 25").build();
 		field[26] = new Street.Builder().setTitle("Bredgade")
 				.setDescription("Bredgade").setBgColor(Color.white)
@@ -126,8 +126,8 @@ public class MatadorGUI {
 		field[28] = new Brewery.Builder().setTitle("Carlsberg")
 				.setDescription("Carlsberg")
 				.setSubText("Price: 150").setRent("100 x dice").build();
-		field[29] = new Street.Builder().setTitle("Østergade")
-				.setDescription("Østergade").setBgColor(Color.white)
+		field[29] = new Street.Builder().setTitle("Ã˜stergade")
+				.setDescription("Ã˜stergade").setBgColor(Color.white)
 				.setSubText("Price: 280").setRent("Rent: 22").build();
 		field[30] = new Jail.Builder().setDescription("Arrested")
 				.setBgColor(Color.GRAY).setSubText("Arrested").build();
@@ -137,8 +137,8 @@ public class MatadorGUI {
 		field[32] = new Street.Builder().setTitle("Vimmelskaftet")
 				.setDescription("Vimmelskaftet").setBgColor(Color.yellow)
 				.setSubText("Price: 300").setRent("Rent: 26").build();
-		field[33] = new Street.Builder().setTitle("Prøv Lykken")
-				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
+		field[33] = new Street.Builder().setTitle("PrÃ¸v Lykken")
+				.setDescription("PrÃ¸v Lykken").setBgColor(Color.LIGHT_GRAY)
 				.setSubText("Lykkekort").build();
 		field[34] = new Street.Builder().setTitle("Nygade")
 				.setDescription("Nygade").setBgColor(Color.yellow)
@@ -146,8 +146,8 @@ public class MatadorGUI {
 		field[35] = new Shipping.Builder().setTitle("D/S Bornholm 1866")
 				.setDescription("D/S Bornholm 1866").setBgColor(Color.white)
 				.setSubText("Price: 200").setRent("Rent: 25").build();
-		field[36] = new Street.Builder().setTitle("Prøv Lykken")
-				.setDescription("Prøv Lykken").setBgColor(Color.LIGHT_GRAY)
+		field[36] = new Street.Builder().setTitle("PrÃ¸v Lykken")
+				.setDescription("PrÃ¸v Lykken").setBgColor(Color.LIGHT_GRAY)
 				.setSubText("Lykkekort").build();
 		field[37] = new Street.Builder().setTitle("Frederiksberggade")
 				.setDescription("Frederiksberggade").setBgColor(Color.decode("#800080"))
@@ -155,8 +155,8 @@ public class MatadorGUI {
 		field[38] = new Tax.Builder().setTitle("Statsskat")
 				.setDescription("Pay: 100").setBgColor(Color.DARK_GRAY)
 				.setSubText("Pay: 100").build();
-		field[39] = new Street.Builder().setTitle("Rådhuspladsen")
-				.setDescription("Rådhuspladsen").setBgColor(Color.decode("#800080"))
+		field[39] = new Street.Builder().setTitle("RÃ¥dhuspladsen")
+				.setDescription("RÃ¥dhuspladsen").setBgColor(Color.decode("#800080"))
 				.setSubText("Price: 400").setRent("Rent: 50").build();
 		GUI.create(field);
 	}
@@ -365,7 +365,7 @@ public class MatadorGUI {
 
 	public String selectLanguage() {
 		return GUI.getUserSelection(
-				"Vælg sprog / Select language", "Dansk", "English");
+				"VÃ¦lg sprog / Select language", "Dansk", "English");
 	}
 
 	public void createTexts(String language) {
@@ -386,7 +386,7 @@ public class MatadorGUI {
 	}
 
 	public String optionToBuyHouse() {
-		return GUI.getUserButtonPressed("Vælg", "Kast", "Køb hus");
+		return GUI.getUserButtonPressed("VÃ¦lg", "Kast", "KÃ¸b hus");
 		
 	}
 
@@ -425,24 +425,24 @@ public class MatadorGUI {
 	}
 
 	public String ownablesOptionsOrThrowDice(Player currentPlayer) {
-		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "Sælg grund", "Pantsæt");	
+		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "SÃ¦lg grund", "PantsÃ¦t");	
 	}
 	
 	public String ownablesNotPledgeableOptionsOrThrowDice(Player currentPlayer) {
-		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "Sælg grund");	
+		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "SÃ¦lg grund");	
 	}
 
 	public String choosePropertyToSell(String[] playerOwnedProperty) {
-		return GUI.getUserSelection("Vælg grund du vil sælge", playerOwnedProperty);		
+		return GUI.getUserSelection("VÃ¦lg grund du vil sÃ¦lge", playerOwnedProperty);		
 	}
 
 	public String choosePlayerToSellPropertyTo(String[] playerNames) {
-		return GUI.getUserSelection("Vælg spiller du vil sælge til", playerNames);		
+		return GUI.getUserSelection("VÃ¦lg spiller du vil sÃ¦lge til", playerNames);		
 
 	}
 
 	public int getSellingPropertySellingPrice() {
-		return GUI.getUserInteger("Indtast prisen du ønsker at få for ejendommen:");
+		return GUI.getUserInteger("Indtast prisen du Ã¸nsker at fÃ¥ for ejendommen:");
 	}
 
 	public void setHouses(int fieldNumber, int houseCount) {
@@ -451,7 +451,7 @@ public class MatadorGUI {
 	}
 
 	public boolean askForPlayerConfirmation(String buyingPlayer, String propertyName, String sellingPlayer, int propertyPrice) {
-		return GUI.getUserLeftButtonPressed("Vil du " + buyingPlayer + " købe " + propertyName + " af " + sellingPlayer + 
+		return GUI.getUserLeftButtonPressed("Vil du " + buyingPlayer + " kÃ¸be " + propertyName + " af " + sellingPlayer + 
 				", for " + propertyPrice + " points?", Texts.text[6], Texts.text[7]);
 		
 	}
@@ -463,11 +463,11 @@ public class MatadorGUI {
 	}
 
 	public String choosePropertyToPledge(String[] playerOwnedProperty) {
-		return GUI.getUserSelection("Vælg ejendom du vil pantsætte:", playerOwnedProperty);
+		return GUI.getUserSelection("VÃ¦lg ejendom du vil pantsÃ¦tte:", playerOwnedProperty);
 	}
 
 	public boolean askForPlayerConfirmationPledgeProperty(String propertyToPledge) {
-		return GUI.getUserLeftButtonPressed("Er du sikker på du vil pantsætte " + propertyToPledge, text.text[6], text.text[7]);
+		return GUI.getUserLeftButtonPressed("Er du sikker pÃ¥ du vil pantsÃ¦tte " + propertyToPledge, text.text[6], text.text[7]);
 		
 	}
 

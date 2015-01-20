@@ -1,4 +1,4 @@
-//********************************************************************
+ï»¿//********************************************************************
 //  Main.java       Authors: Group 57
 //
 //  The main class in CDIO part 2 to start and end the game
@@ -104,7 +104,7 @@ public class Game {
 		
 	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard, PlayerList playerList) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
-				if(gui.optionToBuyHouse().equals("Køb hus")) {
+				if(gui.optionToBuyHouse().equals("KÃ¸b hus")) {
 					houseController = new HouseController(gui, gameboard, currentPlayer); //Sets variables for housecontroller to use
 					houseController.buyHousesOption();	//Player is given option to buy houses if he has a group in same color
 				}				
@@ -115,10 +115,10 @@ public class Game {
 					if(userOption.equals("Kast")) {
 						//Does nothing, just continue back to game.run(), which will dice.Throw() next.
 					} 
-					if(userOption.equals("Sælg grund")) {
+					if(userOption.equals("SÃ¦lg grund")) {
 						propertyController.sellProperty(currentPlayer, gameboard, playerList);
 					} 
-					if(userOption.equals("Pantsæt")) {
+					if(userOption.equals("PantsÃ¦t")) {
 						propertyController.pledgeProperty(currentPlayer, gameboard);
 					}
 			}
@@ -132,7 +132,7 @@ public class Game {
 					if(userOption.equals("Kast")) {
 						//Does nothing, just continue back to game.run(), which will dice.Throw() next.
 					} 
-					if(userOption.equals("Sælg grund")) {
+					if(userOption.equals("SÃ¦lg grund")) {
 						propertyController.sellProperty(currentPlayer, gameboard, playerList);
 					} 
 			 }
