@@ -25,7 +25,7 @@ public class Game {
 	private Player[] players;	
 	private PlayerList playerList;
 	private PassStartCheck passStartCheck = new PassStartCheck();
-	private PropertyController propertyController;
+	private PropertyController propertyController = new PropertyController();
 
 	
 	public Game() {
