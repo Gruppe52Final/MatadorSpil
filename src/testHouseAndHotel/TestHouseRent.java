@@ -6,6 +6,7 @@ import game.Dice;
 import game.Game;
 import game.GameBoard;
 import game.Player;
+import game.PlayerList;
 
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class TestHouseRent {
 
 	Dice dice = new Dice();
 	Game game = new Game();
-	Player[] playerList;
+	Player[] playerListe;
 	Player player;
 	Territory territory1;
 	Territory territory2;
@@ -30,13 +31,20 @@ public class TestHouseRent {
 		 * Test if player can buy a house on Rødovrevej and Hvidovrevej
 		 */		
 		//Sets variables needed for Game.java
-		playerList = new Player[2];		
-		playerList[0] = new Player("TestPlayer1");
-		playerList[1] = new Player("TestPlayer2");		
-		player = playerList[0];		
+		playerListe = new Player[2];		
+		playerListe[0] = new Player("TestPlayer1");
+		playerListe[1] = new Player("TestPlayer2");	
+		PlayerList playerList = new PlayerList(playerListe);
+		/**
+		 * Test if player can buy a house on Rødovrevej and Hvidovrevej
+		 */		
+		//Sets variables needed for Game.java
+			
+		player = playerListe[0];	
+		gui.setCars(playerListe);
 		Player landingPlayer; 
-		landingPlayer = playerList[1];
-		gui.setCars(playerList);	
+		landingPlayer = playerListe[1];
+		gui.setCars(playerListe);	
 		
 		//Makes player own Hvidovrevej and Rødovrevej
 		territory1 = (Territory) gameBoard.getField(3);		
@@ -63,7 +71,7 @@ public class TestHouseRent {
 		int rent = territory1.getRent();
 		int startingCash = landingPlayer.getScore();
 		
-		game.playerTurnMessage(landingPlayer, gameBoard);
+		game.playerTurnMessage(landingPlayer, gameBoard, playerList);
 		game.movePlayer(landingPlayer, dice);
 		
 		gameBoard.landOnField(landingPlayer);

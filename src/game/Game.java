@@ -72,7 +72,7 @@ public class Game {
 					currentPlayer = players[i];
 					
 					//Shows message for the player having current turn, might have option to buy houses, or option to throw dice
-					playerTurnMessage(currentPlayer, gameboard);
+					playerTurnMessage(currentPlayer, gameboard, playerList);
 					
 					//Throws dice in Dice class, meaning generating random numbers stored in Dice.
 					dice.throwDice();							
@@ -102,25 +102,40 @@ public class Game {
 	}	
 	
 		
-	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard) {
+	public void playerTurnMessage(Player currentPlayer, GameBoard gameboard, PlayerList playerList) {
 			if(gameboard.canPlayerBuyHouses(currentPlayer)) {
 				if(gui.optionToBuyHouse().equals("Køb hus")) {
 					houseController = new HouseController(gui, gameboard, currentPlayer); //Sets variables for housecontroller to use
 					houseController.buyHousesOption();	//Player is given option to buy houses if he has a group in same color
 				}				
-			} else if(gameboard.playerHasOwnable(currentPlayer)) { //If player has ownable, he gets option to sell it to another player
+			}
+			//If player has ownable and has ownable he can pledge, he gets option to sell, pledge, or throw
+			 if(gameboard.playerHasOwnable(currentPlayer) && gameboard.playerHasPledgeable(currentPlayer.getName())) { 
 				String userOption = gui.ownablesOptionsOrThrowDice(currentPlayer);
 					if(userOption.equals("Kast")) {
 						//Does nothing, just continue back to game.run(), which will dice.Throw() next.
-					} else if(userOption.equals("Sælg grund")) {
+					} 
+					if(userOption.equals("Sælg grund")) {
 						propertyController.sellProperty(currentPlayer, gameboard, playerList);
-					} else if(userOption.equals("Pantsæt")) {
+					} 
+					if(userOption.equals("Pantsæt")) {
 						propertyController.pledgeProperty(currentPlayer, gameboard);
 					}
-			} else if(!gameboard.playerHasOwnable(currentPlayer)) {	//If player doesn't have ownable, he only has option to throw dice
+			}
+			 if(!gameboard.playerHasOwnable(currentPlayer)) {	//If player doesn't have ownable, he only has option to throw dice
 				//Shows message for what player has turn
 				gui.throwDiceOptionOnly(currentPlayer);
 			}
+			 //If player has ownable, but not pledgeable property:
+			 if(gameboard.playerHasOwnable(currentPlayer) && (!gameboard.playerHasPledgeable(currentPlayer.getName()))) {
+					String userOption = gui.ownablesNotPledgeableOptionsOrThrowDice(currentPlayer);
+					if(userOption.equals("Kast")) {
+						//Does nothing, just continue back to game.run(), which will dice.Throw() next.
+					} 
+					if(userOption.equals("Sælg grund")) {
+						propertyController.sellProperty(currentPlayer, gameboard, playerList);
+					} 
+			 }
 	}
 	
 

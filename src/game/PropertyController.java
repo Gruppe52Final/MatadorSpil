@@ -30,7 +30,7 @@ public class PropertyController {
 		String[] playerOwnedProperty = gameboard.getPlayerOwnableNames(currentPlayer);	
 		String propertyToPledge = gui.choosePropertyToPledge(playerOwnedProperty);
 		boolean confirmation = gui.askForPlayerConfirmationPledgeProperty(propertyToPledge);
-		if(confirmation) {
+		if(confirmation && (!gameboard.getPledgeStatus(propertyToPledge))) {
 			int propertyPledgeDeposit = gameboard.getPropertyPledge(propertyToPledge);
 			gameboard.pledgeProperty(propertyToPledge);
 			currentPlayer.addPoints(propertyPledgeDeposit);

@@ -1,11 +1,11 @@
 package testHouseAndHotel;
 
-import static org.junit.Assert.*;
 import fields.Territory;
 import game.Dice;
 import game.Game;
 import game.GameBoard;
 import game.Player;
+import game.PlayerList;
 
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class TestHotelPurchase {
 
 	Dice dice = new Dice();
 	Game game = new Game();
-	Player[] playerList;
+	Player[] playerListe;
 	Player player;
 	Territory territory1;
 	Territory territory2;
@@ -23,18 +23,20 @@ public class TestHotelPurchase {
 	MatadorGUI gui = new MatadorGUI();
 	
 	
+	
 	@Test
 	public void test() {
-	
+		playerListe = new Player[2];		
+		playerListe[0] = new Player("TestPlayer1");
+		playerListe[1] = new Player("TestPlayer2");	
+		PlayerList playerList = new PlayerList(playerListe);
 		/**
 		 * Test if player can buy a house on Rødovrevej and Hvidovrevej
 		 */		
 		//Sets variables needed for Game.java
-		playerList = new Player[2];		
-		playerList[0] = new Player("TestPlayer1");
-		playerList[1] = new Player("TestPlayer2");		
-		player = playerList[0];	
-		gui.setCars(playerList);
+			
+		player = playerListe[0];	
+		gui.setCars(playerListe);
 	
 		
 		//Makes player own Hvidovrevej and Rødovrevej
@@ -58,7 +60,7 @@ public class TestHotelPurchase {
 		
 
 		
-		game.playerTurnMessage(player, gameBoard);
+		game.playerTurnMessage(player, gameBoard, playerList);
 		
 		
 		

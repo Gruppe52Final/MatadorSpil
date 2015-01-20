@@ -10,7 +10,7 @@ public abstract class Ownable extends Fields {
 	private String name;
 	private MatadorGUI gui = new MatadorGUI();
 	private int pledgeMoney;
-	private boolean pledged = false;
+	private boolean pledgeStatus = false;
 
 	public Ownable(int price, String name, int pledgeMoney) {
 		owner = null;
@@ -77,9 +77,9 @@ public abstract class Ownable extends Fields {
 	public void landOnField(Player player, Refuge refuge) {
 		checkFieldOwnedByPlayerHimSelf(player);
 		checkFieldNotOwnedByAnyone(player, refuge);			
-		if(!pledged) {
+		if(!pledgeStatus) {
 			checkFieldOwnedByAnotherPlayer(player);				
-		} else if(pledged) {
+		} else if(pledgeStatus) {
 			gui.PropertyIsPledged(name);
 		}
 		// Updates the GUI balance for each player
@@ -107,8 +107,12 @@ public abstract class Ownable extends Fields {
 	}
 
 	public void setPledge(boolean pledgeStatus) {
-		pledged = pledgeStatus;
+		this.pledgeStatus = pledgeStatus;
 		
+	}
+
+	public boolean getPledgeStatus() {
+		return pledgeStatus;
 	}
 	
 	

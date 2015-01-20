@@ -293,5 +293,37 @@ public class GameBoard {
 		
 	}
 
+	public boolean getPledgeStatus(String propertyToPledge) {
+		Ownable ownable;
+		boolean x = false;
+		for (int i = 0; i < field.length; i++) {
+			if (field[i] instanceof Ownable) {
+				ownable = (Ownable) field[i];
+				if(ownable.getName() == propertyToPledge) {
+					x = ownable.getPledgeStatus();
+				}
+			}
+		}
+		return x;
+	}
+
+	public boolean playerHasPledgeable(String playerName) {
+		Ownable ownable;
+		boolean x = false;
+		for (int i = 0; i < field.length; i++) {
+			if (field[i] instanceof Ownable) {
+				ownable = (Ownable) field[i];
+				if(ownable.getOwner() != null) {
+					if(ownable.getOwner().getName() == playerName) {
+						if(!ownable.getPledgeStatus()) {
+							x = true;
+						}
+					}
+				}
+			}
+		}
+		return x;
+	}
+
 	
 }

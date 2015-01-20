@@ -1,11 +1,12 @@
 package testHouseAndHotel;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import fields.Territory;
 import game.Dice;
 import game.Game;
 import game.GameBoard;
 import game.Player;
+import game.PlayerList;
 
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class testColorHousePurchase {
 	
 	Dice dice = new Dice();
 	Game game = new Game();
-	Player[] playerList;
+	Player[] playerListe;
 	Player player;
 	Territory territory1;
 	Territory territory2;
@@ -33,12 +34,13 @@ public class testColorHousePurchase {
 		 * Test if player can buy a house on Rødovrevej and Hvidovrevej
 		 */		
 		//Sets variables needed for Game.java
-		playerList = new Player[2];		
-		playerList[0] = new Player("TestPlayer1");
-		playerList[1] = new Player("TestPlayer2");		
-		Player player1 = playerList[0];		
-		Player player2 = playerList[1];
-		gui.setCars(playerList);
+		playerListe = new Player[2];		
+		playerListe[0] = new Player("TestPlayer1");
+		playerListe[1] = new Player("TestPlayer2");		
+		Player player1 = playerListe[0];		
+		Player player2 = playerListe[1];
+		gui.setCars(playerListe);
+		PlayerList playerList = new PlayerList(playerListe);
 		
 //		Makes player owner of territory and add those properties to his ownership list
 		territory1 = (Territory) gameBoard.getField(6);	
@@ -70,14 +72,14 @@ public class testColorHousePurchase {
 		
 		
 		//Check if player now has option to buy houses - buy house on Roskilde
-		game.playerTurnMessage(player1, gameBoard);
+		game.playerTurnMessage(player1, gameBoard, playerList);
 		
 		
 		int rent = territory1.getRent();
 		int startingCash = player2.getScore();	
 		
 		
-		game.playerTurnMessage(player2, gameBoard);
+		game.playerTurnMessage(player2, gameBoard, playerList);
 
 
 		

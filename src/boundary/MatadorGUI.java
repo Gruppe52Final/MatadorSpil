@@ -427,6 +427,10 @@ public class MatadorGUI {
 	public String ownablesOptionsOrThrowDice(Player currentPlayer) {
 		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "Sælg grund", "Pantsæt");	
 	}
+	
+	public String ownablesNotPledgeableOptionsOrThrowDice(Player currentPlayer) {
+		return GUI.getUserButtonPressed(currentPlayer.getName() + "'s tur", "Kast", "Sælg grund");	
+	}
 
 	public String choosePropertyToSell(String[] playerOwnedProperty) {
 		return GUI.getUserSelection("Vælg grund du vil sælge", playerOwnedProperty);		
